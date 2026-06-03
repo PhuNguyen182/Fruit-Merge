@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -38,6 +38,26 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 770748051
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Instance
+    uniqueID: 2540317535
+    locked: 0
+  - name: Effect
+    uniqueID: 2059584953
+    locked: 0
+  - name: UI
+    uniqueID: 326522303
+    locked: 0
+  - name: UIEffect
+    uniqueID: 1803761847
+    locked: 0
+  - name: TopMost
+    uniqueID: 769861651
+    locked: 0
+  m_RenderingLayers:
+  - Default
