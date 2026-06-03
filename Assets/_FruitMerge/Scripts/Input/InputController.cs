@@ -1,0 +1,145 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+
+namespace _FruitMerge.Scripts.Input
+{
+    public class InputController : MonoBehaviour
+    {
+        [SerializeField] private Camera inputCamera;
+        
+        private GameInputSystem _solitaireInputPlayer;
+
+        public bool IsPointerDown { get; private set; }
+        public bool IsPointerUp { get; private set; }
+        public bool IsPointerClicked { get; private set; }
+        public bool IsInputActive { get; set; } = true;
+        
+        public Vector2 ScreenPointerPosition { get; private set; }
+        public Vector2 ViewportPointerPosition { get; private set; }
+        public Vector2 WorldPointerPosition { get; private set; }
+        
+        public event Action OnPointerDown; 
+        public event Action OnPointerUp; 
+
+        private void Awake()
+        {
+            this._solitaireInputPlayer = new GameInputSystem();
+            this.SetupCameraForInput();
+            this.RegisterInputActions();
+        }
+
+        #region Inpit Registration
+
+        private void RegisterInputActions()
+        {
+            this.RegisterInputMovement();
+            this.RegisterInputClick();
+        }
+
+        private void RegisterInputMovement()
+        {
+            this._solitaireInputPlayer.Player.Position.started += this.UpdatePointerPosition;
+            this._solitaireInputPlayer.Player.Position.performed += this.UpdatePointerPosition;
+            this._solitaireInputPlayer.Player.Position.canceled += this.UpdatePointerPosition;
+        }
+
+        private void RegisterInputClick()
+        {
+            this._solitaireInputPlayer.Player.Press.started += this.UpdatePointerClicked;
+            this._solitaireInputPlayer.Player.Press.performed += this.UpdatePointerClicked;
+            this._solitaireInputPlayer.Player.Press.canceled += this.UpdatePointerClicked;
+        }
+
+        private void UnregisterInputActions()
+        {
+            this.UnregisterInputMovement();
+            this.UnregisterInputClick();
+        }
+
+        #endregion
+
+        #region Input Unregistration
+
+        private void UnregisterInputMovement()
+        {
+            this._solitaireInputPlayer.Player.Position.started -= this.UpdatePointerPosition;
+            this._solitaireInputPlayer.Player.Position.performed -= this.UpdatePointerPosition;
+            this._solitaireInputPlayer.Player.Position.canceled -= this.UpdatePointerPosition;
+        }
+
+        private void UnregisterInputClick()
+        {
+            this._solitaireInputPlayer.Player.Press.started -= this.UpdatePointerClicked;
+            this._solitaireInputPlayer.Player.Press.performed -= this.UpdatePointerClicked;
+            this._solitaireInputPlayer.Player.Press.canceled -= this.UpdatePointerClicked;
+        }
+
+        #endregion
+
+        #region Input Update
+
+        private void UpdatePointerPosition(InputAction.CallbackContext context)
+        {
+            this.SetupCameraForInput();
+            this.ScreenPointerPosition = this.IsInputActive ? context.ReadValue<Vector2>() : Vector2.zero;
+            if (!this.inputCamera) 
+                return;
+            
+            this.ViewportPointerPosition = this.inputCamera.ScreenToViewportPoint(this.ScreenPointerPosition);
+            this.WorldPointerPosition = this.inputCamera.ScreenToWorldPoint(this.ScreenPointerPosition);
+        }
+
+        private void UpdatePointerClicked(InputAction.CallbackContext context)
+        {
+            this.IsPointerClicked = this.IsInputActive && context.ReadValueAsButton();
+        }
+
+        #endregion
+
+        private void OnEnable()
+        {
+            this._solitaireInputPlayer.Enable();
+            EnhancedTouchSupport.Enable();
+        }
+
+        private void Update()
+        {
+            this.UpdatePointerDownState();
+            this.UpdatePointerUpState();
+        }
+
+        private void UpdatePointerDownState()
+        {
+            this.IsPointerDown = this.IsInputActive && this._solitaireInputPlayer.Player.Press.WasPressedThisFrame();
+            if (this.IsPointerDown)
+                this.OnPointerDown?.Invoke();
+        }
+
+        private void UpdatePointerUpState()
+        {
+            this.IsPointerUp = this.IsInputActive && this._solitaireInputPlayer.Player.Press.WasReleasedThisFrame();
+            if (this.IsPointerUp)
+                this.OnPointerUp?.Invoke();
+        }
+
+        private void SetupCameraForInput()
+        {
+            if (!this.inputCamera)
+                this.inputCamera = Camera.main;
+        }
+
+        private void OnDisable()
+        {
+            this._solitaireInputPlayer.Disable();
+            EnhancedTouchSupport.Disable();
+        }
+
+        private void OnDestroy()
+        {
+            this.UnregisterInputActions();
+            this._solitaireInputPlayer.Dispose();
+        }
+    }
+}

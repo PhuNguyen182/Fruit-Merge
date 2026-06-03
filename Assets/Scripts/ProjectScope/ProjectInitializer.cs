@@ -1,3 +1,4 @@
+using _FruitMerge.Scripts.Input;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.AssetBundleSystem.Runtime;
 using DracoRuan.Foundation.DataFlow.MasterDataController;
@@ -8,6 +9,8 @@ namespace ProjectScope
 {
     public class ProjectInitializer : MonoBehaviour
     {
+        [SerializeField] private InputController inputController;
+        
         private IAssetBundleService _assetBundleService;
         private MainDataManager _mainDataManager;
         
@@ -35,6 +38,7 @@ namespace ProjectScope
         {
             await this.RegisterAssetBundleService();
             await this.InitializeDataManager();
+            this.RegisterInputController();
             this.AllServiceRegistered = true;
         }
 
@@ -50,6 +54,11 @@ namespace ProjectScope
             this._assetBundleService = new AssetBundleService();
             await this._assetBundleService.Initialize();
             ServiceLocator.Global.Register(this._assetBundleService);
+        }
+
+        private void RegisterInputController()
+        {
+            ServiceLocator.Global.Register(this.inputController);
         }
 
         #region Data Saving

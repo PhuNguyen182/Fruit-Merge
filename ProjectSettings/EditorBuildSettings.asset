@@ -18,5 +18,6 @@ EditorBuildSettings:
     path: Assets/_FruitMerge/Scenes/GameplayScene.unity
     guid: 8bc5aa909cba229448e9fcb1fd3a5131
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: d9bfef61b716d5b4aad0b8fe6327d5ab, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
