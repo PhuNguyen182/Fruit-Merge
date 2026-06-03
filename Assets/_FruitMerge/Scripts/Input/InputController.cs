@@ -106,7 +106,7 @@ namespace _FruitMerge.Scripts.Input
 
         public bool IsPointerOverlapUI()
         {
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_STANDALONE_LINUX
+#if UNITY_EDITOR
             bool result = EventSystem.current && EventSystem.current.IsPointerOverGameObject();
 #elif UNITY_ANDROID || UNITY_IOS
             bool result = this.IsPointerOverUIObject(); 
@@ -114,7 +114,7 @@ namespace _FruitMerge.Scripts.Input
             return result;
         }
 
-        public bool IsPointerOverUIObject()
+        private bool IsPointerOverUIObject()
         {
             if (!EventSystem.current)
                 return false;
