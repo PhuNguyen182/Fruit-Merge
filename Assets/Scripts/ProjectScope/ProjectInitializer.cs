@@ -56,24 +56,24 @@ namespace ProjectScope
         
         private void OnApplicationQuit()
         {
-            this._mainDataManager.SaveAllData();
+            this._mainDataManager?.SaveAllData();
         }
 
         private void OnApplicationFocus(bool hasFocus)
         {
             if (hasFocus)
-                this._mainDataManager.SaveAllData();
+                this._mainDataManager?.SaveAllData();
         }
 
         private void OnApplicationPause(bool pauseStatus)
         {
             if (pauseStatus)
-                this._mainDataManager.SaveAllData();
+                this._mainDataManager?.SaveAllData();
         }
 
         private void OnDestroy()
         {
-            this._mainDataManager.SaveAllData();
+            this._mainDataManager?.SaveAllData();
         }
         
         #endregion
