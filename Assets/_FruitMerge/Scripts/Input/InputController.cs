@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 
@@ -10,6 +12,8 @@ namespace _FruitMerge.Scripts.Input
         [SerializeField] private Camera inputCamera;
         
         private GameInputSystem _solitaireInputPlayer;
+        private List<RaycastResult> _results = new();
+        private PointerEventData _eventDataCurrentPosition;
 
         public bool IsPointerDown { get; private set; }
         public bool IsPointerUp { get; private set; }
@@ -94,6 +98,36 @@ namespace _FruitMerge.Scripts.Input
         private void UpdatePointerClicked(InputAction.CallbackContext context)
         {
             this.IsPointerClicked = this.IsInputActive && context.ReadValueAsButton();
+        }
+
+        #endregion
+
+        #region Input UI
+
+        public bool IsPointerOverlapUI()
+        {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_STANDALONE_LINUX
+            bool result = EventSystem.current && EventSystem.current.IsPointerOverGameObject();
+#elif UNITY_ANDROID || UNITY_IOS
+            bool result = this.IsPointerOverUIObject(); 
+#endif
+            return result;
+        }
+
+        public bool IsPointerOverUIObject()
+        {
+            if (!EventSystem.current)
+                return false;
+
+            this._results.Clear();
+            this._eventDataCurrentPosition = new PointerEventData(EventSystem.current)
+            {
+                position = new Vector2(this.ScreenPointerPosition.x, this.ScreenPointerPosition.y)
+            };
+            
+            EventSystem.current.RaycastAll(this._eventDataCurrentPosition, this._results);
+            bool result = this._results.Count > 0; 
+            return result;
         }
 
         #endregion
