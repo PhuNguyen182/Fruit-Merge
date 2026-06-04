@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6067b000df8e66b49ba78a7fb5bd2f46, type: 3}
+  m_Name: FruitConfigCollection
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitConfigCollection
+  fruitConfigs:
+  - {fileID: 11400000, guid: 037fbfdedec9557478caa221e1512a99, type: 2}
+  - {fileID: 11400000, guid: 9f565610601678746b50cc6efc1030f8, type: 2}
+  - {fileID: 11400000, guid: 50b412c76275e67478e5815bdc29d5d0, type: 2}
+  - {fileID: 11400000, guid: c0aa5db6867254d4d9828297466a3685, type: 2}
+  - {fileID: 11400000, guid: 477dab76852bd4741968ae51e01c74e2, type: 2}
+  - {fileID: 11400000, guid: 011f565d00dcd6f4ebc0f472f88e100d, type: 2}
+  - {fileID: 11400000, guid: 621b89e95a0dd884d8b0ca65659b35d2, type: 2}
+  - {fileID: 11400000, guid: 1b6107d2c16474a42833042421ee64f1, type: 2}
+  - {fileID: 11400000, guid: 5ef32bb86a7fcd3498ad7c907e8d2997, type: 2}
+  - {fileID: 11400000, guid: 463d62bf2067bc34c98cd3c39f2d9c09, type: 2}
