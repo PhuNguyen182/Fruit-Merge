@@ -7,20 +7,22 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
     public class FruitItemFactory : BaseFactory<FruitItemParam, FruitItem>
     {
         private const string LogTag = "FruitItemFactory";
+        private const int PreloadCountForFruitPrefab = 20;
         
         private readonly FruitItem _fruitItemPrefab;
         private readonly Transform _fruitItemParent;
-        private readonly Transform _fruitItemSpawnPoint;
         private readonly FruitConfigCollection _fruitConfigCollection;
 
-        public FruitItemFactory(FruitItem prefab, 
-            Transform fruitItemParent, Transform fruitItemSpawnPoint,
+        public FruitItemFactory(FruitItem prefab, Transform fruitItemParent,
             FruitConfigCollection fruitConfigCollection)
         {
             this._fruitItemPrefab = prefab;
             this._fruitItemParent = fruitItemParent;
-            this._fruitItemSpawnPoint = fruitItemSpawnPoint;
             this._fruitConfigCollection = fruitConfigCollection;
+            
+            GameObjectPoolManager.PoolPreLoad(this._fruitItemPrefab.gameObject, 
+                PreloadCountForFruitPrefab,
+                this._fruitItemParent);
         }
 
         public override FruitItem Create(FruitItemParam arg)
@@ -31,18 +33,16 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
                 return null;
             }
             
-            if (!this._fruitItemSpawnPoint)
-            {
-                Debug.LogError($"[{LogTag}] Invalid spawn point!");
-                return null;
-            }
-
             FruitItem fruitItem = GameObjectPoolManager.SpawnInstance(this._fruitItemPrefab,
-                this._fruitItemSpawnPoint.position, Quaternion.identity, this._fruitItemParent);
+                arg.Position, Quaternion.identity, this._fruitItemParent);
             
             int fruitId = arg.FruitID;
             FruitConfig fruitConfig = this._fruitConfigCollection.GetFruitConfigById(fruitId);
             fruitItem.SetFruitPhysicsActive(false);
+            
+            int maxFruitLevel = this._fruitConfigCollection.GetMaxFruitLevel();
+            fruitItem.SetMaxFruitLevel(maxFruitLevel);
+            fruitItem.SetFruitColliderActive(false);
             fruitItem.ApplyFruitConfig(fruitConfig);
             return fruitItem;
         }

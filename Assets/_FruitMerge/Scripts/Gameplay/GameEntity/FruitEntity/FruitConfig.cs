@@ -9,6 +9,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public int fruitId;
         public Sprite fruitIcon;
         public int fruitScore;
+        public ParticleSystem fruitParticles;
         
         [Header("Fruit Config")]
         public float fruitMass = 1;

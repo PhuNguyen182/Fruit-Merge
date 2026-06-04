@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2254401809936308333}
   - component: {fileID: 4158884226852072509}
   - component: {fileID: 4437632143570638339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FruitItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -110,9 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fa17a11f3e07b47bfd07960a08f5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitItem
+  deadlineDuration: 5
+  fruitRenderer: {fileID: 3062228914504413849}
+  fruitLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  barrierLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   fruitBody: {fileID: 2254401809936308333}
   fruitCollider: {fileID: 4158884226852072509}
-  fruitRenderer: {fileID: 3062228914504413849}
+  defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
+  minCenterTolerance: 0.1
+  maxCenterTolerance: 0.5
 --- !u!1 &5390591116431784111
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4636652116143994510}
   - component: {fileID: 3062228914504413849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FruitRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

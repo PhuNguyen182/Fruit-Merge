@@ -7,6 +7,18 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
     public class FruitConfigCollection : ScriptableObject
     {
         [SerializeField] private List<FruitConfig> fruitConfigs = new();
+        
+        private int _maxFruitLevel = -1;
+
+        public int GetMaxFruitLevel()
+        {
+            if (this._maxFruitLevel != -1) 
+                return this._maxFruitLevel;
+            
+            FruitConfig lastFruitConfig = this.fruitConfigs[^1];
+            this._maxFruitLevel = lastFruitConfig?.fruitId ?? -1;
+            return this._maxFruitLevel;
+        }
 
         public FruitConfig GetFruitConfigById(int fruitId)
         {
