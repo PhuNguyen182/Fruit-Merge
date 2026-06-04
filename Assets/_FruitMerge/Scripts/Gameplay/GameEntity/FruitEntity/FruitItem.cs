@@ -20,5 +20,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitCollider.radius = fruitConfig.colliderRadius;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
         }
+        
+        public void SetFruitPhysicsActive(bool isActive)
+        {
+            RigidbodyType2D bodyType = isActive ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
+            this.fruitBody.bodyType = bodyType;
+        }
     }
 }

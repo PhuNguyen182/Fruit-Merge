@@ -6,7 +6,7 @@ namespace DracoRuan.CoreSystems.PlayerLoopSystem.TimeServices.TimeScheduleServic
 {
     public class CountdownTimerFactory : BaseFactory<TimeSchedulerConfig, CountdownTimer>
     {
-        public override CountdownTimer Produce(TimeSchedulerConfig config)
+        public override CountdownTimer Create(TimeSchedulerConfig config)
         {
             CountdownTimer countdownTimer = new(config.Key, config.Duration);
             return countdownTimer;

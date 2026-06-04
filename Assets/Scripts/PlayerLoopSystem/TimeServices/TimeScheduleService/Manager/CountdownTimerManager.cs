@@ -72,7 +72,7 @@ namespace DracoRuan.CoreSystems.PlayerLoopSystem.TimeServices.TimeScheduleServic
                 return existingTimer;
             }
             
-            var newTimer = this._timerFactory.Produce(new TimeSchedulerConfig
+            var newTimer = this._timerFactory.Create(new TimeSchedulerConfig
             {
                 Key = key,
                 Duration = durationSeconds
