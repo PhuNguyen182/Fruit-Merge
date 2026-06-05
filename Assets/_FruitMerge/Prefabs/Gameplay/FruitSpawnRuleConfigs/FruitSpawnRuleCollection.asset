@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e83e3ee516481149ad7112b3b1416e7, type: 3}
+  m_Name: FruitSpawnRuleCollection
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.SpawnRules.FruitSpawnRuleCollection
+  probabilityConfig:
+  - 60
+  - 30
+  - 10
+  easyModeConfig: {fileID: 11400000, guid: 0aea1a4fa580fb54fa01e1dc02b8172e, type: 2}
+  mediumModeConfig: {fileID: 11400000, guid: ebc7c9eb53a22cb42b08c86dff57d488, type: 2}
+  hardModeConfig: {fileID: 11400000, guid: 61121042c4d941343821c5311549db58, type: 2}

@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7704c1359c690dd4cab892b604a63863, type: 3}
+  m_Name: HardFruitSpawnRuleConfig
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.SpawnRules.FruitSpawnRuleConfig
+  fruitDistributionConfigs:
+  - fruitLevel: 1
+    probabilities:
+    - 100
+    fruitIds: 01000000
+  - fruitLevel: 2
+    probabilities:
+    - 80
+    - 20
+    fruitIds: 0100000002000000
+  - fruitLevel: 3
+    probabilities:
+    - 65
+    - 30
+    - 5
+    fruitIds: 010000000200000003000000
+  - fruitLevel: 4
+    probabilities:
+    - 55
+    - 25
+    - 15
+    - 5
+    fruitIds: 01000000020000000300000004000000
+  - fruitLevel: 5
+    probabilities:
+    - 45
+    - 25
+    - 15
+    - 10
+    - 5
+    fruitIds: 0100000002000000030000000400000005000000
+  - fruitLevel: 6
+    probabilities:
+    - 30
+    - 25
+    - 20
+    - 15
+    - 10
+    fruitIds: 0100000002000000030000000400000005000000
+  - fruitLevel: 7
+    probabilities:
+    - 25
+    - 25
+    - 20
+    - 15
+    - 15
+    fruitIds: 0100000002000000030000000400000005000000
+  - fruitLevel: 8
+    probabilities:
+    - 20
+    - 20
+    - 20
+    - 20
+    - 20
+    fruitIds: 0100000002000000030000000400000005000000
+  - fruitLevel: 9
+    probabilities:
+    - 15
+    - 20
+    - 20
+    - 20
+    - 25
+    fruitIds: 0100000002000000030000000400000005000000
+  - fruitLevel: 10
+    probabilities:
+    - 10
+    - 20
+    - 20
+    - 25
+    - 25
+    fruitIds: 0100000002000000030000000400000005000000
+  - fruitLevel: 11
+    probabilities:
+    - 5
+    - 10
+    - 15
+    - 30
+    - 40
+    fruitIds: 0100000002000000030000000400000005000000
