@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fa17a11f3e07b47bfd07960a08f5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitItem
-  deadlineDuration: 5
+  deadlineConfig: {fileID: 11400000, guid: e2a290294dcce0a4f91e9cebd637f6f1, type: 2}
   fruitRenderer: {fileID: 3062228914504413849}
   fruitLayerMask:
     serializedVersion: 2

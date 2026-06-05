@@ -11,7 +11,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
     {
         private const string LogTag = "FruitItem";
 
-        [SerializeField] private float deadlineDuration = 5f;
+        [SerializeField] private FruitDeadlineConfig deadlineConfig;
         [SerializeField] private SpriteRenderer fruitRenderer;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
@@ -52,10 +52,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         
         public void Tick(float deltaTime)
         {
-            if (this._isTouchToBarrier && this._timerCounter < this.deadlineDuration)
+            if (this._isTouchToBarrier && this._timerCounter < this.deadlineConfig.deadlineDuration)
             {
                 this._timerCounter += deltaTime;
-                if (this._timerCounter >= this.deadlineDuration)
+                if (this._timerCounter >= this.deadlineConfig.deadlineDuration)
                 {
                     // Lose game
                 }
