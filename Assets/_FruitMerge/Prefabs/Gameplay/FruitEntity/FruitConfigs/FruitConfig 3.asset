@@ -16,7 +16,7 @@ MonoBehaviour:
   fruitIcon: {fileID: 21300000, guid: 16058ed8b668e12419e518b3d8efee45, type: 3}
   fruitScore: 8
   fruitParticles: {fileID: 0}
-  fruitMass: 1.8
+  fruitMass: 1.4
   colliderRadius: 0.56
   colliderOffset: {x: 0, y: 0.004}
   fruitPhysicsMaterial: {fileID: 6200000, guid: 22f9378008f6c5c41a2f123109caf7c8, type: 2}
