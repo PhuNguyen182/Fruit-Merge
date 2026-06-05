@@ -16,8 +16,8 @@ namespace _FruitMerge.Scripts.Gameplay.SpawnRules
         
         public FruitSpawnRuleConfig GetRandomConfig()
         {
-            int randomIndex = ProbabilitiesController.GetItemByProbability(this.probabilityConfig);
-            FruitSpawnRuleConfig result = randomIndex switch
+            int randomDifficulty = ProbabilitiesController.GetItemByProbability(this.probabilityConfig);
+            FruitSpawnRuleConfig result = randomDifficulty switch
             {
                 0 => this.easyModeConfig,
                 1 => this.mediumModeConfig,

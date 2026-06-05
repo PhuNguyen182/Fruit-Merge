@@ -19,7 +19,8 @@ namespace _FruitMerge.Scripts.Input
         public bool IsPointerUp { get; private set; }
         public bool IsPointerClicked { get; private set; }
         public bool IsInputActive { get; set; } = true;
-        
+        public Vector2 PointerDelta { get; private set; }
+
         public Vector2 ScreenPointerPosition { get; private set; }
         public Vector2 ViewportPointerPosition { get; private set; }
         public Vector2 WorldPointerPosition { get; private set; }
@@ -40,6 +41,7 @@ namespace _FruitMerge.Scripts.Input
         {
             this.RegisterInputMovement();
             this.RegisterInputClick();
+            this.RegisterInputPointerDelta();
         }
 
         private void RegisterInputMovement()
@@ -56,10 +58,18 @@ namespace _FruitMerge.Scripts.Input
             this._solitaireInputPlayer.Player.Press.canceled += this.UpdatePointerClicked;
         }
 
+        private void RegisterInputPointerDelta()
+        {
+            this._solitaireInputPlayer.Player.Delta.started += this.UpdatePointerDelta;
+            this._solitaireInputPlayer.Player.Delta.performed += this.UpdatePointerDelta;
+            this._solitaireInputPlayer.Player.Delta.canceled += this.UpdatePointerDelta;
+        }
+
         private void UnregisterInputActions()
         {
             this.UnregisterInputMovement();
             this.UnregisterInputClick();
+            this.UnregisterInputPointerDelta();
         }
 
         #endregion
@@ -78,6 +88,13 @@ namespace _FruitMerge.Scripts.Input
             this._solitaireInputPlayer.Player.Press.started -= this.UpdatePointerClicked;
             this._solitaireInputPlayer.Player.Press.performed -= this.UpdatePointerClicked;
             this._solitaireInputPlayer.Player.Press.canceled -= this.UpdatePointerClicked;
+        }
+        
+        private void UnregisterInputPointerDelta()
+        {
+            this._solitaireInputPlayer.Player.Delta.started -= this.UpdatePointerDelta;
+            this._solitaireInputPlayer.Player.Delta.performed -= this.UpdatePointerDelta;
+            this._solitaireInputPlayer.Player.Delta.canceled -= this.UpdatePointerDelta;
         }
 
         #endregion
@@ -98,6 +115,11 @@ namespace _FruitMerge.Scripts.Input
         private void UpdatePointerClicked(InputAction.CallbackContext context)
         {
             this.IsPointerClicked = this.IsInputActive && context.ReadValueAsButton();
+        }
+
+        private void UpdatePointerDelta(InputAction.CallbackContext context)
+        {
+            this.PointerDelta = context.ReadValue<Vector2>();
         }
 
         #endregion

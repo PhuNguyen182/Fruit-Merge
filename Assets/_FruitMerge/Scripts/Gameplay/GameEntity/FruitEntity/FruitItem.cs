@@ -45,7 +45,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private void Awake()
         {
             this._cancellationToken = this.GetCancellationTokenOnDestroy();
-            this._originalCenterOfMass = this.fruitBody.centerOfMass;
             this.SetRandomMassCenter();
             
             this._fruitReleasePublisher = GlobalMessagePipe.GetPublisher<FruitReleaseMessage>();
@@ -211,6 +210,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitCollider.radius = fruitConfig.colliderRadius;
             this.fruitCollider.offset = fruitConfig.colliderOffset;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
+            this._originalCenterOfMass = this.fruitBody.centerOfMass;
         }
         
         public void SetMaxFruitLevel(int level) => this._maxFruitLevel = level;
@@ -228,6 +228,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.SetFruitColliderActive(true);
             this.SetFruitPhysicsActive(true);
             this.AddSpawnedFruitToMemory(this);
+        }
+
+        public float GetDistanceBetweenCenterToColliderEdge()
+        {
+            float radius = this.fruitCollider.radius;
+            return radius;
         }
 
         private void OnDisable()
