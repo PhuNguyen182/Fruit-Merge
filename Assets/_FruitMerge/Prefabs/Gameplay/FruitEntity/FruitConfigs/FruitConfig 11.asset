@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc71e7e1108a17c4c984aa6e72a5854f, type: 3}
-  m_Name: FruitConfig 1
+  m_Name: FruitConfig 11
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitConfig
-  fruitId: 1
+  fruitId: 11
   fruitIcon: {fileID: 0}
-  fruitScore: 2
+  fruitScore: 2048
   fruitParticles: {fileID: 0}
-  fruitMass: 1
+  fruitMass: 6
   colliderRadius: 0.5
   fruitPhysicsMaterial: {fileID: 6200000, guid: 22f9378008f6c5c41a2f123109caf7c8, type: 2}
