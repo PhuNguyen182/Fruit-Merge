@@ -169,6 +169,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitRenderer.sprite = fruitConfig.fruitIcon;
             this.fruitBody.mass = fruitConfig.fruitMass;
             this.fruitCollider.radius = fruitConfig.colliderRadius;
+            this.fruitCollider.offset = fruitConfig.colliderOffset;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
         }
         

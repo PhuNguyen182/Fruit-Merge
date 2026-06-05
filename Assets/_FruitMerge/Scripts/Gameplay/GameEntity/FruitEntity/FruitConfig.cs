@@ -14,6 +14,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [Header("Fruit Config")]
         public float fruitMass = 1;
         public float colliderRadius = 0.5f;
+        public Vector2 colliderOffset;
         public PhysicsMaterial2D fruitPhysicsMaterial;
     }
 }
