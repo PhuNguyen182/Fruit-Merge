@@ -1,9 +1,11 @@
 using System.Threading;
 using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
+using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using MessagePipe;
 
 namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 {
@@ -22,7 +24,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private FruitConfig defaultFruitConfig;
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
-
+        
+        private IPublisher<FruitReleaseMessage> _fruitReleasePublisher;
+        private IPublisher<AddFruitScoreMessage> _addFruitScorePublisher;
+        private IPublisher<FruitSpawnMessage> _fruitSpawnPublisher;
+        
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
         private Vector2 _originalCenterOfMass;
@@ -32,7 +38,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private bool _hasResetCenterOfMass;
         private int _maxFruitLevel;
 
-        private int FruitID { get; set; }
+        public int FruitID { get; private set; }
         private bool IsFirstCollider { get; set; }
         public int FruitScore { get; private set; }
 
@@ -41,6 +47,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this._cancellationToken = this.GetCancellationTokenOnDestroy();
             this._originalCenterOfMass = this.fruitBody.centerOfMass;
             this.SetRandomMassCenter();
+            
+            this._fruitReleasePublisher = GlobalMessagePipe.GetPublisher<FruitReleaseMessage>();
+            this._addFruitScorePublisher = GlobalMessagePipe.GetPublisher<AddFruitScoreMessage>();
+            this._fruitSpawnPublisher = GlobalMessagePipe.GetPublisher<FruitSpawnMessage>();
         }
 
         private void SetRandomMassCenter()
@@ -142,10 +152,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
                 Position = averagePosition,
             };
                 
-            this._fruitItemFactory.Create(fruitItemParam);
+            FruitItem upgradedFruit = this._fruitItemFactory.Create(fruitItemParam);
+            this.AddScore(upgradedFruit);
+            
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
-            GameObjectPoolManager.Despawn(this.gameObject);
-            GameObjectPoolManager.Despawn(otherFruitItem.gameObject);
+            this.ReleaseFruit(this);
+            this.ReleaseFruit(otherFruitItem);
         }
         
         private bool IsSameFruit(FruitItem fruitItem)
@@ -158,6 +170,34 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             bool isMaxFruitLevel = this.FruitID >= this._maxFruitLevel;
             return isMaxFruitLevel;
+        }
+
+        private void ReleaseFruit(FruitItem fruitItem)
+        {
+            this._fruitReleasePublisher.Publish(new FruitReleaseMessage
+            {
+                FruitInstanceID = this.gameObject.GetInstanceID(),
+            });
+            
+            GameObjectPoolManager.Despawn(fruitItem.gameObject);
+        }
+
+        private void AddScore(FruitItem fruitItem)
+        {
+            this._addFruitScorePublisher.Publish(new AddFruitScoreMessage
+            {
+                FruitScore = fruitItem.FruitScore,
+            });
+            
+            this.AddSpawnedFruitToMemory(fruitItem);
+        }
+
+        private void AddSpawnedFruitToMemory(FruitItem fruitItem)
+        {
+            this._fruitSpawnPublisher.Publish(new FruitSpawnMessage
+            {
+                FruitItem = fruitItem,
+            });
         }
 
         #endregion
@@ -187,6 +227,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this.SetFruitColliderActive(true);
             this.SetFruitPhysicsActive(true);
+            this.AddSpawnedFruitToMemory(this);
         }
 
         private void OnDisable()
