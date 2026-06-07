@@ -52,6 +52,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void StartGame()
         {
             this._gameStateController.PlayGame();
+            this.fruitDragController.SpawnStartFruit();
         }
     }
 }

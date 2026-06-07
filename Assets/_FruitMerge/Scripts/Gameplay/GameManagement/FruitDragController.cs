@@ -31,6 +31,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         public void InitializeFruitDragController()
         {
             this._inputController = ServiceLocator.Global.Get<InputController>();
+            this.dragTarget.position = this.center.position;
+        }
+
+        public void SpawnStartFruit()
+        {
+            this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
         }
 
         public void Tick(float deltaTime)
