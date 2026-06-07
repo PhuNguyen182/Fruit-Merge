@@ -14,6 +14,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
     {
         private const string LogTag = "FruitItem";
 
+        [SerializeField] private FruitDropRay fruitDropRay;
         [SerializeField] private FruitDeadlineConfig deadlineConfig;
         [SerializeField] private SpriteRenderer fruitRenderer;
         [SerializeField] private LayerMask fruitLayerMask;
@@ -67,6 +68,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         
         public void Tick(float deltaTime)
         {
+            this.fruitDropRay.Tick(deltaTime);
             if (this._isTouchToBarrier && this._timerCounter < this.deadlineConfig.deadlineDuration)
             {
                 this._timerCounter += deltaTime;
@@ -234,6 +236,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.SetFruitColliderActive(true);
             this.SetFruitPhysicsActive(true);
             this.AddSpawnedFruitToMemory(this);
+            this.SetDropRayEnable(false);
         }
 
         public float GetSafeDistanceBetweenCenterToTankEdge()
@@ -241,11 +244,17 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             float radius = this.fruitCollider.radius;
             return radius;
         }
+        
+        public void SetDropRayEnable(bool enable)
+        {
+            this.fruitDropRay.SetDropRayEnabled(enable);
+        }
 
         private void OnDisable()
         {
             this.IsFirstCollider = false;
             this.ApplyFruitConfig(this.defaultFruitConfig);
+            this.SetDropRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);
         }
     }

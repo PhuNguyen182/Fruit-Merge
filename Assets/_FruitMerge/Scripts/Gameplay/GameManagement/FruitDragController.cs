@@ -1,5 +1,5 @@
-using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using _FruitMerge.Scripts.Input;
+using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using ServiceLocators.Core;
@@ -59,6 +59,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             movingHorizontal = Mathf.Clamp(movingHorizontal,minSafeDistance,maxSafeDistance); 
             Vector3 fruitDragPosition = new Vector3(movingHorizontal, movingVertical);
             this._currentDraggingFruitItem.transform.position = fruitDragPosition;
+            this._currentDraggingFruitItem.SetDropRayEnable(true);
         }
 
         private void TryDropFruit()
