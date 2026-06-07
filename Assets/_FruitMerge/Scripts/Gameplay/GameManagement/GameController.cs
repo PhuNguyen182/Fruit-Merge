@@ -1,3 +1,4 @@
+using _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine;
 using UnityEngine;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
@@ -6,7 +7,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     {
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private FruitDragController fruitDragController;
-        
+
+        private GameStateController _gameStateController;
         private MessageBrokerManager _messageBrokerManager;
         
         private void Awake()
@@ -14,10 +16,23 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.Initialize();
         }
 
+        private void Start()
+        {
+            this.StartGame();
+        }
+
+        #region Initialization
+
         private void Initialize()
         {
             this.InitializeMessageBroker();
+            this.InitializeGameStateMachine();
             this.InitializeFruitMergeGame();
+        }
+
+        private void InitializeGameStateMachine()
+        {
+            this._gameStateController = new GameStateController();
         }
 
         private void InitializeMessageBroker()
@@ -30,6 +45,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this.fruitSpawner.InitializeFruitSpawner();
             this.fruitDragController.InitializeFruitDragController();
+        }
+        
+        #endregion
+
+        private void StartGame()
+        {
+            this._gameStateController.PlayGame();
         }
     }
 }
