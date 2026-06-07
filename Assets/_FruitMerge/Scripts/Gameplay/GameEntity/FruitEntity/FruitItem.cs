@@ -17,6 +17,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private FruitDropRay fruitDropRay;
         [SerializeField] private FruitDeadlineConfig deadlineConfig;
         [SerializeField] private SpriteRenderer fruitRenderer;
+        [SerializeField] private SpriteRenderer fruitTint;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
         
@@ -218,6 +219,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.FruitID = fruitConfig.fruitId;
             this.FruitScore = fruitConfig.fruitScore;
             this.fruitRenderer.sprite = fruitConfig.fruitIcon;
+            this.fruitTint.sprite = fruitConfig.fruitIcon;
             this.fruitBody.mass = fruitConfig.fruitMass;
             this.fruitCollider.radius = fruitConfig.colliderRadius;
             this.fruitCollider.offset = fruitConfig.colliderOffset;
@@ -258,6 +260,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this.AddFruitScore(this);
             this.ReleaseFruit(this);
+        }
+
+        public void SetTintedFruitEnable(bool enable)
+        {
+            this.fruitTint.gameObject.SetActive(enable);
         }
 
         private void OnDisable()
