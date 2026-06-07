@@ -70,6 +70,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void OnDestroy()
         {
+            this._fruitMemory?.ClearFruit();
             this._disposable?.Dispose();
         }
     }

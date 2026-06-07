@@ -16,8 +16,18 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void Initialize()
         {
+            this.InitializeMessageBroker();
+            this.InitializeFruitMergeGame();
+        }
+
+        private void InitializeMessageBroker()
+        {
             this._messageBrokerManager = new MessageBrokerManager();
             Debug.Log($"MessageBrokerManager initialized: {this._messageBrokerManager}");
+        }
+
+        private void InitializeFruitMergeGame()
+        {
             this.fruitSpawner.InitializeFruitSpawner();
             this.fruitDragController.InitializeFruitDragController();
         }
