@@ -191,11 +191,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void AddScore(FruitItem fruitItem)
         {
-            this._addFruitScorePublisher.Publish(new AddFruitScoreMessage
-            {
-                FruitScore = fruitItem.FruitScore,
-            });
-            
+            this.AddFruitScore(fruitItem);
             this.AddSpawnedFruitToMemory(fruitItem);
         }
 
@@ -204,6 +200,14 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this._fruitSpawnPublisher.Publish(new FruitSpawnMessage
             {
                 FruitItem = fruitItem,
+            });
+        }
+
+        private void AddFruitScore(FruitItem fruitItem)
+        {
+            this._addFruitScorePublisher.Publish(new AddFruitScoreMessage
+            {
+                FruitScore = fruitItem.FruitScore,
             });
         }
 
@@ -248,6 +252,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void SetDropRayEnable(bool enable)
         {
             this.fruitDropRay.SetDropRayEnabled(enable);
+        }
+
+        public void ForceBreakFruit()
+        {
+            this.AddFruitScore(this);
+            this.ReleaseFruit(this);
         }
 
         private void OnDisable()
