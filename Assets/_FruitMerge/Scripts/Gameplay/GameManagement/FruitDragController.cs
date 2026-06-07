@@ -20,10 +20,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private InputController _inputController;
         private FruitItem _currentDraggingFruitItem;
 
-        private void Awake()
+        public void InitializeFruitDragController()
         {
             this._inputController = ServiceLocator.Global.Get<InputController>();
-            this.fruitSpawner.InitializeFruitSpawner();
         }
 
         private void Update()

@@ -3,6 +3,7 @@ using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
+using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using MessagePipe;
@@ -50,6 +51,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this._fruitReleasePublisher = GlobalMessagePipe.GetPublisher<FruitReleaseMessage>();
             this._addFruitScorePublisher = GlobalMessagePipe.GetPublisher<AddFruitScoreMessage>();
             this._fruitSpawnPublisher = GlobalMessagePipe.GetPublisher<FruitSpawnMessage>();
+        }
+
+        private void OnEnable()
+        {
+            UpdateServiceManager.RegisterUpdateHandler(this);
         }
 
         private void SetRandomMassCenter()
@@ -240,6 +246,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this.IsFirstCollider = false;
             this.ApplyFruitConfig(this.defaultFruitConfig);
+            UpdateServiceManager.DeregisterUpdateHandler(this);
         }
     }
 }

@@ -7,11 +7,12 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
     public class FruitItemFactory : BaseFactory<FruitItemParam, FruitItem>
     {
         private const string LogTag = "FruitItemFactory";
-        private const int PreloadCountForFruitPrefab = 20;
+        private const int PreloadCountForFruitPrefab = 30;
         
         private readonly FruitItem _fruitItemPrefab;
         private readonly Transform _fruitItemParent;
         private readonly FruitConfigCollection _fruitConfigCollection;
+        private readonly int _maxFruitLevel;
 
         public FruitItemFactory(FruitItem prefab, Transform fruitItemParent,
             FruitConfigCollection fruitConfigCollection)
@@ -19,10 +20,10 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
             this._fruitItemPrefab = prefab;
             this._fruitItemParent = fruitItemParent;
             this._fruitConfigCollection = fruitConfigCollection;
+            this._maxFruitLevel = this._fruitConfigCollection.GetMaxFruitLevel();
             
             GameObjectPoolManager.PoolPreLoad(this._fruitItemPrefab.gameObject, 
-                PreloadCountForFruitPrefab,
-                this._fruitItemParent);
+                PreloadCountForFruitPrefab, this._fruitItemParent);
         }
 
         public override FruitItem Create(FruitItemParam arg)
@@ -38,10 +39,8 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
             
             int fruitId = arg.FruitID;
             FruitConfig fruitConfig = this._fruitConfigCollection.GetFruitConfigById(fruitId);
+            fruitItem.SetMaxFruitLevel(this._maxFruitLevel);
             fruitItem.SetFruitPhysicsActive(false);
-            
-            int maxFruitLevel = this._fruitConfigCollection.GetMaxFruitLevel();
-            fruitItem.SetMaxFruitLevel(maxFruitLevel);
             fruitItem.SetFruitColliderActive(false);
             fruitItem.ApplyFruitConfig(fruitConfig);
             return fruitItem;
