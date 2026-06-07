@@ -1,11 +1,13 @@
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using _FruitMerge.Scripts.Input;
+using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
+using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using ServiceLocators.Core;
 using UnityEngine;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
-    public class FruitDragController : MonoBehaviour
+    public class FruitDragController : MonoBehaviour, IUpdateHandler
     {
         private const string LogTag = "FruitDragController";
         
@@ -15,17 +17,23 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         [SerializeField] private Transform dragTarget;
         [SerializeField] private FruitSpawner fruitSpawner;
 
-        private bool _isPointerUp;
-        private bool _isPointerDown;
-        private InputController _inputController;
         private FruitItem _currentDraggingFruitItem;
+        private InputController _inputController;
+        
+        private bool _isPointerDown;
+        private bool _isPointerUp;
+
+        private void OnEnable()
+        {
+            UpdateServiceManager.RegisterUpdateHandler(this);
+        }
 
         public void InitializeFruitDragController()
         {
             this._inputController = ServiceLocator.Global.Get<InputController>();
         }
 
-        private void Update()
+        public void Tick(float deltaTime)
         {
             bool isUIOverlapped = this._inputController.IsPointerOverlapUI();
             if (isUIOverlapped)
@@ -44,11 +52,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             Vector3 pointerDelta = this._inputController.PointerDelta;
             float movingVertical = this.dragTarget.position.y;
             float movingHorizontal = this.dragTarget.position.x + pointerDelta.x;
-            float safeOffset = this._currentDraggingFruitItem.GetDistanceBetweenCenterToColliderEdge();
-            movingHorizontal = Mathf.Clamp(movingHorizontal, 
-                this.leftEdge.position.x + safeOffset, 
-                this.rightEdge.position.x - safeOffset);
-
+            float safeOffset = this._currentDraggingFruitItem.GetSafeDistanceBetweenCenterToTankEdge();
+            
+            float minSafeDistance = this.leftEdge.position.x + safeOffset;
+            float maxSafeDistance = this.rightEdge.position.x - safeOffset;
+            movingHorizontal = Mathf.Clamp(movingHorizontal,minSafeDistance,maxSafeDistance); 
             Vector3 fruitDragPosition = new Vector3(movingHorizontal, movingVertical);
             this._currentDraggingFruitItem.transform.position = fruitDragPosition;
         }
@@ -68,7 +76,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._currentDraggingFruitItem.Drop();
             this._currentDraggingFruitItem = null;
             this.dragTarget.position = this.center.position;
-            this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
+            this._currentDraggingFruitItem = this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
+        }
+
+        private void OnDisable()
+        {
+            UpdateServiceManager.DeregisterUpdateHandler(this);
         }
     }
 }

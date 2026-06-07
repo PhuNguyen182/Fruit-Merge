@@ -236,7 +236,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.AddSpawnedFruitToMemory(this);
         }
 
-        public float GetDistanceBetweenCenterToColliderEdge()
+        public float GetSafeDistanceBetweenCenterToTankEdge()
         {
             float radius = this.fruitCollider.radius;
             return radius;
