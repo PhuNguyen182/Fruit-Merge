@@ -35,7 +35,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
         private Vector2 _originalCenterOfMass;
-        
+
+        private bool _isDropped;
         private bool _hasResetCenterOfMass;
         private int _maxFruitLevel;
 
@@ -83,7 +84,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (((1 << other.gameObject.layer) & this.fruitLayerMask.value) != 0)
+            if (this._isDropped && ((1 << other.gameObject.layer) & this.fruitLayerMask.value) != 0)
             {
                 this.FireDeadlineCollideMessage(true);
             }
@@ -91,7 +92,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (((1 << other.gameObject.layer) & this.fruitLayerMask.value) == 0)
+            if (this._isDropped && ((1 << other.gameObject.layer) & this.fruitLayerMask.value) == 0)
             {
                 this.FireDeadlineCollideMessage(false);
             }
@@ -242,6 +243,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         public void Drop()
         {
+            this._isDropped = true;
             this.SetFruitColliderActive(true);
             this.SetFruitPhysicsActive(true);
             this.AddSpawnedFruitToMemory(this);
@@ -272,6 +274,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnDisable()
         {
+            this._isDropped = false;
             this.IsFirstCollider = false;
             this.ApplyFruitConfig(this.defaultFruitConfig);
             this.SetDropRayEnable(false);
