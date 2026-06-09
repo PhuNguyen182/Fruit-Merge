@@ -1,4 +1,7 @@
+using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine;
+using DracoRuan.Foundation.DataFlow.MasterDataController;
+using ServiceLocators.Core;
 using UnityEngine;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
@@ -11,6 +14,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private GameStateController _gameStateController;
         private MessageBrokerManager _messageBrokerManager;
+        private ScoreCalculationService _scoreCalculationService;
+        private IMainDataManager _mainDataManager;
         
         private void Awake()
         {
@@ -26,9 +31,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void Initialize()
         {
+            this._mainDataManager = ServiceLocator.Global.Get<MainDataManager>();
             this.InitializeMessageBroker();
             this.InitializeGameStateMachine();
             this.InitializeFruitMergeGame();
+            this.InitializeGameScoreCalculator();
         }
 
         private void InitializeGameStateMachine()
@@ -55,6 +62,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.fruitDeadline.OnFruitDeadlineTimeOut += this.EndGame;
         }
 
+        private void InitializeGameScoreCalculator()
+        {
+            var scoreProgressionDataController =
+                this._mainDataManager.GetDynamicDataController<GameScoreProgressionDataController>();
+            this._scoreCalculationService = new ScoreCalculationService(scoreProgressionDataController);
+        }
+
         private void EndGame()
         {
             this._gameStateController.EndGame();
@@ -71,6 +85,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void OnDestroy()
         {
             this.fruitDeadline.OnFruitDeadlineTimeOut -= this.EndGame;
+            this._scoreCalculationService.Dispose();
         }
     }
 }

@@ -19,19 +19,20 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private SpriteRenderer fruitTint;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
-        
-        [Header("Fruit Physics")]
-        [SerializeField] private Rigidbody2D fruitBody;
+
+        [Header("Fruit Physics")] [SerializeField]
+        private Rigidbody2D fruitBody;
+
         [SerializeField] private CircleCollider2D fruitCollider;
         [SerializeField] private FruitConfig defaultFruitConfig;
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
-        
+
         private IPublisher<FruitDeadlineCollideMessage> _fruitDeadlineCollideMessagePublisher;
         private IPublisher<FruitReleaseMessage> _fruitReleasePublisher;
         private IPublisher<AddFruitScoreMessage> _addFruitScorePublisher;
         private IPublisher<FruitSpawnMessage> _fruitSpawnPublisher;
-        
+
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
         private Vector2 _originalCenterOfMass;
@@ -70,7 +71,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             float centerTolerance = Random.Range(this.minCenterTolerance, this.maxCenterTolerance);
             this.fruitBody.centerOfMass = circleUnit * centerTolerance;
         }
-        
+
         public void Tick(float deltaTime)
         {
             this.fruitDropRay.Tick(deltaTime);
@@ -122,15 +123,15 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private void OnColliderToOtherFruit(Collision2D collision)
         {
             if (((1 << collision.gameObject.layer) & this.fruitLayerMask.value) == 0
-                || !collision.collider.TryGetComponent(out FruitItem otherFruitItem)) 
+                || !collision.collider.TryGetComponent(out FruitItem otherFruitItem))
                 return;
-            
+
             if (this.IsMaxFruitLevel())
             {
                 Debug.Log($"[{LogTag}] Reach the max fruit level!");
                 return;
             }
-                
+
             this.TryMergeFruit(otherFruitItem);
         }
 
@@ -141,21 +142,21 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
                 Debug.Log($"[{LogTag}] Not the same fruits!");
                 return;
             }
-            
+
             this.MergeFruitAsync(otherFruitItem).Forget();
         }
-        
+
         private async UniTask MergeFruitAsync(FruitItem otherFruitItem)
         {
             if (!otherFruitItem.IsFirstCollider)
                 this.IsFirstCollider = true;
-                
+
             if (!this.IsFirstCollider)
                 return;
-                
+
             this.SetFruitColliderActive(false);
             otherFruitItem.SetFruitColliderActive(false);
-                
+
             int nextFruitID = this.FruitID + 1;
             Vector2 averagePosition = (this.transform.position + otherFruitItem.transform.position) / 2f;
             FruitItemParam fruitItemParam = new FruitItemParam
@@ -163,15 +164,15 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
                 FruitID = nextFruitID,
                 Position = averagePosition,
             };
-                
+
             FruitItem upgradedFruit = this._fruitItemFactory.Create(fruitItemParam);
             this.AddScore(upgradedFruit);
-            
+
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
             this.ReleaseFruit(this);
             this.ReleaseFruit(otherFruitItem);
         }
-        
+
         private bool IsSameFruit(FruitItem fruitItem)
         {
             bool isSameFruit = fruitItem.FruitID == this.FruitID;
@@ -190,7 +191,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             {
                 FruitInstanceID = this.gameObject.GetInstanceID(),
             });
-            
+
             GameObjectPoolManager.Despawn(fruitItem.gameObject);
         }
 
@@ -230,15 +231,15 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
             this._originalCenterOfMass = this.fruitBody.centerOfMass;
         }
-        
+
         public void SetMaxFruitLevel(int level) => this._maxFruitLevel = level;
-        
+
         public void SetFruitPhysicsActive(bool isActive)
         {
             RigidbodyType2D bodyType = isActive ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
             this.fruitBody.bodyType = bodyType;
         }
-        
+
         public void SetFruitColliderActive(bool isActive) => this.fruitCollider.enabled = isActive;
 
         public void Drop()
@@ -255,7 +256,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             float radius = this.fruitCollider.radius;
             return radius;
         }
-        
+
         public void SetDropRayEnable(bool enable)
         {
             this.fruitDropRay.SetDropRayEnabled(enable);
