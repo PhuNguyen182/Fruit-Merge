@@ -7,6 +7,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     {
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private FruitDragController fruitDragController;
+        [SerializeField] private FruitDeadline fruitDeadline;
 
         private GameStateController _gameStateController;
         private MessageBrokerManager _messageBrokerManager;
@@ -32,7 +33,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void InitializeGameStateMachine()
         {
-            this._gameStateController = new GameStateController();
+            this._gameStateController = new GameStateController(this.fruitDragController);
         }
 
         private void InitializeMessageBroker()
@@ -45,6 +46,18 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this.fruitSpawner.InitializeFruitSpawner();
             this.fruitDragController.InitializeFruitDragController();
+             this.InitializeFruitDeadline();
+        }
+
+        private void InitializeFruitDeadline()
+        {
+            this.fruitDeadline.InitializeFruitDeadline();
+            this.fruitDeadline.OnFruitDeadlineTimeOut += this.EndGame;
+        }
+
+        private void EndGame()
+        {
+            this._gameStateController.EndGame();
         }
         
         #endregion
@@ -53,6 +66,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this._gameStateController.PlayGame();
             this.fruitDragController.SpawnStartFruit();
+        }
+
+        private void OnDestroy()
+        {
+            this.fruitDeadline.OnFruitDeadlineTimeOut -= this.EndGame;
         }
     }
 }

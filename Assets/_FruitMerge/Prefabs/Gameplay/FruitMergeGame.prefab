@@ -89,6 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7130495650542986476}
+  - component: {fileID: 7572927278022046039}
   m_Layer: 0
   m_Name: FruitMergeGame
   m_TagString: Untagged
@@ -109,12 +110,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6571171255885037759}
   - {fileID: 6011332049577264}
   - {fileID: 1954298977080184536}
+  - {fileID: 8516378002826564403}
   - {fileID: 7454766548914500645}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7572927278022046039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192657210051335847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ed29884055ab04e8d2831d45936a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameManagement.GameController
+  fruitSpawner: {fileID: 126027477624509250}
+  fruitDragController: {fileID: 4186391198116808691}
+  fruitDeadline: {fileID: 3885482383259804541}
 --- !u!1 &1260587134496209749
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,52 +253,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6011332049577264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1926007389222596186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6571171255885037759}
-  - component: {fileID: 6904433566554414369}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6571171255885037759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926007389222596186}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7130495650542986476}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6904433566554414369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926007389222596186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ed29884055ab04e8d2831d45936a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameManagement.GameController
-  fruitSpawner: {fileID: 126027477624509250}
-  fruitDragController: {fileID: 4186391198116808691}
 --- !u!1 &2458285733127900502
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +531,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1954298977080184536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4286906485751630743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8516378002826564403}
+  - component: {fileID: 3885482383259804541}
+  m_Layer: 0
+  m_Name: FruitDeadline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8516378002826564403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286906485751630743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7130495650542986476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3885482383259804541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286906485751630743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e0ee3e90cc7a44fb040a0a8e7ae0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameManagement.FruitDeadline
+  deadlineConfig: {fileID: 11400000, guid: e2a290294dcce0a4f91e9cebd637f6f1, type: 2}
 --- !u!1 &4384921827812117628
 GameObject:
   m_ObjectHideFlags: 0

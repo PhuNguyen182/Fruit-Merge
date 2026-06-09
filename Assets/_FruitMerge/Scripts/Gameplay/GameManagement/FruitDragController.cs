@@ -19,7 +19,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private FruitItem _currentDraggingFruitItem;
         private InputController _inputController;
-        
+
+        private bool _canDragFruit;
         private bool _isPointerDown;
         private bool _isPointerUp;
 
@@ -34,6 +35,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.dragTarget.position = this.center.position;
         }
 
+        public void SetDragFruitEnabled(bool enable)
+        {
+            this._canDragFruit = enable;
+        }
+
         public void SpawnStartFruit()
         {
             this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
@@ -41,6 +47,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         public void Tick(float deltaTime)
         {
+            if (!this._canDragFruit)
+                return;
+            
             bool isUIOverlapped = this._inputController.IsPointerOverlapUI();
             if (isUIOverlapped)
                 return;

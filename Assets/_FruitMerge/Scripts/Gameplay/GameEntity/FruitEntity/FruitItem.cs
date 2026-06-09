@@ -15,7 +15,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private const string LogTag = "FruitItem";
 
         [SerializeField] private FruitDropRay fruitDropRay;
-        [SerializeField] private FruitDeadlineConfig deadlineConfig;
         [SerializeField] private SpriteRenderer fruitRenderer;
         [SerializeField] private SpriteRenderer fruitTint;
         [SerializeField] private LayerMask fruitLayerMask;
@@ -28,6 +27,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
         
+        private IPublisher<FruitDeadlineCollideMessage> _fruitDeadlineCollideMessagePublisher;
         private IPublisher<FruitReleaseMessage> _fruitReleasePublisher;
         private IPublisher<AddFruitScoreMessage> _addFruitScorePublisher;
         private IPublisher<FruitSpawnMessage> _fruitSpawnPublisher;
@@ -35,9 +35,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
         private Vector2 _originalCenterOfMass;
-
-        private float _timerCounter;
-        private bool _isTouchToBarrier;
+        
         private bool _hasResetCenterOfMass;
         private int _maxFruitLevel;
 
@@ -48,16 +46,21 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private void Awake()
         {
             this._cancellationToken = this.GetCancellationTokenOnDestroy();
+            this.InitializePublishers();
             this.SetRandomMassCenter();
-            
-            this._fruitReleasePublisher = GlobalMessagePipe.GetPublisher<FruitReleaseMessage>();
-            this._addFruitScorePublisher = GlobalMessagePipe.GetPublisher<AddFruitScoreMessage>();
-            this._fruitSpawnPublisher = GlobalMessagePipe.GetPublisher<FruitSpawnMessage>();
         }
 
         private void OnEnable()
         {
             UpdateServiceManager.RegisterUpdateHandler(this);
+        }
+
+        private void InitializePublishers()
+        {
+            this._fruitDeadlineCollideMessagePublisher = GlobalMessagePipe.GetPublisher<FruitDeadlineCollideMessage>();
+            this._fruitReleasePublisher = GlobalMessagePipe.GetPublisher<FruitReleaseMessage>();
+            this._addFruitScorePublisher = GlobalMessagePipe.GetPublisher<AddFruitScoreMessage>();
+            this._fruitSpawnPublisher = GlobalMessagePipe.GetPublisher<FruitSpawnMessage>();
         }
 
         private void SetRandomMassCenter()
@@ -70,14 +73,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void Tick(float deltaTime)
         {
             this.fruitDropRay.Tick(deltaTime);
-            if (this._isTouchToBarrier && this._timerCounter < this.deadlineConfig.deadlineDuration)
-            {
-                this._timerCounter += deltaTime;
-                if (this._timerCounter >= this.deadlineConfig.deadlineDuration)
-                {
-                    // Lose game
-                }
-            }
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -90,17 +85,25 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             if (((1 << other.gameObject.layer) & this.fruitLayerMask.value) != 0)
             {
-                this._isTouchToBarrier = true;
+                this.FireDeadlineCollideMessage(true);
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (((1 << other.gameObject.layer) & this.fruitLayerMask.value) == 0) 
-                return;
-            
-            this._isTouchToBarrier = false;
-            this._timerCounter = 0;
+            if (((1 << other.gameObject.layer) & this.fruitLayerMask.value) == 0)
+            {
+                this.FireDeadlineCollideMessage(false);
+            }
+        }
+
+        private void FireDeadlineCollideMessage(bool isCollided)
+        {
+            this._fruitDeadlineCollideMessagePublisher.Publish(new FruitDeadlineCollideMessage
+            {
+                FruitEntityId = this.gameObject.GetInstanceID(),
+                IsCollided = isCollided
+            });
         }
 
         private void TryResetCenterOfMass()

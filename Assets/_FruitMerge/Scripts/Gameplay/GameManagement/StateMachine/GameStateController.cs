@@ -4,10 +4,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
 {
     public class GameStateController
     {
+        private readonly FruitDragController _fruitDragController;
+
         private StateMachine<GameState, StateTrigger> _gameStateMachine;
 
-        public GameStateController()
+        public GameStateController(FruitDragController fruitDragController)
         {
+            this._fruitDragController = fruitDragController;
             this.BuildGameStateMachine();
         }
 
@@ -16,7 +19,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
             this._gameStateMachine = new StateMachine<GameState, StateTrigger>(GameState.Begin);
             this._gameStateMachine.Configure(GameState.Begin)
                 .OnActivate(this.OnStateMachineActivate);
-            
+
             this._gameStateMachine.Configure(GameState.Playing)
                 .Permit(StateTrigger.EndGame, GameState.EndGame)
                 .Permit(StateTrigger.QuitGame, GameState.Quited)
@@ -30,37 +33,37 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
 
             this._gameStateMachine.Configure(GameState.EndGame)
                 .OnEntryFrom(StateTrigger.QuitGame, this.OnQuitGame);
-            
+
             this._gameStateMachine.Activate();
         }
 
         #region State Machine Callbacks
-        
+
         private void OnStateMachineActivate()
         {
-            
+
         }
 
         private void OnPlayGame()
         {
-            
+            this._fruitDragController.SetDragFruitEnabled(true);
         }
-        
+
         private void OnContinuePlayGame()
         {
-            
+            this._fruitDragController.SetDragFruitEnabled(true);
         }
 
         private void OnEndGame()
         {
-            
+            this._fruitDragController.SetDragFruitEnabled(false);
         }
 
         private void OnQuitGame()
         {
-            
+            this._fruitDragController.SetDragFruitEnabled(false);
         }
-        
+
         #endregion
 
         #region State Machine Trigger Functions
