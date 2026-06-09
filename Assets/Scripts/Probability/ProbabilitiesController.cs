@@ -120,11 +120,11 @@ namespace Probability
 
             _cumulativeByRarity = new List<float>(); //reset the Array
 
-            float ProbilityModifier = GetprobabilityByRarityModifer(probabilityRarity);
+            float probabilityModifier = GetprobabilityByRarityModifer(probabilityRarity);
 
             for (int i = 0; i < probabilityRarity.Count; i++)
             {
-                probabilitiesSum += probabilityRarity[i] * ProbilityModifier; //add the probability to the sum
+                probabilitiesSum += probabilityRarity[i] * probabilityModifier; //add the probability to the sum
                 _cumulativeByRarity.Add(probabilitiesSum); //add the new sum to the list
             }
 
@@ -152,12 +152,12 @@ namespace Probability
         /// <summary>
         /// This Function will return true if the item is lucky enough to be picked by a small chance of one in something and 100% chance to get the item if its 1 in 1 ... XD
         /// </summary>
-        /// <param name="In"></param>
+        /// <param name="in"></param>
         /// <returns></returns>
-        public static bool OneInProbability(int In)
+        public static bool OneInProbability(int @in)
         {
             UpdateNewSeedRealtime();
-            float rnd = Random.Range(1, In + 1);
+            float rnd = Random.Range(1, @in + 1);
             return rnd <= 1;
         }
 
@@ -165,13 +165,13 @@ namespace Probability
         /// This Function will return true if the item is lucky enough to be picked by a small chance of num in something.
         /// This can be used instead the first one without passing the second variable
         /// </summary>
-        /// <param name="In"></param>
+        /// <param name="in"></param>
         /// <param name="chance"></param>
         /// <returns></returns>
-        public static bool ChanceInProbability(int In, int chance = 1)
+        public static bool ChanceInProbability(int @in, int chance = 1)
         {
             UpdateNewSeedRealtime();
-            float rnd = Random.Range(1, In + 1);
+            float rnd = Random.Range(1, @in + 1);
             return rnd <= chance;
         }
         #endregion
