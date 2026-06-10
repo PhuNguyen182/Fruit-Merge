@@ -25,6 +25,7 @@ namespace ProjectScope
 
         private void SetupProject()
         {
+            ServiceLocator.ForSceneOf(this).Register(this);
 #if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS)
             Application.targetFrameRate = Screen.currentResolution.refreshRateRatio.value <= 60
                 ? 60

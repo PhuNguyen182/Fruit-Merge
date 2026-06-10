@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 82f18236914becb4fbcad3f8fc0605e2
   m_currentHash:
     serializedVersion: 2
-    Hash: d6430a420eeef85fe3845d296f640335
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 29945f8bc6eb4dc4da13d8f9b5eb82a3, type: 2}
   - {fileID: 11400000, guid: e75d7fb763d183045ac0177f889e6c8b, type: 2}
   - {fileID: 11400000, guid: 1eae38ea47033f343b20ff0c5953af10, type: 2}
   m_BuildSettings:
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - FruitMergeGame
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 571ca7ce4aeee6c49af3890924698b5e, type: 2}

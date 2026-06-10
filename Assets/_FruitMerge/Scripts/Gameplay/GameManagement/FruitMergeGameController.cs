@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
-    public class GameController : MonoBehaviour
+    public class FruitMergeGameController : MonoBehaviour
     {
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private FruitDragController fruitDragController;
@@ -16,17 +16,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private MessageBrokerManager _messageBrokerManager;
         private ScoreCalculationService _scoreCalculationService;
         private IMainDataManager _mainDataManager;
-        
-        private void Awake()
+
+        public void InitializeGame()
         {
             this.Initialize();
-        }
-
-        private void Start()
-        {
             this.StartGame();
         }
-
+        
         #region Initialization
 
         private void Initialize()

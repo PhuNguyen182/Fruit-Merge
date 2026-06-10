@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingSceneInitializer
       objectReference: {fileID: 0}
+    - target: {fileID: 6878538821541414050, guid: 1bf2994512e7d8246a55c3b9c85bca41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8856156050033977032, guid: 1bf2994512e7d8246a55c3b9c85bca41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
