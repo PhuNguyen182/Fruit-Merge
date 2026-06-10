@@ -1,5 +1,6 @@
 using _FruitMerge.Scripts.Input;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
+using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using ServiceLocators.Core;
@@ -10,7 +11,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     public class FruitDragController : MonoBehaviour, IUpdateHandler
     {
         private const string LogTag = "FruitDragController";
-        
+
+        [SerializeField] private float fruitSpawnDelay = 1.2f;
         [SerializeField] private Transform leftEdge;
         [SerializeField] private Transform rightEdge;
         [SerializeField] private Transform center;
@@ -42,7 +44,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         public void SpawnStartFruit()
         {
-            this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
+            this._currentDraggingFruitItem = this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
         }
 
         public void Tick(float deltaTime)
@@ -60,13 +62,14 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void TryDragFruit()
         {
-            this._isPointerDown = this._inputController.IsPointerDown;
+            this._isPointerDown = this._inputController.IsPointerClicked;
             if (!this._isPointerDown || !this._currentDraggingFruitItem)
                 return;
             
-            Vector3 pointerDelta = this._inputController.PointerDelta;
+            Vector3 pointerPosition = this._inputController.WorldPointerPosition;
+            Vector3 pointerOffset = pointerPosition - this.dragTarget.position;
             float movingVertical = this.dragTarget.position.y;
-            float movingHorizontal = this.dragTarget.position.x + pointerDelta.x;
+            float movingHorizontal = this.dragTarget.position.x + pointerOffset.x;
             float safeOffset = this._currentDraggingFruitItem.GetSafeDistanceBetweenCenterToTankEdge();
             
             float minSafeDistance = this.leftEdge.position.x + safeOffset;
@@ -92,6 +95,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._currentDraggingFruitItem.Drop();
             this._currentDraggingFruitItem = null;
             this.dragTarget.position = this.center.position;
+            this.SpawnNewFruitWithDelay(this.fruitSpawnDelay).Forget();
+        }
+
+        private async UniTask SpawnNewFruitWithDelay(float delay)
+        {
+            await UniTask.WaitForSeconds(delay);
             this._currentDraggingFruitItem = this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
         }
 

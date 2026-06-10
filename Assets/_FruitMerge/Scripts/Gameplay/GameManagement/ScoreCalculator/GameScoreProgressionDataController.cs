@@ -1,10 +1,12 @@
 using DracoRuan.Foundation.DataFlow.DataProviders;
+using DracoRuan.Foundation.DataFlow.LocalData;
 using DracoRuan.Foundation.DataFlow.LocalData.DynamicDataControllers;
 using DracoRuan.Foundation.DataFlow.SaveSystem;
 using DracoRuan.Foundation.DataFlow.Serialization;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator
 {
+    [DynamicGameDataController(nameof(GameScoreProgressionDataController))]
     public class GameScoreProgressionDataController : DynamicGameDataController<ScoreProgressionData>
     {
         protected override ScoreProgressionData SourceData { get; set; }

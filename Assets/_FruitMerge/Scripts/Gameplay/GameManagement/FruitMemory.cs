@@ -11,7 +11,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         public void AddFruit(FruitItem fruitItem)
         {
             int fruitInstanceId = fruitItem.gameObject.GetInstanceID();
-            this._fruitItemMemory.Add(fruitInstanceId, fruitItem);
+            this._fruitItemMemory.TryAdd(fruitInstanceId, fruitItem);
         }
 
         public void RemoveFruit(int fruitInstanceId)

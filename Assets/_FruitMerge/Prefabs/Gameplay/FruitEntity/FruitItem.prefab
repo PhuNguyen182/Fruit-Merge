@@ -52,7 +52,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitItem
   fruitDropRay: {fileID: 3853700733526624364}
-  deadlineConfig: {fileID: 11400000, guid: e2a290294dcce0a4f91e9cebd637f6f1, type: 2}
   fruitRenderer: {fileID: 3062228914504413849}
   fruitTint: {fileID: 1199988194171130303}
   fruitLayerMask:
@@ -125,8 +124,8 @@ MonoBehaviour:
   fruitBody: {fileID: 2254401809936308333}
   fruitCollider: {fileID: 4158884226852072509}
   defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
-  minCenterTolerance: 0.1
-  maxCenterTolerance: 0.5
+  minCenterTolerance: 0.01
+  maxCenterTolerance: 0.03
 --- !u!1 &715597874872727825
 GameObject:
   m_ObjectHideFlags: 0

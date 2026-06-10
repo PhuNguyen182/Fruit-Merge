@@ -18,6 +18,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
         {
             this._gameStateMachine = new StateMachine<GameState, StateTrigger>(GameState.Begin);
             this._gameStateMachine.Configure(GameState.Begin)
+                .Permit(StateTrigger.PlayGame, GameState.Playing)
                 .OnActivate(this.OnStateMachineActivate);
 
             this._gameStateMachine.Configure(GameState.Playing)

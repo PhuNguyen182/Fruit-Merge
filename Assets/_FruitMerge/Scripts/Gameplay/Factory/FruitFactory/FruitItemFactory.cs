@@ -43,6 +43,7 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
             fruitItem.SetFruitPhysicsActive(false);
             fruitItem.SetFruitColliderActive(false);
             fruitItem.ApplyFruitConfig(fruitConfig);
+            fruitItem.InitFruitFactory(this);
             return fruitItem;
         }
     }

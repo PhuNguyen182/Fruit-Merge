@@ -167,6 +167,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
             FruitItem upgradedFruit = this._fruitItemFactory.Create(fruitItemParam);
             this.AddScore(upgradedFruit);
+            upgradedFruit.TryResetCenterOfMass();
+            upgradedFruit.Drop();
 
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
             this.ReleaseFruit(this);
@@ -229,7 +231,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitCollider.radius = fruitConfig.colliderRadius;
             this.fruitCollider.offset = fruitConfig.colliderOffset;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
-            this._originalCenterOfMass = this.fruitBody.centerOfMass;
         }
 
         public void SetMaxFruitLevel(int level) => this._maxFruitLevel = level;
@@ -262,6 +263,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitDropRay.SetDropRayEnabled(enable);
         }
 
+        public void InitFruitFactory(FruitItemFactory fruitItemFactory)
+        {
+            this._fruitItemFactory = fruitItemFactory;
+        }
+
         public void ForceBreakFruit()
         {
             this.AddFruitScore(this);
@@ -277,6 +283,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this._isDropped = false;
             this.IsFirstCollider = false;
+            this._hasResetCenterOfMass = false;
             this.ApplyFruitConfig(this.defaultFruitConfig);
             this.SetDropRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);
