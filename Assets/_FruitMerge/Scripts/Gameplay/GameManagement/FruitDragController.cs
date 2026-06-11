@@ -67,15 +67,15 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._isPointerDown = this._inputController.IsPointerClicked;
             if (!this._isPointerDown || !this._currentDraggingFruitItem)
                 return;
-            
+
             float pointerVelocity = this._inputController.WorldPointerVelocity.x;
             float movingVertical = this.dragTarget.position.y;
             float movingHorizontal = this.dragTarget.position.x + pointerVelocity * this.fruitDragSpeed;
             float safeOffset = this._currentDraggingFruitItem.GetSafeDistanceBetweenCenterToTankEdge();
-            
+
             float minSafeDistance = this.leftEdge.position.x + safeOffset;
             float maxSafeDistance = this.rightEdge.position.x - safeOffset;
-            movingHorizontal = Mathf.Clamp(movingHorizontal,minSafeDistance,maxSafeDistance); 
+            movingHorizontal = Mathf.Clamp(movingHorizontal, minSafeDistance, maxSafeDistance);
             Vector3 fruitDragPosition = new Vector3(movingHorizontal, movingVertical);
             this.dragTarget.position = fruitDragPosition;
             this._currentDraggingFruitItem.transform.position = this.dragTarget.position;
