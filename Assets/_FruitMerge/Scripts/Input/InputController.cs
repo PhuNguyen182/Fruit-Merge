@@ -11,9 +11,10 @@ namespace _FruitMerge.Scripts.Input
     {
         [SerializeField] private Camera inputCamera;
         
+        private readonly List<RaycastResult> _results = new();
         private GameInputSystem _solitaireInputPlayer;
-        private List<RaycastResult> _results = new();
         private PointerEventData _eventDataCurrentPosition;
+        private Vector2 _lastWorldPointerPosition;
 
         public bool IsPointerDown { get; private set; }
         public bool IsPointerUp { get; private set; }
@@ -24,6 +25,7 @@ namespace _FruitMerge.Scripts.Input
         public Vector2 ScreenPointerPosition { get; private set; }
         public Vector2 ViewportPointerPosition { get; private set; }
         public Vector2 WorldPointerPosition { get; private set; }
+        public Vector2 WorldPointerVelocity { get; private set; }
         
         public event Action OnPointerDown; 
         public event Action OnPointerUp; 
@@ -109,7 +111,6 @@ namespace _FruitMerge.Scripts.Input
                 return;
             
             this.ViewportPointerPosition = this.inputCamera.ScreenToViewportPoint(this.ScreenPointerPosition);
-            this.WorldPointerPosition = this.inputCamera.ScreenToWorldPoint(this.ScreenPointerPosition);
         }
 
         private void UpdatePointerClicked(InputAction.CallbackContext context)
@@ -164,8 +165,19 @@ namespace _FruitMerge.Scripts.Input
         {
             this.UpdatePointerDownState();
             this.UpdatePointerUpState();
+            this.UpdateWorldPointerVelocity();
         }
 
+        private void UpdateWorldPointerVelocity()
+        {
+            if (!this.IsInputActive)
+                return;
+            
+            this.WorldPointerPosition = this.inputCamera.ScreenToWorldPoint(this.ScreenPointerPosition);
+            this.WorldPointerVelocity = this.WorldPointerPosition - this._lastWorldPointerPosition; 
+            this._lastWorldPointerPosition = this.WorldPointerPosition;
+        }
+        
         private void UpdatePointerDownState()
         {
             this.IsPointerDown = this.IsInputActive && this._solitaireInputPlayer.Player.Press.WasPressedThisFrame();

@@ -12,7 +12,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     {
         private const string LogTag = "FruitDragController";
 
-        [SerializeField] private float fruitSpawnDelay = 1.2f;
+        [SerializeField] private float fruitSpawnDelay = 1f;
+        [SerializeField] private float fruitDragSpeed = 1.25f;
+        [SerializeField] private float minFruitDragOffset = 0.1f;
         [SerializeField] private Transform leftEdge;
         [SerializeField] private Transform rightEdge;
         [SerializeField] private Transform center;
@@ -66,17 +68,17 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             if (!this._isPointerDown || !this._currentDraggingFruitItem)
                 return;
             
-            Vector3 pointerPosition = this._inputController.WorldPointerPosition;
-            Vector3 pointerOffset = pointerPosition - this.dragTarget.position;
+            float pointerVelocity = this._inputController.WorldPointerVelocity.x;
             float movingVertical = this.dragTarget.position.y;
-            float movingHorizontal = this.dragTarget.position.x + pointerOffset.x;
+            float movingHorizontal = this.dragTarget.position.x + pointerVelocity * this.fruitDragSpeed;
             float safeOffset = this._currentDraggingFruitItem.GetSafeDistanceBetweenCenterToTankEdge();
             
             float minSafeDistance = this.leftEdge.position.x + safeOffset;
             float maxSafeDistance = this.rightEdge.position.x - safeOffset;
             movingHorizontal = Mathf.Clamp(movingHorizontal,minSafeDistance,maxSafeDistance); 
             Vector3 fruitDragPosition = new Vector3(movingHorizontal, movingVertical);
-            this._currentDraggingFruitItem.transform.position = fruitDragPosition;
+            this.dragTarget.position = fruitDragPosition;
+            this._currentDraggingFruitItem.transform.position = this.dragTarget.position;
             this._currentDraggingFruitItem.SetDropRayEnable(true);
         }
 
