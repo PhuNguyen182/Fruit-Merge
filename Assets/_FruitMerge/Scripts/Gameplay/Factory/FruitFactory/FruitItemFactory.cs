@@ -13,6 +13,8 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
         private readonly Transform _fruitItemParent;
         private readonly FruitConfigCollection _fruitConfigCollection;
         private readonly int _maxFruitLevel;
+        
+        public Transform FruitItemParent => this._fruitItemParent;
 
         public FruitItemFactory(FruitItem prefab, Transform fruitItemParent,
             FruitConfigCollection fruitConfigCollection)

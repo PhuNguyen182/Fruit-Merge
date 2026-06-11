@@ -33,6 +33,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private IPublisher<AddFruitScoreMessage> _addFruitScorePublisher;
         private IPublisher<FruitSpawnMessage> _fruitSpawnPublisher;
 
+        private ParticleSystem _fruitEffect;
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
         private Vector2 _originalCenterOfMass;
@@ -194,6 +195,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
                 FruitInstanceID = this.gameObject.GetInstanceID(),
             });
 
+            if (this._fruitEffect)
+            {
+                GameObjectPoolManager.SpawnInstance(this._fruitEffect, 
+                    this.transform.position, Quaternion.identity,
+                    this._fruitItemFactory.FruitItemParent);
+            }
+
             GameObjectPoolManager.Despawn(fruitItem.gameObject);
         }
 
@@ -231,6 +239,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.fruitCollider.radius = fruitConfig.colliderRadius;
             this.fruitCollider.offset = fruitConfig.colliderOffset;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
+            this._fruitEffect = fruitConfig.fruitParticles;
         }
 
         public void SetMaxFruitLevel(int level) => this._maxFruitLevel = level;
