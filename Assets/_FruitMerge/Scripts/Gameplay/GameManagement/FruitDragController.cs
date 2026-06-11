@@ -53,11 +53,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             if (!this._canDragFruit)
                 return;
-            
+
             bool isUIOverlapped = this._inputController.IsPointerOverlapUI();
             if (isUIOverlapped)
                 return;
-            
+
             this.TryDragFruit();
             this.TryDropFruit();
         }
@@ -87,13 +87,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._isPointerUp = this._inputController.IsPointerUp;
             if (!this._isPointerUp)
                 return;
-            
+
             if (!this._currentDraggingFruitItem)
             {
                 Debug.Log($"[{LogTag}] No valid fruit to drag here!");
                 return;
             }
-            
+
             this._currentDraggingFruitItem.Drop();
             this._currentDraggingFruitItem = null;
             this.dragTarget.position = this.center.position;
