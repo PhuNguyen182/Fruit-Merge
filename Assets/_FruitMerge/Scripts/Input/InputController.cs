@@ -10,7 +10,7 @@ namespace _FruitMerge.Scripts.Input
     public class InputController : MonoBehaviour
     {
         [SerializeField] private Camera inputCamera;
-        
+
         private readonly List<RaycastResult> _results = new();
         private GameInputSystem _solitaireInputPlayer;
         private PointerEventData _eventDataCurrentPosition;
@@ -26,9 +26,9 @@ namespace _FruitMerge.Scripts.Input
         public Vector2 ViewportPointerPosition { get; private set; }
         public Vector2 WorldPointerPosition { get; private set; }
         public Vector2 WorldPointerVelocity { get; private set; }
-        
-        public event Action OnPointerDown; 
-        public event Action OnPointerUp; 
+
+        public event Action OnPointerDown;
+        public event Action OnPointerUp;
 
         private void Awake()
         {
@@ -91,7 +91,7 @@ namespace _FruitMerge.Scripts.Input
             this._solitaireInputPlayer.Player.Press.performed -= this.UpdatePointerClicked;
             this._solitaireInputPlayer.Player.Press.canceled -= this.UpdatePointerClicked;
         }
-        
+
         private void UnregisterInputPointerDelta()
         {
             this._solitaireInputPlayer.Player.Delta.started -= this.UpdatePointerDelta;
@@ -128,7 +128,7 @@ namespace _FruitMerge.Scripts.Input
 #if UNITY_EDITOR
             bool result = EventSystem.current && EventSystem.current.IsPointerOverGameObject();
 #elif UNITY_ANDROID || UNITY_IOS
-            bool result = this.IsPointerOverUIObject(); 
+            bool result = this.IsPointerOverUIObject();
 #endif
             return result;
         }
@@ -143,9 +143,9 @@ namespace _FruitMerge.Scripts.Input
             {
                 position = new Vector2(this.ScreenPointerPosition.x, this.ScreenPointerPosition.y)
             };
-            
+
             EventSystem.current.RaycastAll(this._eventDataCurrentPosition, this._results);
-            bool result = this._results.Count > 0; 
+            bool result = this._results.Count > 0;
             return result;
         }
 
@@ -169,17 +169,17 @@ namespace _FruitMerge.Scripts.Input
         {
             if (!this.IsInputActive || !this.inputCamera)
                 return;
-            
+
             this.ViewportPointerPosition = this.inputCamera.ScreenToViewportPoint(this.ScreenPointerPosition);
             this.WorldPointerPosition = this.inputCamera.ScreenToWorldPoint(this.ScreenPointerPosition);
         }
 
         private void CalculatePointerVelocity()
         {
-            this.WorldPointerVelocity = this.WorldPointerPosition - this._lastWorldPointerPosition; 
+            this.WorldPointerVelocity = this.WorldPointerPosition - this._lastWorldPointerPosition;
             this._lastWorldPointerPosition = this.WorldPointerPosition;
         }
-        
+
         private void UpdatePointerDownState()
         {
             this.IsPointerDown = this.IsInputActive && this._solitaireInputPlayer.Player.Press.WasPressedThisFrame();
