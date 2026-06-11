@@ -107,10 +107,6 @@ namespace _FruitMerge.Scripts.Input
         {
             this.SetupCameraForInput();
             this.ScreenPointerPosition = this.IsInputActive ? context.ReadValue<Vector2>() : Vector2.zero;
-            if (!this.inputCamera) 
-                return;
-            
-            this.ViewportPointerPosition = this.inputCamera.ScreenToViewportPoint(this.ScreenPointerPosition);
         }
 
         private void UpdatePointerClicked(InputAction.CallbackContext context)
@@ -163,17 +159,23 @@ namespace _FruitMerge.Scripts.Input
 
         private void Update()
         {
+            this.UpdatePointerPosition();
+            this.CalculatePointerVelocity();
             this.UpdatePointerDownState();
             this.UpdatePointerUpState();
-            this.UpdateWorldPointerVelocity();
         }
 
-        private void UpdateWorldPointerVelocity()
+        private void UpdatePointerPosition()
         {
-            if (!this.IsInputActive)
+            if (!this.IsInputActive || !this.inputCamera)
                 return;
             
+            this.ViewportPointerPosition = this.inputCamera.ScreenToViewportPoint(this.ScreenPointerPosition);
             this.WorldPointerPosition = this.inputCamera.ScreenToWorldPoint(this.ScreenPointerPosition);
+        }
+
+        private void CalculatePointerVelocity()
+        {
             this.WorldPointerVelocity = this.WorldPointerPosition - this._lastWorldPointerPosition; 
             this._lastWorldPointerPosition = this.WorldPointerPosition;
         }
