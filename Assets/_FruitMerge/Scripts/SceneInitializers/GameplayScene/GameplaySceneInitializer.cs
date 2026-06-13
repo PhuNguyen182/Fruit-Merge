@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using _FruitMerge.Scripts.Gameplay.GameEntity.Camera;
 using _FruitMerge.Scripts.Gameplay.GameManagement;
@@ -16,10 +17,10 @@ namespace _FruitMerge.Scripts.SceneInitializers.GameplayScene
         [SerializeField] private PopupCollection popupCollection;
         [SerializeField] private UICanvasManager canvasManager;
         
-        private CameraVibrateTask _cameraVibrateTask;
         private IAssetBundleService _assetBundleService;
         private IUIPopupManager _popupManager;
         
+        public CameraShakeController CameraShakeController => this.cameraShakeController;
         public IUICanvasManager CanvasManager => this.canvasManager;
         public IUIPopupManager PopupManager => this._popupManager;
 
@@ -34,7 +35,6 @@ namespace _FruitMerge.Scripts.SceneInitializers.GameplayScene
             ServiceLocator.ForSceneOf(this).Register(this);
             this._assetBundleService = ServiceLocator.Global.Get<IAssetBundleService>();
             this._popupManager = new UIPopupManager(this.popupCollection);
-            this._cameraVibrateTask = new CameraVibrateTask(this.cameraShakeController);
         }
 
         private async UniTaskVoid InitializeFruitMergeGame()
@@ -50,11 +50,6 @@ namespace _FruitMerge.Scripts.SceneInitializers.GameplayScene
                     fruitMergeGameController.InitializeGame();
                 }
             }
-        }
-
-        private void OnDestroy()
-        {
-            this._cameraVibrateTask?.Dispose();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void Awake()
         {
-            this._fruitInstanceIds = new HashSet<int>(30);
+            this._fruitInstanceIds = new HashSet<int>(5);
         }
 
         private void OnEnable()

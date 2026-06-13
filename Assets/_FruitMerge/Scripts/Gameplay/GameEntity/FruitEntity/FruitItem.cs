@@ -39,15 +39,15 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private ParticleSystem _fruitEffect;
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
-        private Vector2 _originalCenterOfMass;
 
         private bool _isDropped;
         private bool _hasResetCenterOfMass;
         private int _maxFruitLevel;
 
-        public int FruitID { get; private set; }
         private bool IsFirstCollider { get; set; }
-        public int FruitScore { get; private set; }
+        private int FruitScore { get; set; }
+        public int FruitID { get; private set; }
+        public Vector2 FruitMMassCenter => this.fruitBody.centerOfMass;
 
         private void Awake()
         {
@@ -129,7 +129,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
             Debug.Log($"[{LogTag}] Center of mass starting reset!");
             this._hasResetCenterOfMass = true;
-            this.fruitBody.centerOfMass = this._originalCenterOfMass;
+            this.fruitBody.centerOfMass = this.fruitCollider.offset;
         }
 
         #region Check Fruit Execution

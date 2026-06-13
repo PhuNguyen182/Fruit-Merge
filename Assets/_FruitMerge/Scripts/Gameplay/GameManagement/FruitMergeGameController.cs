@@ -2,6 +2,7 @@ using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine;
 using _FruitMerge.Scripts.Gameplay.GameTask;
 using _FruitMerge.Scripts.Input;
+using _FruitMerge.Scripts.SceneInitializers.GameplayScene;
 using DracoRuan.Foundation.DataFlow.MasterDataController;
 using ServiceLocators.Core;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         [SerializeField] private FruitDeadline fruitDeadline;
 
         private InputController _inputController;
+        private CameraVibrateTask _cameraVibrateTask;
         private GameStateController _gameStateController;
         private MessageBrokerManager _messageBrokerManager;
         private ScoreCalculationService _scoreCalculationService;
@@ -39,6 +41,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.InitializeGameStateMachine();
             this.InitializeFruitMergeGame();
             this.InitializeGameScoreCalculator();
+            this.InitializeCameraVibrateTask();
         }
 
         private void InitializeGameStateMachine()
@@ -73,6 +76,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._scoreCalculationService = new ScoreCalculationService(scoreProgressionDataController);
         }
 
+        private void InitializeCameraVibrateTask()
+        {
+            var gameplaySceneInitializer = ServiceLocator.ForSceneOf(this).Get<GameplaySceneInitializer>();
+            var cameraShakeController = gameplaySceneInitializer.CameraShakeController;
+            this._cameraVibrateTask = new CameraVibrateTask(cameraShakeController);
+        }
+
         private void EndGame()
         {
             this._gameStateController.EndGame();
@@ -91,6 +101,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.fruitDeadline.OnFruitDeadlineTimeOut -= this.EndGame;
             this._scoreCalculationService.Dispose();
             this._boosterControllerTask.Dispose();
+            this._cameraVibrateTask.Dispose();
         }
     }
 }
