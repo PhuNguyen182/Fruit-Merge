@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c513841edd596bb469240b3e0050c740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.SceneInitializers.HomeScene.HomeSceneInitializer
+  canvasManager: {fileID: 0}
+  popupCollection: {fileID: 11400000, guid: 1ecd25ef49cbecb4a83a07976088ff46, type: 2}
