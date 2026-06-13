@@ -51,5 +51,10 @@ namespace _FruitMerge.Scripts.SceneInitializers.GameplayScene
                 }
             }
         }
+
+        private void OnDestroy()
+        {
+            this._cameraVibrateTask?.Dispose();
+        }
     }
 }

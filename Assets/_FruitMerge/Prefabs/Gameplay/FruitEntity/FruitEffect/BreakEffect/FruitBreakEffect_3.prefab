@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7082284044725039348}
   - component: {fileID: 5432905197814085824}
   - component: {fileID: 3957537080011468344}
+  - component: {fileID: 2234008939318283032}
   m_Layer: 0
   m_Name: FruitBreakEffect_3
   m_TagString: Untagged
@@ -4894,3 +4895,16 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &2234008939318283032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371280132596302617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655d0abdf60d596449d020d51e39516f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoDespawn
+  duration: 1

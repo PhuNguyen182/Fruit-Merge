@@ -10,6 +10,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
     public class FruitMergeGameController : MonoBehaviour
     {
+        [SerializeField] private GameObject hammerPrefab;
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private FruitDragController fruitDragController;
         [SerializeField] private FruitDeadline fruitDeadline;
@@ -56,7 +57,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.fruitSpawner.InitializeFruitSpawner();
             this.fruitDragController.InitializeFruitDragController(this._inputController);
             this.InitializeFruitDeadline();
-            this._boosterControllerTask = new BoosterControllerTask(this._inputController);
+            this._boosterControllerTask = new BoosterControllerTask(this._inputController, this.hammerPrefab);
         }
 
         private void InitializeFruitDeadline()
@@ -89,6 +90,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this.fruitDeadline.OnFruitDeadlineTimeOut -= this.EndGame;
             this._scoreCalculationService.Dispose();
+            this._boosterControllerTask.Dispose();
         }
     }
 }

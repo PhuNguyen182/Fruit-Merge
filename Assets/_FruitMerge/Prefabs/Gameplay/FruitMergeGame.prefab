@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ed29884055ab04e8d2831d45936a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameManagement.GameController
+  hammerPrefab: {fileID: 2362860550327421235, guid: 94b9fba79d90fec42bf56a886c0ac8d3, type: 3}
   fruitSpawner: {fileID: 126027477624509250}
   fruitDragController: {fileID: 4186391198116808691}
   fruitDeadline: {fileID: 3885482383259804541}
