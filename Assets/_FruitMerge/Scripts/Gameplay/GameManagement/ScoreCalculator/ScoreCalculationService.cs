@@ -23,8 +23,18 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator
 
         private void OnFruitAddScoreMessageReceived(AddFruitScoreMessage message)
         {
-            this.CurrentFruitScore += message.FruitScore;
+            this.UpdateScore(message.FruitScore);
+        }
+
+        private void UpdateScore(int score)
+        {
+            this.CurrentFruitScore += score;
             this._gameScoreProgressionDataController.TrySaveHighestScore(this.CurrentFruitScore);
+            this.OnFruitScoreUpdated?.Invoke(this.CurrentFruitScore);
+        }
+
+        public void UpdateCurrentScore()
+        {
             this.OnFruitScoreUpdated?.Invoke(this.CurrentFruitScore);
         }
         

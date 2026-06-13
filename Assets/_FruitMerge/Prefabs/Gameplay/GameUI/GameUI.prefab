@@ -1846,6 +1846,8 @@ GameObject:
   - component: {fileID: 408098954030779681}
   - component: {fileID: 6887491841477897962}
   - component: {fileID: 6308665398279741844}
+  - component: {fileID: 3463434117715152429}
+  - component: {fileID: 5400875158319964888}
   m_Layer: 5
   m_Name: SmashBoosterButton
   m_TagString: Untagged
@@ -1958,6 +1960,36 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3463434117715152429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458626264710756522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9ecb32899a16a4288935d3a13b3f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.UI.GameUI.BoosterUIButton
+  boosterType: 1
+  boosterButton: {fileID: 6308665398279741844}
+  canvasGroup: {fileID: 5400875158319964888}
+  boosterCountText: {fileID: 2802242950440869813}
+  adsObject: {fileID: 0}
+  isAdsBooster: 0
+--- !u!225 &5400875158319964888
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458626264710756522}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8472534142823450131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3230545916962821444}
+  - component: {fileID: 9041777241862330899}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -2131,6 +2164,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9041777241862330899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8565195108701806775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de73db069cbcbd4f924d9f030ed6b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.UI.GameUI.FruitMergeGameUI
+  scoreText: {fileID: 2287162885884518424}
+  nextFruitIcon: {fileID: 124189319138653195}
+  settingButton: {fileID: 1084007000803433156}
+  hammerBoosterButton: {fileID: 3463434117715152429}
 --- !u!1 &9204210806072471745
 GameObject:
   m_ObjectHideFlags: 0

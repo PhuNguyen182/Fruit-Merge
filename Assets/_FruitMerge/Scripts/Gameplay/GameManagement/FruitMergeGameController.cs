@@ -1,6 +1,7 @@
 using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine;
 using _FruitMerge.Scripts.Gameplay.GameTask;
+using _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks;
 using _FruitMerge.Scripts.Input;
 using _FruitMerge.Scripts.SceneInitializers.GameplayScene;
 using DracoRuan.Foundation.DataFlow.MasterDataController;
@@ -11,6 +12,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
     public class FruitMergeGameController : MonoBehaviour
     {
+        [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private GameObject hammerPrefab;
         [SerializeField] private FruitSpawner fruitSpawner;
         [SerializeField] private FruitDragController fruitDragController;
@@ -60,7 +62,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.fruitSpawner.InitializeFruitSpawner();
             this.fruitDragController.InitializeFruitDragController(this._inputController);
             this.InitializeFruitDeadline();
-            this._boosterControllerTask = new BoosterControllerTask(this._inputController, this.hammerPrefab);
+            this._boosterControllerTask =
+                new BoosterControllerTask(this._inputController, this.hammerPrefab, this.fruitLayerMask);
+            ServiceLocator.ForSceneOf(this).Register(this._boosterControllerTask);
         }
 
         private void InitializeFruitDeadline()
@@ -74,6 +78,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             var scoreProgressionDataController =
                 this._mainDataManager.GetDynamicDataController<GameScoreProgressionDataController>();
             this._scoreCalculationService = new ScoreCalculationService(scoreProgressionDataController);
+            ServiceLocator.ForSceneOf(this).Register(this._scoreCalculationService);
         }
 
         private void InitializeCameraVibrateTask()
