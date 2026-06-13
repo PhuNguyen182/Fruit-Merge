@@ -1,5 +1,7 @@
 using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine;
+using _FruitMerge.Scripts.Gameplay.GameTask;
+using _FruitMerge.Scripts.Input;
 using DracoRuan.Foundation.DataFlow.MasterDataController;
 using ServiceLocators.Core;
 using UnityEngine;
@@ -12,9 +14,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         [SerializeField] private FruitDragController fruitDragController;
         [SerializeField] private FruitDeadline fruitDeadline;
 
+        private InputController _inputController;
         private GameStateController _gameStateController;
         private MessageBrokerManager _messageBrokerManager;
         private ScoreCalculationService _scoreCalculationService;
+        private BoosterControllerTask _boosterControllerTask;
         private IMainDataManager _mainDataManager;
 
         public void InitializeGame()
@@ -28,6 +32,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void Initialize()
         {
             this._mainDataManager = ServiceLocator.Global.Get<MainDataManager>();
+            this._inputController = ServiceLocator.Global.Get<InputController>();
+            
             this.InitializeMessageBroker();
             this.InitializeGameStateMachine();
             this.InitializeFruitMergeGame();
@@ -48,8 +54,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void InitializeFruitMergeGame()
         {
             this.fruitSpawner.InitializeFruitSpawner();
-            this.fruitDragController.InitializeFruitDragController();
-             this.InitializeFruitDeadline();
+            this.fruitDragController.InitializeFruitDragController(this._inputController);
+            this.InitializeFruitDeadline();
+            this._boosterControllerTask = new BoosterControllerTask(this._inputController);
         }
 
         private void InitializeFruitDeadline()

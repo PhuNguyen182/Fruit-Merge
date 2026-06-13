@@ -21,6 +21,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void AddMessageBrokers()
         {
             this._builder.AddMessageBroker<AddFruitScoreMessage>();
+            this._builder.AddMessageBroker<FruitBoosterReadyMessage>();
+            this._builder.AddMessageBroker<CameraVibrateMessage>();
             this._builder.AddMessageBroker<FruitDeadlineCollideMessage>();
             this._builder.AddMessageBroker<FruitReleaseMessage>();
             this._builder.AddMessageBroker<FruitSpawnMessage>();

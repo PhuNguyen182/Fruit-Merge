@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3f0c8dc345d35418973d89a2bc1f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.SceneInitializers.GameplayScene.GameplaySceneInitializer
+  cameraShakeController: {fileID: 0}
+  popupCollection: {fileID: 11400000, guid: 7583fee1e5604fc42a70ea96b5ca1686, type: 2}
+  canvasManager: {fileID: 0}

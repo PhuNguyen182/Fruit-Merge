@@ -33,9 +33,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             UpdateServiceManager.RegisterUpdateHandler(this);
         }
 
-        public void InitializeFruitDragController()
+        public void InitializeFruitDragController(InputController inputController)
         {
-            this._inputController = ServiceLocator.Global.Get<InputController>();
+            this._inputController = inputController;
             this.dragTarget.position = this.center.position;
         }
 

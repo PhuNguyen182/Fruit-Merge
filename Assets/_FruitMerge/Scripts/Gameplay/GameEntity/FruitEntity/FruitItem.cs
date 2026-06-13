@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
@@ -28,11 +29,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
 
+        private ISubscriber<FruitBoosterReadyMessage> _fruitBoosterReadySubscriber;
         private IPublisher<FruitDeadlineCollideMessage> _fruitDeadlineCollideMessagePublisher;
         private IPublisher<FruitReleaseMessage> _fruitReleasePublisher;
         private IPublisher<AddFruitScoreMessage> _addFruitScorePublisher;
         private IPublisher<FruitSpawnMessage> _fruitSpawnPublisher;
 
+        private IDisposable _disposable;
         private ParticleSystem _fruitEffect;
         private FruitItemFactory _fruitItemFactory;
         private CancellationToken _cancellationToken;
@@ -60,6 +63,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void InitializePublishers()
         {
+            var builder = DisposableBag.CreateBuilder();
+            this._fruitBoosterReadySubscriber = GlobalMessagePipe.GetSubscriber<FruitBoosterReadyMessage>();
+            this._fruitBoosterReadySubscriber.Subscribe(OnFruitBoosterReadyMessageReceived).AddTo(builder);
+            this._disposable = builder.Build();
+            
             this._fruitDeadlineCollideMessagePublisher = GlobalMessagePipe.GetPublisher<FruitDeadlineCollideMessage>();
             this._fruitReleasePublisher = GlobalMessagePipe.GetPublisher<FruitReleaseMessage>();
             this._addFruitScorePublisher = GlobalMessagePipe.GetPublisher<AddFruitScoreMessage>();
@@ -71,6 +79,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             Vector2 circleUnit = Random.insideUnitCircle.normalized;
             float centerTolerance = Random.Range(this.minCenterTolerance, this.maxCenterTolerance);
             this.fruitBody.centerOfMass = circleUnit * centerTolerance;
+        }
+
+        private void OnFruitBoosterReadyMessageReceived(FruitBoosterReadyMessage message)
+        {
+            this.SetTintedFruitEnable(message.BoosterReady);
         }
 
         public void Tick(float deltaTime)
@@ -283,7 +296,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.ReleaseFruit(this);
         }
 
-        public void SetTintedFruitEnable(bool enable)
+        private void SetTintedFruitEnable(bool enable)
         {
             this.fruitTint.gameObject.SetActive(enable);
         }
@@ -296,6 +309,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.ApplyFruitConfig(this.defaultFruitConfig);
             this.SetDropRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);
+        }
+
+        private void OnDestroy()
+        {
+            this._disposable?.Dispose();
         }
     }
 }
