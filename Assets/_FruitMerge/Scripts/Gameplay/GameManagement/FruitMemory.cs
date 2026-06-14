@@ -7,6 +7,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     public class FruitMemory
     {
         private readonly Dictionary<int, FruitItem> _fruitItemMemory = new();
+        
+        public bool HasAnyFruit => this._fruitItemMemory.Count > 0;
 
         public void AddFruit(FruitItem fruitItem)
         {

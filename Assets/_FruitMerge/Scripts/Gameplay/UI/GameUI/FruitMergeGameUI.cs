@@ -19,12 +19,11 @@ namespace _FruitMerge.Scripts.Gameplay.UI.GameUI
         
         private void Awake()
         {
-            this.RegisterServices();
+            ServiceLocator.ForSceneOf(this).Register(this);
         }
 
-        private void RegisterServices()
+        public void RegisterServices()
         {
-            ServiceLocator.ForSceneOf(this).Register(this);
             this._boosterControllerTask = ServiceLocator.ForSceneOf(this).Get<BoosterControllerTask>();
             this._scoreCalculationService = ServiceLocator.ForSceneOf(this).Get<ScoreCalculationService>();
             this._scoreCalculationService.OnFruitScoreUpdated += this.UpdateScore;
@@ -43,7 +42,7 @@ namespace _FruitMerge.Scripts.Gameplay.UI.GameUI
             this._boosterControllerTask.HammerBoosterTask.ShowFruitBoosterOutline(true);
         }
 
-        public void UpdateNExtFruitIcon(Sprite fruitSprite)
+        public void UpdateNextFruitIcon(Sprite fruitSprite)
         {
             this.nextFruitIcon.sprite = fruitSprite;
         }

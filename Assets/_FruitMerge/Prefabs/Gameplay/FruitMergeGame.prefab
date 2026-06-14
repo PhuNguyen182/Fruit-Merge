@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameManagement.FruitDragController
   fruitSpawnDelay: 1
-  fruitDragSpeed: 2
+  fruitDragSpeed: 1
   minFruitDragOffset: 1
   leftEdge: {fileID: 2764644373694503630}
   rightEdge: {fileID: 864383689155527289}

@@ -1,3 +1,4 @@
+using _FruitMerge.Scripts.Input;
 using DracoRuan.Foundation.UISystem.Canvases;
 using DracoRuan.Foundation.UISystem.Popups.PopupManager;
 using ServiceLocators.Core;
@@ -10,6 +11,7 @@ namespace _FruitMerge.Scripts.SceneInitializers.HomeScene
         [SerializeField] private UICanvasManager canvasManager;
         [SerializeField] private PopupCollection popupCollection;
         
+        private InputController _inputController;
         private IUIPopupManager _popupManager;
         
         public IUICanvasManager CanvasManager => this.canvasManager;
@@ -23,7 +25,9 @@ namespace _FruitMerge.Scripts.SceneInitializers.HomeScene
         private void Initialize()
         {
             ServiceLocator.ForSceneOf(this).Register(this);
+            this._inputController = ServiceLocator.Global.Get<InputController>();
             this._popupManager = new UIPopupManager(this.popupCollection);
+            this._inputController.ForceUpdateCameraToCurrentScene();
         }
     }
 }

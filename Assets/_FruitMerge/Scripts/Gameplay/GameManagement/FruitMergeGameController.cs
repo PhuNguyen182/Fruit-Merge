@@ -2,6 +2,7 @@ using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine;
 using _FruitMerge.Scripts.Gameplay.GameTask;
 using _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks;
+using _FruitMerge.Scripts.Gameplay.UI.GameUI;
 using _FruitMerge.Scripts.Input;
 using _FruitMerge.Scripts.SceneInitializers.GameplayScene;
 using DracoRuan.Foundation.DataFlow.MasterDataController;
@@ -18,6 +19,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         [SerializeField] private FruitDragController fruitDragController;
         [SerializeField] private FruitDeadline fruitDeadline;
 
+        private FruitMergeGameUI _gameUI;
         private InputController _inputController;
         private CameraVibrateTask _cameraVibrateTask;
         private GameStateController _gameStateController;
@@ -38,12 +40,20 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this._mainDataManager = ServiceLocator.Global.Get<MainDataManager>();
             this._inputController = ServiceLocator.Global.Get<InputController>();
+            this._inputController.ForceUpdateCameraToCurrentScene();
             
             this.InitializeMessageBroker();
             this.InitializeGameStateMachine();
             this.InitializeFruitMergeGame();
             this.InitializeGameScoreCalculator();
             this.InitializeCameraVibrateTask();
+            this.InitializeGameUI();
+        }
+
+        private void InitializeGameUI()
+        {
+            this._gameUI = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameUI>();
+            this._gameUI.RegisterServices();
         }
 
         private void InitializeGameStateMachine()
@@ -62,8 +72,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.fruitSpawner.InitializeFruitSpawner();
             this.fruitDragController.InitializeFruitDragController(this._inputController);
             this.InitializeFruitDeadline();
-            this._boosterControllerTask =
-                new BoosterControllerTask(this._inputController, this.hammerPrefab, this.fruitLayerMask);
+            this._boosterControllerTask = new BoosterControllerTask(this._inputController, this.hammerPrefab,
+                this.fruitLayerMask, this.fruitSpawner.FruitMemory);
             ServiceLocator.ForSceneOf(this).Register(this._boosterControllerTask);
         }
 

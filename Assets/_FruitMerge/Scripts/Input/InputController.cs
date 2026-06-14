@@ -12,7 +12,7 @@ namespace _FruitMerge.Scripts.Input
         [SerializeField] private Camera inputCamera;
 
         private readonly List<RaycastResult> _results = new();
-        private GameInputSystem _solitaireInputPlayer;
+        private GameInputSystem _inputPlayer;
         private PointerEventData _eventDataCurrentPosition;
         private Vector2 _lastWorldPointerPosition;
 
@@ -32,7 +32,7 @@ namespace _FruitMerge.Scripts.Input
 
         private void Awake()
         {
-            this._solitaireInputPlayer = new GameInputSystem();
+            this._inputPlayer = new GameInputSystem();
             this.SetupCameraForInput();
             this.RegisterInputActions();
         }
@@ -48,23 +48,23 @@ namespace _FruitMerge.Scripts.Input
 
         private void RegisterInputMovement()
         {
-            this._solitaireInputPlayer.Player.Position.started += this.UpdatePointerPosition;
-            this._solitaireInputPlayer.Player.Position.performed += this.UpdatePointerPosition;
-            this._solitaireInputPlayer.Player.Position.canceled += this.UpdatePointerPosition;
+            this._inputPlayer.Player.Position.started += this.UpdatePointerPosition;
+            this._inputPlayer.Player.Position.performed += this.UpdatePointerPosition;
+            this._inputPlayer.Player.Position.canceled += this.UpdatePointerPosition;
         }
 
         private void RegisterInputClick()
         {
-            this._solitaireInputPlayer.Player.Press.started += this.UpdatePointerClicked;
-            this._solitaireInputPlayer.Player.Press.performed += this.UpdatePointerClicked;
-            this._solitaireInputPlayer.Player.Press.canceled += this.UpdatePointerClicked;
+            this._inputPlayer.Player.Press.started += this.UpdatePointerClicked;
+            this._inputPlayer.Player.Press.performed += this.UpdatePointerClicked;
+            this._inputPlayer.Player.Press.canceled += this.UpdatePointerClicked;
         }
 
         private void RegisterInputPointerDelta()
         {
-            this._solitaireInputPlayer.Player.Delta.started += this.UpdatePointerDelta;
-            this._solitaireInputPlayer.Player.Delta.performed += this.UpdatePointerDelta;
-            this._solitaireInputPlayer.Player.Delta.canceled += this.UpdatePointerDelta;
+            this._inputPlayer.Player.Delta.started += this.UpdatePointerDelta;
+            this._inputPlayer.Player.Delta.performed += this.UpdatePointerDelta;
+            this._inputPlayer.Player.Delta.canceled += this.UpdatePointerDelta;
         }
 
         private void UnregisterInputActions()
@@ -80,23 +80,23 @@ namespace _FruitMerge.Scripts.Input
 
         private void UnregisterInputMovement()
         {
-            this._solitaireInputPlayer.Player.Position.started -= this.UpdatePointerPosition;
-            this._solitaireInputPlayer.Player.Position.performed -= this.UpdatePointerPosition;
-            this._solitaireInputPlayer.Player.Position.canceled -= this.UpdatePointerPosition;
+            this._inputPlayer.Player.Position.started -= this.UpdatePointerPosition;
+            this._inputPlayer.Player.Position.performed -= this.UpdatePointerPosition;
+            this._inputPlayer.Player.Position.canceled -= this.UpdatePointerPosition;
         }
 
         private void UnregisterInputClick()
         {
-            this._solitaireInputPlayer.Player.Press.started -= this.UpdatePointerClicked;
-            this._solitaireInputPlayer.Player.Press.performed -= this.UpdatePointerClicked;
-            this._solitaireInputPlayer.Player.Press.canceled -= this.UpdatePointerClicked;
+            this._inputPlayer.Player.Press.started -= this.UpdatePointerClicked;
+            this._inputPlayer.Player.Press.performed -= this.UpdatePointerClicked;
+            this._inputPlayer.Player.Press.canceled -= this.UpdatePointerClicked;
         }
 
         private void UnregisterInputPointerDelta()
         {
-            this._solitaireInputPlayer.Player.Delta.started -= this.UpdatePointerDelta;
-            this._solitaireInputPlayer.Player.Delta.performed -= this.UpdatePointerDelta;
-            this._solitaireInputPlayer.Player.Delta.canceled -= this.UpdatePointerDelta;
+            this._inputPlayer.Player.Delta.started -= this.UpdatePointerDelta;
+            this._inputPlayer.Player.Delta.performed -= this.UpdatePointerDelta;
+            this._inputPlayer.Player.Delta.canceled -= this.UpdatePointerDelta;
         }
 
         #endregion
@@ -153,7 +153,7 @@ namespace _FruitMerge.Scripts.Input
 
         private void OnEnable()
         {
-            this._solitaireInputPlayer.Enable();
+            this._inputPlayer.Enable();
             EnhancedTouchSupport.Enable();
         }
 
@@ -182,14 +182,14 @@ namespace _FruitMerge.Scripts.Input
 
         private void UpdatePointerDownState()
         {
-            this.IsPointerDown = this.IsInputActive && this._solitaireInputPlayer.Player.Press.WasPressedThisFrame();
+            this.IsPointerDown = this.IsInputActive && this._inputPlayer.Player.Press.WasPressedThisFrame();
             if (this.IsPointerDown)
                 this.OnPointerDown?.Invoke();
         }
 
         private void UpdatePointerUpState()
         {
-            this.IsPointerUp = this.IsInputActive && this._solitaireInputPlayer.Player.Press.WasReleasedThisFrame();
+            this.IsPointerUp = this.IsInputActive && this._inputPlayer.Player.Press.WasReleasedThisFrame();
             if (this.IsPointerUp)
                 this.OnPointerUp?.Invoke();
         }
@@ -200,16 +200,21 @@ namespace _FruitMerge.Scripts.Input
                 this.inputCamera = Camera.main;
         }
 
+        public void ForceUpdateCameraToCurrentScene()
+        {
+            this.inputCamera = Camera.main;
+        }
+
         private void OnDisable()
         {
-            this._solitaireInputPlayer.Disable();
+            this._inputPlayer.Disable();
             EnhancedTouchSupport.Disable();
         }
 
         private void OnDestroy()
         {
             this.UnregisterInputActions();
-            this._solitaireInputPlayer.Dispose();
+            this._inputPlayer.Dispose();
         }
     }
 }

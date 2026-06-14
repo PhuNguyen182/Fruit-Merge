@@ -79,7 +79,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             Vector3 fruitDragPosition = new Vector3(movingHorizontal, movingVertical);
             this.dragTarget.position = fruitDragPosition;
             this._currentDraggingFruitItem.transform.position = this.dragTarget.position;
-            this._currentDraggingFruitItem.SetDropRayEnable(true);
+            this._currentDraggingFruitItem.SetDropRayEnable(this._inputController.IsInputActive);
         }
 
         private void TryDropFruit()

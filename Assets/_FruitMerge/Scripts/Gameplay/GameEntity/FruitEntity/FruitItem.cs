@@ -21,13 +21,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
 
-        [Header("Fruit Physics")] [SerializeField]
-        private Rigidbody2D fruitBody;
-
+        [Header("Fruit Physics")] 
+        [SerializeField] private Rigidbody2D fruitBody;
         [SerializeField] private CircleCollider2D fruitCollider;
         [SerializeField] private FruitConfig defaultFruitConfig;
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
+        [SerializeField] private float upForce = 1f;
 
         private ISubscriber<FruitBoosterReadyMessage> _fruitBoosterReadySubscriber;
         private IPublisher<FruitDeadlineCollideMessage> _fruitDeadlineCollideMessagePublisher;
@@ -65,7 +65,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             var builder = DisposableBag.CreateBuilder();
             this._fruitBoosterReadySubscriber = GlobalMessagePipe.GetSubscriber<FruitBoosterReadyMessage>();
-            this._fruitBoosterReadySubscriber.Subscribe(OnFruitBoosterReadyMessageReceived).AddTo(builder);
+            this._fruitBoosterReadySubscriber.Subscribe(this.OnFruitBoosterReadyMessageReceived).AddTo(builder);
             this._disposable = builder.Build();
             
             this._fruitDeadlineCollideMessagePublisher = GlobalMessagePipe.GetPublisher<FruitDeadlineCollideMessage>();
@@ -83,7 +83,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnFruitBoosterReadyMessageReceived(FruitBoosterReadyMessage message)
         {
-            this.SetTintedFruitEnable(message.BoosterReady);
+            if (this._isDropped)
+                this.SetTintedFruitEnable(message.BoosterReady);
         }
 
         public void Tick(float deltaTime)
@@ -130,6 +131,14 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             Debug.Log($"[{LogTag}] Center of mass starting reset!");
             this._hasResetCenterOfMass = true;
             this.fruitBody.centerOfMass = this.fruitCollider.offset;
+        }
+
+        private void JumpABit()
+        {
+            float x = Random.value;
+            float y = Random.value;
+            Vector2 jumpDirection = new Vector2(x, y);
+            this.fruitBody.AddForce(jumpDirection.normalized * this.upForce);
         }
 
         #region Check Fruit Execution
@@ -183,6 +192,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.AddScore(upgradedFruit);
             upgradedFruit.TryResetCenterOfMass();
             upgradedFruit.Drop();
+            upgradedFruit.JumpABit();
 
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
             this.ReleaseFruit(this);
@@ -261,6 +271,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             RigidbodyType2D bodyType = isActive ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
             this.fruitBody.bodyType = bodyType;
+        }
+
+        public void StopFruitPhysics()
+        {
+            this.fruitBody.linearVelocity = Vector2.zero;
         }
 
         public void SetFruitColliderActive(bool isActive) => this.fruitCollider.enabled = isActive;

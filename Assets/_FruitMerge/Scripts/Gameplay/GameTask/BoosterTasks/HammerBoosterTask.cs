@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
+using _FruitMerge.Scripts.Gameplay.GameManagement;
 using _FruitMerge.Scripts.Input;
 using Cysharp.Threading.Tasks;
 using MessagePipe;
@@ -20,12 +21,15 @@ namespace _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks
         private readonly IPublisher<FruitBoosterReadyMessage> _fruitBoosterReadyPublisher;
         private readonly CancellationToken _cancellationToken;
         private readonly CancellationTokenSource _cancellationTokenSource;
+        private readonly FruitMemory _fruitMemory;
         
         private FruitItem _pickedFruitItem;
         private bool _boosterAvailable;
 
-        public HammerBoosterTask(InputController inputController, GameObject hammerBoosterPrefab, LayerMask fruitLayerMask)
+        public HammerBoosterTask(InputController inputController, GameObject hammerBoosterPrefab,
+            LayerMask fruitLayerMask, FruitMemory fruitMemory)
         {
+            this._fruitMemory = fruitMemory;
             this._fruitLayerMask = fruitLayerMask;
             this._inputController = inputController;
             this._hammerBoosterPrefab = hammerBoosterPrefab;
@@ -43,7 +47,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks
                 return;
 
             Vector3 pointerPosition = this._inputController.WorldPointerPosition;
-            Collider2D fruitCollider = Physics2D.OverlapPoint(pointerPosition, this._fruitLayerMask);
+            Collider2D fruitCollider = Physics2D.OverlapCircle(pointerPosition, 0.1f, this._fruitLayerMask);
             if (fruitCollider && fruitCollider.TryGetComponent(out FruitItem fruitItem))
             {
                 this.PickFruitItem(fruitItem);
@@ -57,10 +61,19 @@ namespace _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks
             this.SetBoosterAvailable(false);
         }
         
-        public void SetBoosterAvailable(bool isAvailable) => this._boosterAvailable = isAvailable;
+        public void SetBoosterAvailable(bool isAvailable)
+        {
+            if (!this._fruitMemory.HasAnyFruit)
+                return;
+            
+            this._boosterAvailable = isAvailable;
+        }
 
         public void ShowFruitBoosterOutline(bool boosterOutlineEnabled)
         {
+            if (!this._fruitMemory.HasAnyFruit)
+                return;
+            
             this._fruitBoosterReadyPublisher.Publish(new FruitBoosterReadyMessage
             {
                 BoosterReady = boosterOutlineEnabled
@@ -82,11 +95,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks
             
             this._inputController.IsInputActive = false;
             this.ShowFruitBoosterOutline(false);
-            await UniTask.Delay(TimeSpan.FromSeconds(1.05f), cancellationToken: this._cancellationToken);
             Transform fruitParent = this._pickedFruitItem.transform.parent;
             GameObjectPoolManager.SpawnInstance(this._hammerBoosterPrefab, 
                 this._pickedFruitItem.transform.position, Quaternion.identity, fruitParent);
             
+            this._pickedFruitItem.StopFruitPhysics();
+            await UniTask.Delay(TimeSpan.FromSeconds(1.05f), cancellationToken: this._cancellationToken);
             this._pickedFruitItem.ForceBreakFruit();
             this._cameraVibratePublisher.Publish(new CameraVibrateMessage
             {
@@ -97,6 +111,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks
             });
             
             this._pickedFruitItem = null;
+            await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this._cancellationToken);
             this._inputController.IsInputActive = true;
         }
 
