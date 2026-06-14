@@ -146,7 +146,7 @@ public partial class @GameInputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e6e7abe8-f96e-4365-bdda-7e3c35839ea4"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -179,7 +179,7 @@ public partial class @GameInputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b6b8722a-9354-4ddc-b6e8-1559b60f928a"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
@@ -212,7 +212,7 @@ public partial class @GameInputSystem: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e42874e5-be1f-4cbc-b0a1-59c7d29d3886"",
-                    ""path"": ""<Touchscreen>/primaryTouch/delta"",
+                    ""path"": ""<Touchscreen>/touch0/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

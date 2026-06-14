@@ -184,7 +184,10 @@ namespace _FruitMerge.Scripts.Input
         {
             this.IsPointerDown = this.IsInputActive && this._inputPlayer.Player.Press.WasPressedThisFrame();
             if (this.IsPointerDown)
+            {
+                this.CalculatePointerVelocity();
                 this.OnPointerDown?.Invoke();
+            }
         }
 
         private void UpdatePointerUpState()
