@@ -98,7 +98,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.038, y: 0.062}
-  m_Radius: 0.3637342
+  m_Radius: 0.3637
 --- !u!114 &4437632143570638339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
   minCenterTolerance: 0.01
   maxCenterTolerance: 0.03
-  fruitSafeDistance: 0.5
+  fruitSafeDistance: 0.3637
   upForce: 0.5
 --- !u!1 &715597874872727825
 GameObject:

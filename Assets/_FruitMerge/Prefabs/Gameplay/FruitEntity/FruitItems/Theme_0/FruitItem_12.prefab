@@ -124,7 +124,7 @@ MonoBehaviour:
   defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
   minCenterTolerance: 0.01
   maxCenterTolerance: 0.03
-  fruitSafeDistance: 0.5
+  fruitSafeDistance: 2.316
   upForce: 0.5
 --- !u!1 &715597874872727825
 GameObject:
@@ -354,7 +354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3875b0bd962adff4b9ed6cdead9f246d, type: 2}
+  - {fileID: 2100000, guid: 8973c0e836e9df74395a3e6548c28bfd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: spine-unity::Spine.Unity.SkeletonAnimation
-  skeletonDataAsset: {fileID: 11400000, guid: 9c5955a0c62de2444a23e537898fef16, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: c7618ab50b3aea141bee81e81ea9257f, type: 2}
   initialSkinName: 12
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0

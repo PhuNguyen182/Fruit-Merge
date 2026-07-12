@@ -125,7 +125,7 @@ MonoBehaviour:
   defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
   minCenterTolerance: 0.01
   maxCenterTolerance: 0.03
-  fruitSafeDistance: 0.5
+  fruitSafeDistance: 0.605
   upForce: 0.5
 --- !u!60 &4084739989060384548
 PolygonCollider2D:
