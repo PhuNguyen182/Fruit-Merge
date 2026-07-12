@@ -18,8 +18,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         [SerializeField] private FruitDropRay fruitDropRay;
         [SerializeField] private SkeletonAnimation fruitSkeletonRenderer;
-        [SerializeField] private SpriteRenderer fruitRenderer;
-        [SerializeField] private SpriteRenderer fruitTint;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
 
@@ -29,6 +27,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private FruitConfig defaultFruitConfig;
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
+        [SerializeField] private float fruitSafeDistance = 0.5f;
         [SerializeField] private float upForce = 1f;
 
         private ISubscriber<FruitBoosterReadyMessage> _fruitBoosterReadySubscriber;
@@ -258,11 +257,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this.FruitID = fruitConfig.fruitId;
             this.FruitScore = fruitConfig.fruitScore;
-            this.fruitRenderer.sprite = fruitConfig.fruitIcon;
-            this.fruitTint.sprite = fruitConfig.fruitIcon;
             this.fruitBody.mass = fruitConfig.fruitMass;
-            this.fruitCollider.radius = fruitConfig.colliderRadius;
-            this.fruitCollider.offset = fruitConfig.colliderOffset;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
             this._fruitEffect = fruitConfig.fruitParticles;
         }
@@ -315,7 +310,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void SetTintedFruitEnable(bool enable)
         {
-            this.fruitTint.gameObject.SetActive(enable);
+            // TODO: Play another animation
         }
 
         private void OnDisable()

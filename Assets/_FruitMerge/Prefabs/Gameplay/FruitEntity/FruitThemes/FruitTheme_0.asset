@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf0f3184945e8740a73946f35df30c4, type: 3}
+  m_Name: FruitTheme_0
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme.FruitThemeConfig
+  themeName: theme_0
+  fruitItems:
+  - fruitId: 1
+    fruitPrefab: {fileID: 4437632143570638339, guid: 0a075faf79dac844cb87728ce2e2667c, type: 3}
+  - fruitId: 2
+    fruitPrefab: {fileID: 4437632143570638339, guid: c026df88f9d193c46bd6cfcc74ae4976, type: 3}
+  - fruitId: 3
+    fruitPrefab: {fileID: 4437632143570638339, guid: a388c611d955de24ba94e95957414dd6, type: 3}
+  - fruitId: 4
+    fruitPrefab: {fileID: 4437632143570638339, guid: e2f87440309500142ba982d08e1eb390, type: 3}
+  - fruitId: 5
+    fruitPrefab: {fileID: 4437632143570638339, guid: 8c1061c2c69247e458853842e7a3f8f1, type: 3}
+  - fruitId: 6
+    fruitPrefab: {fileID: 4437632143570638339, guid: b54f4be6a2e9fb34a823f9f3fe938ae5, type: 3}
+  - fruitId: 7
+    fruitPrefab: {fileID: 4437632143570638339, guid: d639225c410be154d9fa4a66364e45f7, type: 3}
+  - fruitId: 8
+    fruitPrefab: {fileID: 4437632143570638339, guid: a07529153432e604289607ef09189abb, type: 3}
+  - fruitId: 9
+    fruitPrefab: {fileID: 4437632143570638339, guid: 6e1e38cb4455d7d4498dd98a4f499975, type: 3}
+  - fruitId: 10
+    fruitPrefab: {fileID: 4437632143570638339, guid: 9f3564acb5a68194b9676089c1075abb, type: 3}
+  - fruitId: 11
+    fruitPrefab: {fileID: 4437632143570638339, guid: 0d7a8a2dce0be3e4684bbc689923d8da, type: 3}
+  - fruitId: 12
+    fruitPrefab: {fileID: 4437632143570638339, guid: b65955923f3f63848ad26bdbc0a1170e, type: 3}
+  fruitProgressIcons:
+  - fruitId: 1
+    lockIcon: {fileID: 21300000, guid: 63a66d6cccad69b46ae20129cf92997e, type: 3}
+    openIcon: {fileID: 21300000, guid: 5fc80e81dfadcf848b54251a87c2547f, type: 3}
+  - fruitId: 2
+    lockIcon: {fileID: 21300000, guid: 1df9497233a64164e86d5168280b0531, type: 3}
+    openIcon: {fileID: 21300000, guid: a20fe4a763adf0b4fb075c0c64ab0632, type: 3}
+  - fruitId: 3
+    lockIcon: {fileID: 21300000, guid: 0c24af688a71b094397bc58077473837, type: 3}
+    openIcon: {fileID: 21300000, guid: a5d5b10937697db41b3f7a991c9794bc, type: 3}
+  - fruitId: 4
+    lockIcon: {fileID: 21300000, guid: 364ccc48b52f04b48bf64a529e9f8215, type: 3}
+    openIcon: {fileID: 21300000, guid: a34dcdd6e4ffe4644b22578a2497bf81, type: 3}
+  - fruitId: 5
+    lockIcon: {fileID: 21300000, guid: f522a3af2578980408582dabf1244240, type: 3}
+    openIcon: {fileID: 21300000, guid: 84a6cd4426d448c40b6bf9ee57afb356, type: 3}
+  - fruitId: 6
+    lockIcon: {fileID: 21300000, guid: 8b198c872b177034681fd89001967e69, type: 3}
+    openIcon: {fileID: 21300000, guid: 044db647e1c3e8e46897deecffee1664, type: 3}
+  - fruitId: 7
+    lockIcon: {fileID: 21300000, guid: 6bb35a6cbffacb44b8f7532244afafec, type: 3}
+    openIcon: {fileID: 21300000, guid: dd401cc091ec6a94f97b385d54286d58, type: 3}
+  - fruitId: 8
+    lockIcon: {fileID: 21300000, guid: 1d1d842364a80ae4d92cbfd73f2a19ea, type: 3}
+    openIcon: {fileID: 21300000, guid: 53ea94f16e2a9104d8aac55a60062b63, type: 3}
+  - fruitId: 9
+    lockIcon: {fileID: 21300000, guid: 13a13acdca9f2ff498185d09bb632451, type: 3}
+    openIcon: {fileID: 21300000, guid: 179bfb2a5f5d68146842d5493d53c3bc, type: 3}
+  - fruitId: 10
+    lockIcon: {fileID: 21300000, guid: f562fbd59e458304eb75dae9727c78bc, type: 3}
+    openIcon: {fileID: 21300000, guid: 1d7aa56400eeb9a4195482b1be7caa08, type: 3}
+  - fruitId: 11
+    lockIcon: {fileID: 21300000, guid: 5cf25d2e92277a64dbe53a3d79f93c96, type: 3}
+    openIcon: {fileID: 21300000, guid: 5f7f41a970a72054887db3a5d8b377a3, type: 3}
+  - fruitId: 12
+    lockIcon: {fileID: 21300000, guid: 0d232a61b70af8a499c74de1dc3619bc, type: 3}
+    openIcon: {fileID: 21300000, guid: d2748829a64b8d146aa50142fdc7d331, type: 3}

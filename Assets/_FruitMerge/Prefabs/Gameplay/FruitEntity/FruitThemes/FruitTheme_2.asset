@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf0f3184945e8740a73946f35df30c4, type: 3}
+  m_Name: FruitTheme_2
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme.FruitThemeConfig
+  themeName: theme_2
+  fruitItems:
+  - fruitId: 1
+    fruitPrefab: {fileID: 4437632143570638339, guid: 91c683be734c7c14fa37e198da0b9b56, type: 3}
+  - fruitId: 2
+    fruitPrefab: {fileID: 4437632143570638339, guid: cc919c09a62a2b244b06ce940dd619bc, type: 3}
+  - fruitId: 3
+    fruitPrefab: {fileID: 4437632143570638339, guid: 8f8cd3c939b10304c98b74a6ff043f7f, type: 3}
+  - fruitId: 4
+    fruitPrefab: {fileID: 4437632143570638339, guid: 058ef722dbadd40459ab7a67fdf02c8c, type: 3}
+  - fruitId: 5
+    fruitPrefab: {fileID: 4437632143570638339, guid: 7f996e626b7a9fd43b7af3cd1371820a, type: 3}
+  - fruitId: 6
+    fruitPrefab: {fileID: 4437632143570638339, guid: 4f16ef0afd1fb7847ad3ef51fdb3dae1, type: 3}
+  - fruitId: 7
+    fruitPrefab: {fileID: 4437632143570638339, guid: 11a95fcc83c1f244c9fba6c3e9b683f4, type: 3}
+  - fruitId: 8
+    fruitPrefab: {fileID: 4437632143570638339, guid: 723b34b1b0325f344ad4dd6afbd1401c, type: 3}
+  - fruitId: 9
+    fruitPrefab: {fileID: 4437632143570638339, guid: d30da8c677ea8e6408306b081509a3a2, type: 3}
+  - fruitId: 10
+    fruitPrefab: {fileID: 4437632143570638339, guid: 2e23c3e040bee824d94924b0bd665644, type: 3}
+  - fruitId: 11
+    fruitPrefab: {fileID: 4437632143570638339, guid: 3e4be1f1a98112e41ac35fc85cd3bb93, type: 3}
+  - fruitId: 12
+    fruitPrefab: {fileID: 4437632143570638339, guid: bff3991cf86d2ee43bb6d2f68c86078e, type: 3}
+  fruitProgressIcons:
+  - fruitId: 1
+    lockIcon: {fileID: 21300000, guid: 6ab98211ac5f17e46933c63fe3f20ecc, type: 3}
+    openIcon: {fileID: 21300000, guid: a40ddeb572330cd47a4c4123f2ef094a, type: 3}
+  - fruitId: 2
+    lockIcon: {fileID: 21300000, guid: bffe96703b835f34aa167070f4ea5ac4, type: 3}
+    openIcon: {fileID: 21300000, guid: 1b26231ab3ffeea4191c8ef04834a6e4, type: 3}
+  - fruitId: 3
+    lockIcon: {fileID: 21300000, guid: 0c529ea26b98e5b44b0717d88c7b4c9e, type: 3}
+    openIcon: {fileID: 21300000, guid: cf5f3846f1d7ca8439391879f586263a, type: 3}
+  - fruitId: 4
+    lockIcon: {fileID: 21300000, guid: c1f61cd6c6b76c841b55332fa07d7de9, type: 3}
+    openIcon: {fileID: 21300000, guid: 1d8d09ef5187f864aa39c6b76413bf5c, type: 3}
+  - fruitId: 5
+    lockIcon: {fileID: 21300000, guid: bd3bdcfb919daf240bb52db16f4406cc, type: 3}
+    openIcon: {fileID: 21300000, guid: 5d6930e1952e7554ba253489b65d7f9f, type: 3}
+  - fruitId: 6
+    lockIcon: {fileID: 21300000, guid: 200c1cdd9ffbef24ea623ef0557e89b7, type: 3}
+    openIcon: {fileID: 21300000, guid: 1d0ab6fbeec0c1243844bdc02cb3bbde, type: 3}
+  - fruitId: 7
+    lockIcon: {fileID: 21300000, guid: b802caf0590c9734db3a9c8b9d442784, type: 3}
+    openIcon: {fileID: 21300000, guid: 47cbfcc54d70a0c4981a841c443dcf10, type: 3}
+  - fruitId: 8
+    lockIcon: {fileID: 21300000, guid: 88e0f3c691113784d9c240f6a7aec37e, type: 3}
+    openIcon: {fileID: 21300000, guid: db8464cbfe74a434897ba89d35602771, type: 3}
+  - fruitId: 9
+    lockIcon: {fileID: 21300000, guid: a436cf803cb2f044bba25494ecab501e, type: 3}
+    openIcon: {fileID: 21300000, guid: 8bf9f6a0d55892644981eb8844e9cb06, type: 3}
+  - fruitId: 10
+    lockIcon: {fileID: 21300000, guid: 5177aec1df648a340934f7cc68a65f58, type: 3}
+    openIcon: {fileID: 21300000, guid: d1d01b59daac17f409fec569bc8f9eb0, type: 3}
+  - fruitId: 11
+    lockIcon: {fileID: 21300000, guid: ae75d85edf0833e4ab4e05a1fce24c44, type: 3}
+    openIcon: {fileID: 21300000, guid: 69f790af92040aa4b855c57cdf0c66ab, type: 3}
+  - fruitId: 12
+    lockIcon: {fileID: 21300000, guid: 166038079e18c894c88b1b797fd8b97f, type: 3}
+    openIcon: {fileID: 21300000, guid: b44def05202ea9b40b9f14342aa7892b, type: 3}
