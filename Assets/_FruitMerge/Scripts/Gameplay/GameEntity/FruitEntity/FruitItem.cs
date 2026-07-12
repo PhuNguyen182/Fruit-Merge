@@ -23,7 +23,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         [Header("Fruit Physics")] 
         [SerializeField] private Rigidbody2D fruitBody;
-        [SerializeField] private CircleCollider2D fruitCollider;
+        [SerializeField] private Collider2D fruitCollider;
         [SerializeField] private FruitConfig defaultFruitConfig;
         [SerializeField] private float minCenterTolerance;
         [SerializeField] private float maxCenterTolerance;
@@ -288,8 +288,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         public float GetSafeDistanceBetweenCenterToTankEdge()
         {
-            float radius = this.fruitCollider.radius;
-            return radius;
+            return this.fruitSafeDistance;
         }
 
         public void SetDropRayEnable(bool enable)

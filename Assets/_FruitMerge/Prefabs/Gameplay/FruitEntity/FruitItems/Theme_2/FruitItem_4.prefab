@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5084886357353298883}
   - component: {fileID: 2254401809936308333}
-  - component: {fileID: 4158884226852072509}
   - component: {fileID: 4437632143570638339}
   - component: {fileID: 8756839631677523190}
   m_Layer: 6
@@ -64,42 +63,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4158884226852072509
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327879105440124161}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.037, y: 0.033}
-  m_Radius: 0.57
 --- !u!114 &4437632143570638339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +84,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   fruitBody: {fileID: 2254401809936308333}
-  fruitCollider: {fileID: 4158884226852072509}
+  fruitCollider: {fileID: 8756839631677523190}
   defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
   minCenterTolerance: 0.01
   maxCenterTolerance: 0.03
