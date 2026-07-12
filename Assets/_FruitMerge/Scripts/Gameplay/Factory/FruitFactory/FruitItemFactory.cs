@@ -36,7 +36,7 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
                 return null;
             }
             
-            FruitItem fruitItem = GameObjectPoolManager.SpawnInstance(this._fruitItemPrefab,
+            FruitItem fruitItem = GameObjectPoolManager.SpawnInstance(arg.Prefab,
                 arg.Position, Quaternion.identity, this._fruitItemParent);
             
             int fruitId = arg.FruitID;

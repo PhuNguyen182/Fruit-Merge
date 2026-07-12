@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
+using UnityEngine;
 
 namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
 {
@@ -6,5 +7,6 @@ namespace _FruitMerge.Scripts.Gameplay.Factory.FruitFactory
     {
         public int FruitID;
         public Vector2 Position;
+        public FruitItem Prefab;
     }
 }

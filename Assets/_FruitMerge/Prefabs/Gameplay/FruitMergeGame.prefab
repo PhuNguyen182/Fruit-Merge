@@ -80,6 +80,7 @@ MonoBehaviour:
   fruitItemPrefab: {fileID: 4437632143570638339, guid: 4b820fefdbac17d4f9ff0fda12608a73, type: 3}
   fruitSpawnRuleCollection: {fileID: 11400000, guid: 040c223002205de4792cf069d247c99d, type: 2}
   fruitConfigCollection: {fileID: 11400000, guid: 22f875f815b020e4b8353f051a89818a, type: 2}
+  fruitThemeCollection: {fileID: 11400000, guid: d4f401112683e334fa9af1a162a924e7, type: 2}
 --- !u!1 &1192657210051335847
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme
         [SerializeField] public string themeName;
         [SerializeField] private FruitItemConfig[] fruitItems;
         [SerializeField] private List<FruitProgressIcon> fruitProgressIcons;
+        
+        public List<FruitProgressIcon> FruitProgressIcons => this.fruitProgressIcons;
 
         public FruitItem GetFruitById(int fruitId)
         {

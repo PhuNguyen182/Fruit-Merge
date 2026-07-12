@@ -8,14 +8,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [Header("Fruit Identity")]
         public int fruitId;
         public Sprite fruitIcon;
-        public string fruitSkin;
         public int fruitScore;
         public ParticleSystem fruitParticles;
         
         [Header("Fruit Config")]
         public float fruitMass = 1;
-        public float colliderRadius = 0.5f;
-        public Vector2 colliderOffset;
         public PhysicsMaterial2D fruitPhysicsMaterial;
     }
 }

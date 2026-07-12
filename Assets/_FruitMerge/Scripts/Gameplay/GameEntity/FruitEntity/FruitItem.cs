@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
+using _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
@@ -39,6 +40,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private IDisposable _disposable;
         private ParticleSystem _fruitEffect;
         private FruitItemFactory _fruitItemFactory;
+        private FruitThemeConfig _fruitThemeConfig;
         private CancellationToken _cancellationToken;
 
         private bool _isDropped;
@@ -183,10 +185,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
             int nextFruitID = this.FruitID + 1;
             Vector2 averagePosition = (this.transform.position + otherFruitItem.transform.position) / 2f;
+            FruitItem fruitPrefab = this._fruitThemeConfig.GetFruitById(nextFruitID);
             FruitItemParam fruitItemParam = new FruitItemParam
             {
                 FruitID = nextFruitID,
                 Position = averagePosition,
+                Prefab = fruitPrefab,
             };
 
             FruitItem upgradedFruit = this._fruitItemFactory.Create(fruitItemParam);
@@ -299,6 +303,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void InitFruitFactory(FruitItemFactory fruitItemFactory)
         {
             this._fruitItemFactory = fruitItemFactory;
+        }
+
+        public void InitFruitThemeConfig(FruitThemeConfig fruitThemeConfig)
+        {
+            this._fruitThemeConfig = fruitThemeConfig;
         }
 
         public void ForceBreakFruit()

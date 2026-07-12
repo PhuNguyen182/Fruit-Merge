@@ -2,6 +2,7 @@ using System;
 using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
+using _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme;
 using _FruitMerge.Scripts.Gameplay.SpawnRules;
 using _FruitMerge.Scripts.Gameplay.UI.GameUI;
 using ServiceLocators.Core;
@@ -13,10 +14,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
     public class FruitSpawner : MonoBehaviour
     {
+        private const string Theme = "theme_0";
+        
         [SerializeField] private Transform fruitParent;
         [SerializeField] private FruitItem fruitItemPrefab;
         [SerializeField] private FruitSpawnRuleCollection fruitSpawnRuleCollection;
         [SerializeField] private FruitConfigCollection fruitConfigCollection;
+        [SerializeField] private FruitThemeCollection fruitThemeCollection;
 
         private bool _hasSpawnedFruit;
         private int _currentFruitId = -1;
@@ -27,6 +31,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private FruitMergeGameUI _gameUI;
         private FruitMemory _fruitMemory;
+        private FruitThemeConfig _fruitThemeConfig;
         private FruitItemFactory _fruitItemFactory;
         private FruitSpawnRuleConfig _fruitSpawnRuleConfig;
         private IDisposable _disposable;
@@ -35,7 +40,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         public void InitializeFruitSpawner()
         {
+            this._fruitThemeConfig = this.fruitThemeCollection.GetThemeConfigByName(Theme);
             this._gameUI = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameUI>();
+            this._gameUI.InitFruitProgressionIcon(this._fruitThemeConfig.FruitProgressIcons);
+            
             this._fruitMemory = new FruitMemory();
             this._fruitItemFactory =
                 new FruitItemFactory(this.fruitItemPrefab, this.fruitParent, this.fruitConfigCollection);
@@ -74,12 +82,16 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             }
 
             this._nextFruitId = this.GetRandomFruitId();
+            this._gameUI.UpdateFruitProgressView(this._currentFruitId);
+            FruitItem fruitPrefab = this._fruitThemeConfig.GetFruitById(this._currentFruitId);
             FruitItem fruitItem = this._fruitItemFactory.Create(new FruitItemParam
             {
                 FruitID = this._currentFruitId,
                 Position = position,
+                Prefab = fruitPrefab,
             });
 
+            fruitItem.InitFruitThemeConfig(this._fruitThemeConfig);
             var nextFruitConfig = this.fruitConfigCollection.GetFruitConfigById(this._nextFruitId);
             if (nextFruitConfig && this._gameUI)
                 this._gameUI.UpdateNextFruitIcon(nextFruitConfig.fruitIcon);

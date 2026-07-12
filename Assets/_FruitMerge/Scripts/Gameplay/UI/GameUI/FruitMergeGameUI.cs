@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme;
 using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks;
 using ServiceLocators.Core;
@@ -13,6 +15,7 @@ namespace _FruitMerge.Scripts.Gameplay.UI.GameUI
         [SerializeField] private Image nextFruitIcon;
         [SerializeField] private Button settingButton;
         [SerializeField] private BoosterUIButton hammerBoosterButton;
+        [SerializeField] private FruitProgressBarView fruitProgressBarView;
 
         private ScoreCalculationService _scoreCalculationService;
         private BoosterControllerTask _boosterControllerTask;
@@ -45,6 +48,16 @@ namespace _FruitMerge.Scripts.Gameplay.UI.GameUI
         public void UpdateNextFruitIcon(Sprite fruitSprite)
         {
             this.nextFruitIcon.sprite = fruitSprite;
+        }
+
+        public void InitFruitProgressionIcon(List<FruitThemeConfig.FruitProgressIcon> fruitProgressIcons)
+        {
+            this.fruitProgressBarView.InitFruitProgressionIcon(fruitProgressIcons);
+        }
+
+        public void UpdateFruitProgressView(int fruitLevel)
+        {
+            this.fruitProgressBarView.UpdateFruitProgressView(fruitLevel);
         }
 
         private void OnDestroy()
