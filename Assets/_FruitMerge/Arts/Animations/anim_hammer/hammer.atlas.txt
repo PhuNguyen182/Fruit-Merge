@@ -1,0 +1,10 @@
+hammer.png
+size:892,512
+filter:Linear,Linear
+pma:true
+hammer
+bounds:546,121,344,389
+offsets:2,1,347,391
+vfx
+bounds:2,2,542,508
+offsets:1,5,544,514
