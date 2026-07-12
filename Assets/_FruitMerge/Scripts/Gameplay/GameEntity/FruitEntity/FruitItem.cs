@@ -8,6 +8,7 @@ using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using MessagePipe;
+using Spine.Unity;
 
 namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 {
@@ -16,6 +17,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private const string LogTag = "FruitItem";
 
         [SerializeField] private FruitDropRay fruitDropRay;
+        [SerializeField] private SkeletonAnimation fruitSkeletonRenderer;
         [SerializeField] private SpriteRenderer fruitRenderer;
         [SerializeField] private SpriteRenderer fruitTint;
         [SerializeField] private LayerMask fruitLayerMask;

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitConfig
   fruitId: 5
   fruitIcon: {fileID: 21300000, guid: 1cc7bd02ed79da642864dd8d552f3de0, type: 3}
+  fruitSkin: 5
   fruitScore: 32
   fruitParticles: {fileID: 6808813441186598025, guid: 1b8e8782ad141184fbb6a7f87686a9ff, type: 3}
   fruitMass: 2.5

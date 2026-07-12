@@ -8,6 +8,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [Header("Fruit Identity")]
         public int fruitId;
         public Sprite fruitIcon;
+        public string fruitSkin;
         public int fruitScore;
         public ParticleSystem fruitParticles;
         
