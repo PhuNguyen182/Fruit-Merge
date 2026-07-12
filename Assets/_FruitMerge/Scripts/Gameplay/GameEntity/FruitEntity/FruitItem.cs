@@ -86,8 +86,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnFruitBoosterReadyMessageReceived(FruitBoosterReadyMessage message)
         {
-            if (this._isDropped)
-                this.SetTintedFruitEnable(message.BoosterReady);
+            
         }
 
         public void Tick(float deltaTime)
@@ -194,6 +193,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             };
 
             FruitItem upgradedFruit = this._fruitItemFactory.Create(fruitItemParam);
+            upgradedFruit.InitFruitThemeConfig(this._fruitThemeConfig);
             this.AddScore(upgradedFruit);
             upgradedFruit.TryResetCenterOfMass();
             upgradedFruit.Drop();
@@ -284,6 +284,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void Drop()
         {
             this._isDropped = true;
+            this.UpdateFruitEmotion();
             this.SetFruitColliderActive(true);
             this.SetFruitPhysicsActive(true);
             this.AddSpawnedFruitToMemory(this);
@@ -316,9 +317,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.ReleaseFruit(this);
         }
 
-        private void SetTintedFruitEnable(bool enable)
+        private void UpdateFruitEmotion()
         {
-            // TODO: Play another animation
+            string emotion = this._isDropped ? "smile" : "idle";
+            this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, emotion, false);
         }
 
         private void OnDisable()
@@ -326,6 +328,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this._isDropped = false;
             this.IsFirstCollider = false;
             this._hasResetCenterOfMass = false;
+            this.UpdateFruitEmotion();
             this.ApplyFruitConfig(this.defaultFruitConfig);
             this.SetDropRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);

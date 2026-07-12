@@ -17,7 +17,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private const string Theme = "theme_0";
         
         [SerializeField] private Transform fruitParent;
-        [SerializeField] private FruitItem fruitItemPrefab;
         [SerializeField] private FruitSpawnRuleCollection fruitSpawnRuleCollection;
         [SerializeField] private FruitConfigCollection fruitConfigCollection;
         [SerializeField] private FruitThemeCollection fruitThemeCollection;
@@ -46,7 +45,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             
             this._fruitMemory = new FruitMemory();
             this._fruitItemFactory =
-                new FruitItemFactory(this.fruitItemPrefab, this.fruitParent, this.fruitConfigCollection);
+                new FruitItemFactory(this.fruitParent, this.fruitConfigCollection);
             this._fruitSpawnRuleConfig = this.fruitSpawnRuleCollection.GetRandomConfig();
 
             var builder = DisposableBag.CreateBuilder();
@@ -82,7 +81,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             }
 
             this._nextFruitId = this.GetRandomFruitId();
-            this._gameUI.UpdateFruitProgressView(this._currentFruitId);
+            int currentFruitLevel = this._fruitMemory.GetCurrentFruitLevel();
+            this._gameUI.UpdateFruitProgressView(currentFruitLevel);
             FruitItem fruitPrefab = this._fruitThemeConfig.GetFruitById(this._currentFruitId);
             FruitItem fruitItem = this._fruitItemFactory.Create(new FruitItemParam
             {
@@ -92,9 +92,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             });
 
             fruitItem.InitFruitThemeConfig(this._fruitThemeConfig);
-            var nextFruitConfig = this.fruitConfigCollection.GetFruitConfigById(this._nextFruitId);
-            if (nextFruitConfig && this._gameUI)
-                this._gameUI.UpdateNextFruitIcon(nextFruitConfig.fruitIcon);
+            var fruitIcon = this._fruitThemeConfig.GetFruitProgressIconById(this._nextFruitId);
+            if (fruitIcon != null && this._gameUI)
+                this._gameUI.UpdateNextFruitIcon(fruitIcon.openIcon);
             
             return fruitItem;
         }
