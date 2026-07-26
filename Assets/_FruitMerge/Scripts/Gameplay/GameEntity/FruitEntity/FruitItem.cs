@@ -110,7 +110,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (this._isDropped && ((1 << other.gameObject.layer) & this.fruitLayerMask.value) != 0)
+            if (this._isDropped && ((1 << other.gameObject.layer) & this.barrierLayerMask.value) != 0)
             {
                 this.FireDeadlineCollideMessage(true);
             }
@@ -118,7 +118,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (this._isDropped && ((1 << other.gameObject.layer) & this.fruitLayerMask.value) == 0)
+            if (this._isDropped && ((1 << other.gameObject.layer) & this.barrierLayerMask.value) == 0)
             {
                 this.FireDeadlineCollideMessage(false);
             }
@@ -316,6 +316,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void SetDropRayEnable(bool enable)
         {
             this.fruitDropRay.SetDropRayEnabled(enable);
+            this.fruitDropRay.gameObject.SetActive(enable);
         }
 
         public void InitFruitFactory(FruitItemFactory fruitItemFactory)

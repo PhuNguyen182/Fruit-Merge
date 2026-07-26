@@ -59,7 +59,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void InitializeGameStateMachine()
         {
-            this._gameStateController = new GameStateController(this.fruitDragController);
+            this._gameStateController = new GameStateController(this.fruitDragController, this._inputController);
         }
 
         private void InitializeMessageBroker()

@@ -56,6 +56,17 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._fruitSpawnMessageSubscriber.Subscribe(this.OnFruitSpawn).AddTo(builder);
 
             this._disposable = builder.Build();
+            this.PreloadFruit();
+        }
+
+        private void PreloadFruit()
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                FruitItem prefab = this._fruitThemeConfig.GetFruitById(i);
+                int quantity = i >= 4 ? 10 : 20;
+                GameObjectPoolManager.PoolPreLoad(prefab, quantity, this.fruitParent);
+            }
         }
 
         private void OnFruitRelease(FruitReleaseMessage fruitReleaseMessage)
