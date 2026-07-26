@@ -54,6 +54,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
 
         private void OnPlayGame()
         {
+            this._inputController.IsInputActive = true;
             this._fruitDragController.SetDragFruitEnabled(true);
         }
 

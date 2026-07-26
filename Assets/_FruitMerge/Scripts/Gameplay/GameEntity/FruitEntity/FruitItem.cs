@@ -118,7 +118,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (this._isDropped && ((1 << other.gameObject.layer) & this.barrierLayerMask.value) == 0)
+            if (this._isDropped && ((1 << other.gameObject.layer) & this.barrierLayerMask.value) != 0)
             {
                 this.FireDeadlineCollideMessage(false);
             }

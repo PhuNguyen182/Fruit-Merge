@@ -37,8 +37,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
             void ResetDropRay()
             {
-                this.dropRay.SetPosition(0, this.transform.position);
-                this.dropRay.SetPosition(1, this.transform.position);
+                this.dropRay.SetPosition(0, Vector2.zero);
+                this.dropRay.SetPosition(1, Vector2.zero);
             }
         }
 

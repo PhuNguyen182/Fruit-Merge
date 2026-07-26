@@ -16,7 +16,7 @@ namespace _FruitMerge.Scripts.Gameplay.UI.Popups
 
         private void Replay()
         {
-            SceneManager.LoadSceneAsync(SceneName.GameplayScene, LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(SceneName.LoadingScene, LoadSceneMode.Single);
         }
 
         private void OnDestroy()
