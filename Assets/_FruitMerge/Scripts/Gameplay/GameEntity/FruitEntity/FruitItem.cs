@@ -23,6 +23,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private SkeletonAnimation fruitSkeletonRenderer;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
+        [SerializeField] private AudioSource fruitSound;
+        [SerializeField] private AudioClip[] mergeSounds;
+        [SerializeField] private bool check;
 
         [Header("Fruit Physics")] 
         [SerializeField] private Rigidbody2D fruitBody;
@@ -202,6 +205,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             upgradedFruit.TryResetCenterOfMass();
             upgradedFruit.Drop();
             upgradedFruit.JumpABit();
+            this.PlayMergeSound();
 
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
             this._fruitSpawner.UpdateFruitBarView();
@@ -258,6 +262,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             {
                 FruitScore = fruitItem.FruitScore,
             });
+        }
+
+        private void PlayMergeSound()
+        {
+            int rand = Random.Range(0, this.mergeSounds.Length);
+            AudioClip mergeClip = this.mergeSounds[rand];
+            this.fruitSound.PlayOneShot(mergeClip);
         }
 
         #endregion
@@ -338,6 +349,18 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.SetDropRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);
         }
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            if (this.check)
+            {
+                this.check = false;
+                if (!this.fruitSound)
+                    this.fruitSound = GetComponent<AudioSource>();
+            }
+        }
+#endif
 
         private void OnDestroy()
         {
