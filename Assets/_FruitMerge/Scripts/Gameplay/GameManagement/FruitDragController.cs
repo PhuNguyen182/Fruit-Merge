@@ -3,7 +3,6 @@ using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
-using ServiceLocators.Core;
 using UnityEngine;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
@@ -11,7 +10,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     public class FruitDragController : MonoBehaviour, IUpdateHandler
     {
         private const string LogTag = "FruitDragController";
-
+        
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip[] dropClips;
         [SerializeField] private float fruitSpawnDelay = 1f;
         [SerializeField] private float fruitDragSpeed = 1.25f;
         [SerializeField] private float minFruitDragOffset = 0.1f;
@@ -97,6 +98,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._currentDraggingFruitItem.Drop();
             this._currentDraggingFruitItem = null;
             this.dragTarget.position = this.center.position;
+            this.PlayMergeSound();
             this.SpawnNewFruitWithDelay(this.fruitSpawnDelay).Forget();
         }
 
@@ -104,6 +106,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             await UniTask.WaitForSeconds(delay);
             this._currentDraggingFruitItem = this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
+        }
+        
+        private void PlayMergeSound()
+        {
+            int rand = Random.Range(0, this.dropClips.Length);
+            AudioClip mergeClip = this.dropClips[rand];
+            this.audioSource.PlayOneShot(mergeClip);
         }
 
         private void OnDisable()
