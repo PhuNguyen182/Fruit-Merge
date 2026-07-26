@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.UI.Popups.LosePopup
   replayButton: {fileID: 5747627651234876370}
+  loseSound: {fileID: 8300000, guid: 66915867873dc504c8c10ec321e02145, type: 3}
 --- !u!1 &8958830784464099332
 GameObject:
   m_ObjectHideFlags: 0
