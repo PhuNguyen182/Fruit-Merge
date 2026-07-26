@@ -28,7 +28,7 @@ public class GenericGameObjectPool<T> : BaseGameObjectPool where T : Component
         {
             T instance = Object.Instantiate(this._prefab, parent);
             instance.name = $"{this._prefab.name} ({this._nextId++})"; 
-            this.MemberIDs.Add(instance.GetInstanceID());
+            this.MemberIDs.Add(instance.gameObject.GetInstanceID());
             instance.gameObject.SetActive(false);
             this.InactiveInstances.Enqueue(instance);
         }
@@ -43,7 +43,7 @@ public class GenericGameObjectPool<T> : BaseGameObjectPool where T : Component
             {
                 instance = Object.Instantiate(this._prefab, position, rotation, parent);
                 instance.name = $"{this._prefab.name} ({this._nextId++})";
-                MemberIDs.Add(instance.GetInstanceID());
+                MemberIDs.Add(instance.gameObject.GetInstanceID());
             }
             else
             {

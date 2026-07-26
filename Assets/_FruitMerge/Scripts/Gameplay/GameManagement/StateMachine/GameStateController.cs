@@ -1,3 +1,5 @@
+using _FruitMerge.Scripts.Gameplay.UI.GameUI;
+using ServiceLocators.Core;
 using Stateless;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
@@ -5,12 +7,14 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
     public class GameStateController
     {
         private readonly FruitDragController _fruitDragController;
+        private readonly FruitMergeGameUI _fruitMergeGameUI;
 
         private StateMachine<GameState, StateTrigger> _gameStateMachine;
 
         public GameStateController(FruitDragController fruitDragController)
         {
             this._fruitDragController = fruitDragController;
+            this._fruitMergeGameUI = ServiceLocator.ForSceneOf(fruitDragController).Get<FruitMergeGameUI>();
             this.BuildGameStateMachine();
         }
 
@@ -58,6 +62,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
         private void OnEndGame()
         {
             this._fruitDragController.SetDragFruitEnabled(false);
+            this._fruitMergeGameUI.ShowLosePopup();
         }
 
         private void OnQuitGame()

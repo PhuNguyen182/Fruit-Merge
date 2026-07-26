@@ -7,6 +7,7 @@ using _FruitMerge.Scripts.Gameplay.GameManagement;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
+using GlobalScripts.Audios;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using MessagePipe;
@@ -268,7 +269,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             int rand = Random.Range(0, this.mergeSounds.Length);
             AudioClip mergeClip = this.mergeSounds[rand];
-            this.fruitSound.PlayOneShot(mergeClip);
+            AudioManager.Instance.PlayFloatingAudio(mergeClip);
         }
 
         #endregion

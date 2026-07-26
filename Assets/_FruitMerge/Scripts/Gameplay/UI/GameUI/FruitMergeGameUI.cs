@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme;
 using _FruitMerge.Scripts.Gameplay.GameManagement.ScoreCalculator;
 using _FruitMerge.Scripts.Gameplay.GameTask.BoosterTasks;
+using _FruitMerge.Scripts.Gameplay.UI.Popups;
 using ServiceLocators.Core;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ namespace _FruitMerge.Scripts.Gameplay.UI.GameUI
         [SerializeField] private Button settingButton;
         [SerializeField] private BoosterUIButton hammerBoosterButton;
         [SerializeField] private FruitProgressBarView fruitProgressBarView;
+        [SerializeField] private LosePopup losePopup;
 
         private ScoreCalculationService _scoreCalculationService;
         private BoosterControllerTask _boosterControllerTask;
@@ -58,6 +60,12 @@ namespace _FruitMerge.Scripts.Gameplay.UI.GameUI
         public void UpdateFruitProgressView(int fruitLevel)
         {
             this.fruitProgressBarView.UpdateFruitProgressView(fruitLevel);
+        }
+
+        public void ShowLosePopup()
+        {
+            if (this.losePopup)
+                this.losePopup.gameObject.SetActive(true);
         }
 
         private void OnDestroy()
