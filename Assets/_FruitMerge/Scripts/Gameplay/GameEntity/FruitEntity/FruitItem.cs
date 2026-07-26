@@ -24,7 +24,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private SkeletonAnimation fruitSkeletonRenderer;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
-        [SerializeField] private GameObject mergeEffect;
+        [SerializeField] private SkeletonAnimation mergeEffect;
         [SerializeField] private AudioSource fruitSound;
         [SerializeField] private AudioClip[] mergeSounds;
         [SerializeField] private bool check;
@@ -235,9 +235,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
             if (this.mergeEffect)
             {
-                GameObjectPoolManager.SpawnInstance(this.mergeEffect, 
+                var effect = GameObjectPoolManager.SpawnInstance(this.mergeEffect, 
                     this.transform.position, Quaternion.identity,
                     this._fruitItemFactory.FruitItemParent);
+                effect.AnimationState.ClearTracks();
+                effect.AnimationState.SetAnimation(0,"animation", false);
             }
 
             GameObjectPoolManager.Despawn(fruitItem.gameObject);

@@ -120,7 +120,7 @@ MonoBehaviour:
   barrierLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  mergeEffect: {fileID: 7983912022432249574, guid: 45501b6e840515944986728176c4d3ef, type: 3}
+  mergeEffect: {fileID: 778879922001770682, guid: 45501b6e840515944986728176c4d3ef, type: 3}
   fruitSound: {fileID: -281998980333876947}
   mergeSounds:
   - {fileID: 8300000, guid: d0e5a46ffd3ffdd45bc1786c31da804f, type: 3}
