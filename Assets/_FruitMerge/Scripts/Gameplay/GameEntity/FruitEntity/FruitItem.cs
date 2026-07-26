@@ -24,6 +24,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         [SerializeField] private SkeletonAnimation fruitSkeletonRenderer;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
+        [SerializeField] private GameObject mergeEffect;
         [SerializeField] private AudioSource fruitSound;
         [SerializeField] private AudioClip[] mergeSounds;
         [SerializeField] private bool check;
@@ -44,7 +45,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private IPublisher<FruitSpawnMessage> _fruitSpawnPublisher;
 
         private IDisposable _disposable;
-        private ParticleSystem _fruitEffect;
         private FruitSpawner _fruitSpawner;
         private FruitItemFactory _fruitItemFactory;
         private FruitThemeConfig _fruitThemeConfig;
@@ -233,9 +233,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
                 FruitInstanceID = this.gameObject.GetInstanceID(),
             });
 
-            if (this._fruitEffect)
+            if (this.mergeEffect)
             {
-                GameObjectPoolManager.SpawnInstance(this._fruitEffect, 
+                GameObjectPoolManager.SpawnInstance(this.mergeEffect, 
                     this.transform.position, Quaternion.identity,
                     this._fruitItemFactory.FruitItemParent);
             }
@@ -280,7 +280,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.FruitScore = fruitConfig.fruitScore;
             this.fruitBody.mass = fruitConfig.fruitMass;
             this.fruitCollider.sharedMaterial = fruitConfig.fruitPhysicsMaterial;
-            this._fruitEffect = fruitConfig.fruitParticles;
         }
 
         public void SetMaxFruitLevel(int level) => this._maxFruitLevel = level;

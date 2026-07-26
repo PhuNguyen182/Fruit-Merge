@@ -25,6 +25,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private FruitItem _currentDraggingFruitItem;
         private InputController _inputController;
 
+        private bool _isUIOverlapped;
         private bool _canDragFruit;
         private bool _isPointerDown;
         private bool _isPointerUp;
@@ -52,11 +53,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         public void Tick(float deltaTime)
         {
-            if (!this._canDragFruit)
+            this.TryDisableFruitRay();
+            if (!this._canDragFruit || !this._inputController.IsInputActive)
                 return;
 
-            bool isUIOverlapped = this._inputController.IsPointerOverlapUI();
-            if (isUIOverlapped)
+            this._isUIOverlapped = this._inputController.IsPointerOverlapUI();
+            if (this._isUIOverlapped)
                 return;
 
             this.TryDragFruit();
@@ -66,7 +68,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void TryDragFruit()
         {
             this._isPointerDown = this._inputController.IsPointerClicked;
-            if (!this._isPointerDown || !this._currentDraggingFruitItem)
+            if (!this._isPointerDown || !this._currentDraggingFruitItem || this._isUIOverlapped)
                 return;
 
             float pointerVelocity = this._inputController.WorldPointerVelocity.x;
@@ -80,13 +82,13 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             Vector3 fruitDragPosition = new Vector3(movingHorizontal, movingVertical);
             this.dragTarget.position = fruitDragPosition;
             this._currentDraggingFruitItem.transform.position = this.dragTarget.position;
-            this._currentDraggingFruitItem.SetDropRayEnable(this._inputController.IsInputActive);
+            this._currentDraggingFruitItem.SetDropRayEnable(!this._isUIOverlapped && this._inputController.IsInputActive);
         }
 
         private void TryDropFruit()
         {
             this._isPointerUp = this._inputController.IsPointerUp;
-            if (!this._isPointerUp)
+            if (!this._isPointerUp || this._isUIOverlapped)
                 return;
 
             if (!this._currentDraggingFruitItem)
@@ -100,6 +102,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.dragTarget.position = this.center.position;
             this.PlayMergeSound();
             this.SpawnNewFruitWithDelay(this.fruitSpawnDelay).Forget();
+        }
+
+        private void TryDisableFruitRay()
+        {
+            if (this._currentDraggingFruitItem && !this._inputController.IsInputActive)
+                this._currentDraggingFruitItem.SetDropRayEnable(false);
         }
 
         private async UniTask SpawnNewFruitWithDelay(float delay)
