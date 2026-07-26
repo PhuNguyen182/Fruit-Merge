@@ -8,7 +8,7 @@ namespace _FruitMerge.Scripts.SceneInitializers.LoadingScene
     {
         private void Start()
         {
-            SceneManager.LoadSceneAsync(SceneName.MainHomeScene, LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(SceneName.GameplayScene, LoadSceneMode.Single);
         }
     }
 }

@@ -68,6 +68,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._fruitMemory.AddFruit(fruitSpawnMessage.FruitItem);
         }
 
+        public void UpdateFruitBarView()
+        {
+            int currentFruitLevel = this._fruitMemory.GetCurrentFruitLevel();
+            this._gameUI.UpdateFruitProgressView(currentFruitLevel);
+        }
+
         public FruitItem SpawnNewFruit(Vector2 position)
         {
             if (!this._hasSpawnedFruit)
@@ -81,8 +87,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             }
 
             this._nextFruitId = this.GetRandomFruitId();
-            int currentFruitLevel = this._fruitMemory.GetCurrentFruitLevel();
-            this._gameUI.UpdateFruitProgressView(currentFruitLevel);
             FruitItem fruitPrefab = this._fruitThemeConfig.GetFruitById(this._currentFruitId);
             FruitItem fruitItem = this._fruitItemFactory.Create(new FruitItemParam
             {
@@ -90,7 +94,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
                 Position = position,
                 Prefab = fruitPrefab,
             });
-
+            
+            this.UpdateFruitBarView();
             fruitItem.InitFruitThemeConfig(this._fruitThemeConfig);
             var fruitIcon = this._fruitThemeConfig.GetFruitProgressIconById(this._nextFruitId);
             if (fruitIcon != null && this._gameUI)

@@ -3,12 +3,14 @@ using System.Threading;
 using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme;
+using _FruitMerge.Scripts.Gameplay.GameManagement;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using MessagePipe;
+using ServiceLocators.Core;
 using Spine.Unity;
 
 namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
@@ -39,6 +41,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private IDisposable _disposable;
         private ParticleSystem _fruitEffect;
+        private FruitSpawner _fruitSpawner;
         private FruitItemFactory _fruitItemFactory;
         private FruitThemeConfig _fruitThemeConfig;
         private CancellationToken _cancellationToken;
@@ -55,6 +58,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private void Awake()
         {
             this._cancellationToken = this.GetCancellationTokenOnDestroy();
+            this._fruitSpawner = ServiceLocator.ForSceneOf(this).Get<FruitSpawner>();
             this.InitializePublishers();
             this.SetRandomMassCenter();
         }
@@ -200,6 +204,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             upgradedFruit.JumpABit();
 
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
+            this._fruitSpawner.UpdateFruitBarView();
             this.ReleaseFruit(this);
             this.ReleaseFruit(otherFruitItem);
         }
