@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2048
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ffd06c2cead204c4db42ddcc3ec33c72, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 2b702007614083f4ba495fc3f881d772, type: 2}
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.7
+  m_fontSize: 103.25
   m_fontSizeBase: 115
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de73db069cbcbd4f924d9f030ed6b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.UI.GameUI.FruitMergeGameUI
-  scoreText: {fileID: 2287162885884518424}
+  scoreText: {fileID: 977659858324843852}
   nextFruitIcon: {fileID: 124189319138653195}
   settingButton: {fileID: 1084007000803433156}
   hammerBoosterButton: {fileID: 3463434117715152429}
