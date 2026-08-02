@@ -21,6 +21,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         [SerializeField] private Transform center;
         [SerializeField] private Transform dragTarget;
         [SerializeField] private FruitSpawner fruitSpawner;
+        [SerializeField] private bool resetDragTargetToCenter;
 
         private FruitItem _currentDraggingFruitItem;
         private InputController _inputController;
@@ -99,7 +100,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
             this._currentDraggingFruitItem.Drop();
             this._currentDraggingFruitItem = null;
-            this.dragTarget.position = this.center.position;
+            
+            if (this.resetDragTargetToCenter)
+                this.dragTarget.position = this.center.position;
+            
             this.PlayMergeSound();
             this.SpawnNewFruitWithDelay(this.fruitSpawnDelay).Forget();
         }
