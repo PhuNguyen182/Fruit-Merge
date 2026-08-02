@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Threading;
 using _FruitMerge.Scripts.Gameplay.Factory.FruitFactory;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.Messages;
@@ -49,6 +50,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private FruitItemFactory _fruitItemFactory;
         private FruitThemeConfig _fruitThemeConfig;
         private CancellationToken _cancellationToken;
+        private readonly YieldInstruction _animationLoopWaitTimePhase1 = new WaitForSeconds(5f);
+        private readonly YieldInstruction _animationLoopWaitTimePhase2 = new WaitForSeconds(1f);
+        private readonly YieldInstruction _mergeAnimationWaitTime = new WaitForSeconds(0.5f);
+        private Coroutine _loopAnimationCoroutine;
 
         private bool _isDropped;
         private bool _hasResetCenterOfMass;
@@ -206,6 +211,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             upgradedFruit.TryResetCenterOfMass();
             upgradedFruit.Drop();
             upgradedFruit.JumpABit();
+            upgradedFruit.PlayMergeAnimation();
             this.PlayMergeSound();
 
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
@@ -302,7 +308,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void Drop()
         {
             this._isDropped = true;
-            this.UpdateFruitEmotion();
+            this.CancelLoopAnimation();
             this.SetFruitColliderActive(true);
             this.SetFruitPhysicsActive(true);
             this.AddSpawnedFruitToMemory(this);
@@ -336,10 +342,49 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.ReleaseFruit(this);
         }
 
-        private void UpdateFruitEmotion()
+        public void PlayStartAnimation()
         {
-            string emotion = this._isDropped ? "smile" : "idle";
-            this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, emotion, false);
+            bool shouldPlayWaitAnimation = Random.value <= 0.99f;
+            this.fruitSkeletonRenderer.AnimationState.ClearTracks();
+
+            if (shouldPlayWaitAnimation)
+            {
+                this._loopAnimationCoroutine = StartCoroutine(this.PlayLoopSmileAnimation());
+            }
+            else
+            {
+                string emotion = "idle";
+                this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, emotion, false);
+            }
+        }
+
+        private IEnumerator PlayLoopSmileAnimation()
+        {
+            while (true)
+            {
+                this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, "idle", false);
+                yield return this._animationLoopWaitTimePhase1;
+                this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, "smile", false);
+                yield return this._animationLoopWaitTimePhase2;
+            }
+        }
+
+        private void CancelLoopAnimation()
+        {
+            if (this._loopAnimationCoroutine != null)
+                StopCoroutine(this._loopAnimationCoroutine);
+        }
+
+        private void PlayMergeAnimation()
+        {
+            StartCoroutine(this.PlayMergeAnimationWithDelay());
+        }
+
+        private IEnumerator PlayMergeAnimationWithDelay()
+        {
+            this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, "smile", false);
+            yield return this._mergeAnimationWaitTime;
+            this.fruitSkeletonRenderer.AnimationState.SetAnimation(0, "idle", false);
         }
 
         private void OnDisable()
@@ -347,7 +392,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this._isDropped = false;
             this.IsFirstCollider = false;
             this._hasResetCenterOfMass = false;
-            this.UpdateFruitEmotion();
             this.ApplyFruitConfig(this.defaultFruitConfig);
             this.SetDropRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);
