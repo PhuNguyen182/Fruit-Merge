@@ -6,6 +6,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
     public class FruitMemory
     {
+        private readonly Dictionary<int, List<int>> _fruitIdRecords = new();
         private readonly Dictionary<int, FruitItem> _fruitItemMemory = new();
         
         public bool HasAnyFruit => this._fruitItemMemory.Count > 0;
@@ -14,6 +15,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             int fruitInstanceId = fruitItem.gameObject.GetInstanceID();
             this._fruitItemMemory.TryAdd(fruitInstanceId, fruitItem);
+            int fruitId = fruitItem.FruitID;
+
+            if (this._fruitIdRecords.TryGetValue(fruitId, out List<int> fruitIdRecord))
+                fruitIdRecord.Add(fruitInstanceId);
+            else
+                this._fruitIdRecords.Add(fruitId, new List<int> { fruitInstanceId });
         }
 
         public void RemoveFruit(int fruitInstanceId)
@@ -45,7 +52,29 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             var (_, fruitItem) = this._fruitItemMemory.LastOrDefault();
             return fruitItem;
         }
+
+        public void ClearDuplicatedFruits()
+        {
+            List<int> duplicatedFruitIds = new List<int>();
+            foreach (var kvp in this._fruitIdRecords)
+            {
+                if (kvp.Value.Count > 1)
+                    duplicatedFruitIds.AddRange(kvp.Value);
+            }
+
+            int duplicateFruitCount = duplicatedFruitIds.Count;
+            for (int i = 0; i < duplicateFruitCount; i++)
+            {
+                int duplicateId = duplicatedFruitIds[i];
+                FruitItem duplicatedFruitItem = this._fruitItemMemory[duplicateId];
+                duplicatedFruitItem.ReleaseImmediately();
+            }
+        }
         
-        public void ClearFruit() => this._fruitItemMemory.Clear();
+        public void ClearFruit()
+        {
+            this._fruitItemMemory.Clear();
+            this._fruitIdRecords.Clear();
+        }
     }
 }

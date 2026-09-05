@@ -27,6 +27,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private ScoreCalculationService _scoreCalculationService;
         private BoosterControllerTask _boosterControllerTask;
         private IMainDataManager _mainDataManager;
+        
+        public FruitSpawner FruitSpawner => this.fruitSpawner;
 
         public void InitializeGame()
         {

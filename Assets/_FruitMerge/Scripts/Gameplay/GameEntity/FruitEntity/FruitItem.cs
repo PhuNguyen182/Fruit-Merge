@@ -253,6 +253,16 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             GameObjectPoolManager.Despawn(fruitItem.gameObject);
         }
 
+        public void ReleaseImmediately()
+        {
+            this._fruitReleasePublisher.Publish(new FruitReleaseMessage
+            {
+                FruitInstanceID = this.gameObject.GetInstanceID(),
+            });
+            
+            GameObjectPoolManager.Despawn(this.gameObject);
+        }
+
         private void AddScore(FruitItem fruitItem)
         {
             this.AddFruitScore(fruitItem);
