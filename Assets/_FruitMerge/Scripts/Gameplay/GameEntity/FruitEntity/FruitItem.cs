@@ -152,7 +152,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         private void JumpABit()
         {
-            float x = Random.value;
+            float absoluteX = Random.value; 
+            float x = Random.value >= 0.5f ? absoluteX : -absoluteX;
             float y = Random.value;
             Vector2 jumpDirection = new Vector2(x, y);
             this.fruitBody.AddForce(jumpDirection.normalized * this.upForce);
@@ -218,8 +219,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
             await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate, this._cancellationToken);
             this._fruitSpawner.UpdateFruitBarView();
-            this.ReleaseFruit(this);
             this.ReleaseFruit(otherFruitItem);
+            this.ReleaseFruit(this);
         }
 
         private bool IsSameFruit(FruitItem fruitItem)
@@ -238,7 +239,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this._fruitReleasePublisher.Publish(new FruitReleaseMessage
             {
-                FruitInstanceID = this.gameObject.GetInstanceID(),
+                FruitInstanceID = fruitItem.gameObject.GetInstanceID(),
             });
 
             if (this.mergeEffect)
@@ -266,7 +267,6 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private void AddScore(FruitItem fruitItem)
         {
             this.AddFruitScore(fruitItem);
-            this.AddSpawnedFruitToMemory(fruitItem);
         }
 
         private void AddSpawnedFruitToMemory(FruitItem fruitItem)

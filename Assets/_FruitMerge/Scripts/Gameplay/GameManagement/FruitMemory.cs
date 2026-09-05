@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
+using Extensions;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
@@ -65,7 +66,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             if (this._fruitItemMemory.Count <= 0)
                 return;
             
-            List<int> duplicatedFruitIds = new List<int>();
+            HashSet<int> duplicatedFruitIds = new HashSet<int>();
             foreach (var kvp in this._fruitIdRecords)
             {
                 if (kvp.Value.Count > 1)
@@ -75,10 +76,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             if (duplicatedFruitIds.Count <= 0)
                 return;
 
-            int duplicateFruitCount = duplicatedFruitIds.Count;
-            for (int i = 0; i < duplicateFruitCount; i++)
+            foreach (int duplicateId in duplicatedFruitIds)
             {
-                int duplicateId = duplicatedFruitIds[i];
                 FruitItem duplicatedFruitItem = this._fruitItemMemory[duplicateId];
                 duplicatedFruitItem.ReleaseImmediately();
             }
