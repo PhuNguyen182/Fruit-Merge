@@ -1,9 +1,13 @@
+using System;
+using System.Collections;
+using System.Runtime.CompilerServices;
 using _FruitMerge.Scripts.Input;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.PlayerLoopSystem.Core.Handlers;
 using DracoRuan.CoreSystems.PlayerLoopSystem.UpdateServices;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
@@ -13,6 +17,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip[] dropClips;
+        [SerializeField] private float fruitInputDelay = 0.5f;
         [SerializeField] private float fruitSpawnDelay = 1f;
         [SerializeField] private float fruitDragSpeed = 1.25f;
         [SerializeField] private float minFruitDragOffset = 0.1f;
@@ -27,6 +32,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private InputController _inputController;
 
         private bool _isUIOverlapped;
+        private bool _isEndGame;
         private bool _canDragFruit;
         private bool _isPointerDown;
         private bool _isPointerUp;
@@ -40,11 +46,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this._inputController = inputController;
             this.dragTarget.position = this.center.position;
+            this._canDragFruit = true;
         }
 
-        public void SetDragFruitEnabled(bool enable)
+        public void SetEndGameState(bool enable)
         {
-            this._canDragFruit = enable;
+            this._isEndGame = enable;
         }
 
         public void SpawnStartFruit()
@@ -57,7 +64,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         public void Tick(float deltaTime)
         {
             this.TryDisableFruitRay();
-            if (!this._canDragFruit || !this._inputController.IsInputActive)
+            if (!this._isEndGame || !this._canDragFruit || !this._inputController.IsInputActive)
                 return;
 
             this._isUIOverlapped = this._inputController.IsPointerOverlapUI();
@@ -71,7 +78,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void TryDragFruit()
         {
             this._isPointerDown = this._inputController.IsPointerClicked;
-            if (!this._isPointerDown || !this._currentDraggingFruitItem || this._isUIOverlapped)
+            if (!this._isPointerDown || !this._canDragFruit || !this._currentDraggingFruitItem || this._isUIOverlapped)
                 return;
 
             float pointerVelocity = this._inputController.WorldPointerVelocity.x;
@@ -92,7 +99,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void TryDropFruit()
         {
             this._isPointerUp = this._inputController.IsPointerUp;
-            if (!this._isPointerUp || this._isUIOverlapped)
+            if (!this._isPointerUp || !this._canDragFruit || this._isUIOverlapped)
                 return;
 
             if (!this._currentDraggingFruitItem)
@@ -109,6 +116,14 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             
             this.PlayMergeSound();
             this.SpawnNewFruitWithDelay(this.fruitSpawnDelay).Forget();
+            this.BlindInputForATime().Forget();
+        }
+
+        private async UniTask BlindInputForATime()
+        {
+            this._canDragFruit = false;
+            await UniTask.WaitForSeconds(this.fruitInputDelay);
+            this._canDragFruit = true;
         }
 
         private void TryDisableFruitRay()
