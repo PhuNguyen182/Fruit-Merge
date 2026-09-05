@@ -929,7 +929,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e3213e1cb266ac1469a619ef77a0ff3c, type: 3}
   - {fileID: 8300000, guid: ac53ce6de9fa19c42adbef74f47fa6d9, type: 3}
   - {fileID: 8300000, guid: 5e698e55c6c9c9b47a9e26963caf50db, type: 3}
-  fruitInputDelay: 0.5
+  fruitInputDelay: 0.6
   fruitSpawnDelay: 0.15
   fruitDragSpeed: 1
   minFruitDragOffset: 1
