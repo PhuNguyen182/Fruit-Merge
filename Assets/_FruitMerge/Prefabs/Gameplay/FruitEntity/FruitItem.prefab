@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 4636652116143994510}
   - {fileID: 7058899512904004334}
+  - {fileID: 181788347072805819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2254401809936308333
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitItem
   fruitDropRay: {fileID: 9118528789341856279}
+  fruitFadeRay: {fileID: 2159596572376214338}
   fruitSkeletonRenderer: {fileID: 0}
   fruitLayerMask:
     serializedVersion: 2
@@ -119,6 +121,10 @@ MonoBehaviour:
   barrierLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  mergeEffect: {fileID: 0}
+  fruitSound: {fileID: 0}
+  mergeSounds: []
+  check: 0
   fruitBody: {fileID: 2254401809936308333}
   fruitCollider: {fileID: 4158884226852072509}
   defaultFruitConfig: {fileID: 11400000, guid: 8d57dab574e33e34383a6f42f2b78bc2, type: 2}
@@ -306,6 +312,91 @@ Transform:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5183882748877016883, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
   m_PrefabInstance: {fileID: 4142005962409241892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea480d7b37a46354b80c4b6b63c1145b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitDropRay
+--- !u!1001 &6487633480107009137
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5084886357353298883}
+    m_Modifications:
+    - target: {fileID: 1490602697989266681, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490602697989266681, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490602697989266681, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891673546489822798, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+      propertyPath: m_Name
+      value: FadeLine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+--- !u!4 &181788347072805819 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+  m_PrefabInstance: {fileID: 6487633480107009137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2159596572376214338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5183882748877016883, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
+  m_PrefabInstance: {fileID: 6487633480107009137}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

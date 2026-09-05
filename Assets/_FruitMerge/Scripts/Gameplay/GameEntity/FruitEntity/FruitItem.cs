@@ -22,6 +22,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         private const string LogTag = "FruitItem";
 
         [SerializeField] private FruitDropRay fruitDropRay;
+        [SerializeField] private FruitDropRay fruitFadeRay;
         [SerializeField] private SkeletonAnimation fruitSkeletonRenderer;
         [SerializeField] private LayerMask fruitLayerMask;
         [SerializeField] private LayerMask barrierLayerMask;
@@ -105,6 +106,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         public void Tick(float deltaTime)
         {
             this.fruitDropRay.Tick(deltaTime);
+            this.fruitFadeRay.Tick(deltaTime);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -313,6 +315,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this.SetFruitPhysicsActive(true);
             this.AddSpawnedFruitToMemory(this);
             this.SetDropRayEnable(false);
+            this.SetFadeRayEnable(false);
         }
 
         public float GetSafeDistanceBetweenCenterToTankEdge()
@@ -324,6 +327,12 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
         {
             this.fruitDropRay.SetDropRayEnabled(enable);
             this.fruitDropRay.gameObject.SetActive(enable);
+        }
+        
+        public void SetFadeRayEnable(bool enable)
+        {
+            this.fruitFadeRay.SetDropRayEnabled(enable);
+            this.fruitFadeRay.gameObject.SetActive(enable);
         }
 
         public void InitFruitFactory(FruitItemFactory fruitItemFactory)
@@ -344,7 +353,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
 
         public void PlayStartAnimation()
         {
-            bool shouldPlayWaitAnimation = Random.value <= 0.99f;
+            bool shouldPlayWaitAnimation = Random.value <= 0.5f;
             this.fruitSkeletonRenderer.AnimationState.ClearTracks();
 
             if (shouldPlayWaitAnimation)
@@ -394,6 +403,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity
             this._hasResetCenterOfMass = false;
             this.ApplyFruitConfig(this.defaultFruitConfig);
             this.SetDropRayEnable(false);
+            this.SetFadeRayEnable(false);
             UpdateServiceManager.DeregisterUpdateHandler(this);
         }
 

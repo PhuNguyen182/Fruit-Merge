@@ -85,6 +85,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this.dragTarget.position = fruitDragPosition;
             this._currentDraggingFruitItem.transform.position = this.dragTarget.position;
             this._currentDraggingFruitItem.SetDropRayEnable(!this._isUIOverlapped && this._inputController.IsInputActive);
+            this._currentDraggingFruitItem.SetFadeRayEnable(!this._isUIOverlapped && !this._inputController.IsInputActive);
         }
 
         private void TryDropFruit()
@@ -112,7 +113,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         private void TryDisableFruitRay()
         {
             if (this._currentDraggingFruitItem && !this._inputController.IsInputActive)
+            {
                 this._currentDraggingFruitItem.SetDropRayEnable(false);
+                this._currentDraggingFruitItem.SetFadeRayEnable(false);
+            }
         }
 
         private async UniTask SpawnNewFruitWithDelay(float delay)

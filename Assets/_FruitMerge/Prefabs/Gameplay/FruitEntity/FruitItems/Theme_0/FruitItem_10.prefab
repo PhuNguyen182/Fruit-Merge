@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5889167808885682749}
   - {fileID: 1390147473197847352}
+  - {fileID: 5620562910329365766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2254401809936308333
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitItem
   fruitDropRay: {fileID: 880297496984388545}
+  fruitFadeRay: {fileID: 5872124479724598783}
   fruitSkeletonRenderer: {fileID: 3211006129644908196}
   fruitLayerMask:
     serializedVersion: 2
@@ -456,3 +458,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6380865988520435658, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
   m_PrefabInstance: {fileID: 5460517850630098162}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6009589383694654200
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5084886357353298883}
+    m_Modifications:
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15173
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37416
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507799424744578682, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_Name
+      value: FadeLine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+--- !u!4 &5620562910329365766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+  m_PrefabInstance: {fileID: 6009589383694654200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5872124479724598783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 151894982176288519, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+  m_PrefabInstance: {fileID: 6009589383694654200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea480d7b37a46354b80c4b6b63c1145b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitDropRay

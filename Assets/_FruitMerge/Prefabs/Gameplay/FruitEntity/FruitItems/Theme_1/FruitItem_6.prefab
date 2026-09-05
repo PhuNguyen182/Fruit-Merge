@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5889167808885682749}
   - {fileID: 266848477558119415}
+  - {fileID: 4630287941896122374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2254401809936308333
@@ -77,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitItem
   fruitDropRay: {fileID: 2074386383719516942}
+  fruitFadeRay: {fileID: 6863393971105227007}
   fruitSkeletonRenderer: {fileID: 3211006129644908196}
   fruitLayerMask:
     serializedVersion: 2
@@ -475,6 +477,79 @@ Transform:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5183882748877016883, guid: de761cba13c169947a6cf0aa4f541964, type: 3}
   m_PrefabInstance: {fileID: 6573402271602000957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea480d7b37a46354b80c4b6b63c1145b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitDropRay
+--- !u!1001 &6711506788807659512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5084886357353298883}
+    m_Modifications:
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.32898
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06692
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507799424744578682, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+      propertyPath: m_Name
+      value: FadeLine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+--- !u!4 &4630287941896122374 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2118408730910326782, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+  m_PrefabInstance: {fileID: 6711506788807659512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6863393971105227007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 151894982176288519, guid: 4522aa615b2ae704bac75d67c218f378, type: 3}
+  m_PrefabInstance: {fileID: 6711506788807659512}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
