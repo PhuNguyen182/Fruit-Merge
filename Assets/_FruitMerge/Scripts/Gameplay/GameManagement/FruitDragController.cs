@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Runtime.CompilerServices;
 using _FruitMerge.Scripts.Input;
 using _FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity;
 using Cysharp.Threading.Tasks;
@@ -81,9 +78,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             if (!this._isPointerDown || !this._canDragFruit || !this._currentDraggingFruitItem || this._isUIOverlapped)
                 return;
 
-            float pointerVelocity = this._inputController.WorldPointerVelocity.x;
+            //float pointerVelocity = this._inputController.WorldPointerVelocity.x;
+            float pointerHorizontal = this._inputController.WorldPointerPosition.x;
             float movingVertical = this.dragTarget.position.y;
-            float movingHorizontal = this.dragTarget.position.x + pointerVelocity * this.fruitDragSpeed;
+            float movingHorizontal = pointerHorizontal;// + pointerVelocity * this.fruitDragSpeed;
             float safeOffset = this._currentDraggingFruitItem.GetSafeDistanceBetweenCenterToTankEdge();
 
             float minSafeDistance = this.leftEdge.position.x + safeOffset;
