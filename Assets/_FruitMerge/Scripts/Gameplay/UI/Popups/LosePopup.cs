@@ -1,19 +1,20 @@
-using Constants;
 using GlobalScripts.Audios;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace _FruitMerge.Scripts.Gameplay.UI.Popups
 {
     public class LosePopup : MonoBehaviour
     {
+        [SerializeField] private Button reviveButton;
         [SerializeField] private Button replayButton;
         [SerializeField] private AudioClip loseSound;
+        [SerializeField] private GameObject gameOverPopup;
 
         private void Awake()
         {
-            this.replayButton.onClick.AddListener(this.Replay);
+            this.reviveButton.onClick.AddListener(this.Revive);
+            this.replayButton.onClick.AddListener(this.ShowGameOverPopup);
         }
 
         private void OnEnable()
@@ -21,14 +22,22 @@ namespace _FruitMerge.Scripts.Gameplay.UI.Popups
             AudioManager.Instance.PlayFloatingAudio(this.loseSound);
         }
 
-        private void Replay()
+        private void ShowGameOverPopup()
         {
-            SceneManager.LoadSceneAsync(SceneName.LoadingScene, LoadSceneMode.Single);
+            this.gameOverPopup.SetActive(true);
+            this.gameObject.SetActive(false);
+        }
+
+        private void Revive()
+        {
+            // TODO: clean all duplicated fruits
+            this.gameObject.SetActive(false);
         }
 
         private void OnDestroy()
         {
-            this.replayButton.onClick.RemoveListener(this.Replay);
+            this.reviveButton.onClick.RemoveListener(this.Revive);
+            this.replayButton.onClick.RemoveListener(this.ShowGameOverPopup);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 {
     public class FruitSpawner : MonoBehaviour
     {
+        private const string DefaultTheme = "theme_0";
+        
         [SerializeField] private Transform fruitParent;
         [SerializeField] private FruitSpawnRuleCollection fruitSpawnRuleCollection;
         [SerializeField] private FruitConfigCollection fruitConfigCollection;
@@ -37,8 +39,10 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         public void InitializeFruitSpawner()
         {
-            string randomTheme = this.fruitThemeCollection.GetRandomThemeName();
-            this._fruitThemeConfig = this.fruitThemeCollection.GetThemeConfigByName(randomTheme);
+            string theme = GameUtils.ShouldUseRandomTheme
+                ? this.fruitThemeCollection.GetRandomThemeName()
+                : DefaultTheme;
+            this._fruitThemeConfig = this.fruitThemeCollection.GetThemeConfigByName(theme);
             this._gameUI = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameUI>();
             this._gameUI.InitFruitProgressionIcon(this._fruitThemeConfig.FruitProgressIcons);
             
