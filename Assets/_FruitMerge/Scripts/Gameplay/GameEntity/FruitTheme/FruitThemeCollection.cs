@@ -7,6 +7,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme
     public class FruitThemeCollection : ScriptableObject
     {
         [SerializeField] public List<FruitThemeConfig> fruitThemeConfigs;
+        [SerializeField] public List<string> themeNames = new();
 
         public FruitThemeConfig GetThemeConfigByName(string themeName)
         {
@@ -20,5 +21,24 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme
             
             return null;
         }
+
+        public string GetRandomThemeName()
+        {
+            int rand = Random.Range(0, this.themeNames.Count);
+            return this.themeNames[rand];
+        }
+        
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            this.themeNames.Clear();
+            int count = this.fruitThemeConfigs.Count;
+            for (int i = 0; i < count; i++)
+            {
+                string themeConfigName = this.fruitThemeConfigs[i].themeName;
+                this.themeNames.Add(themeConfigName);
+            }
+        }
+#endif
     }
 }
