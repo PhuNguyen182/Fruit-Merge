@@ -40,6 +40,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
 
         private void Initialize()
         {
+            ServiceLocator.ForSceneOf(this).Register(this);
             ServiceLocator.ForSceneOf(this).Register(this.fruitSpawner);
             this._mainDataManager = ServiceLocator.Global.Get<MainDataManager>();
             this._inputController = ServiceLocator.Global.Get<InputController>();

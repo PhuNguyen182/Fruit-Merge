@@ -1,3 +1,4 @@
+using System;
 using _FruitMerge.Scripts.Gameplay.GameManagement;
 using GlobalScripts.Audios;
 using ServiceLocators.Core;
@@ -20,14 +21,17 @@ namespace _FruitMerge.Scripts.Gameplay.UI.Popups
         {
             this.reviveButton.onClick.AddListener(this.Revive);
             this.replayButton.onClick.AddListener(this.ShowGameOverPopup);
-            
-            this._fruitMergeGameController = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameController>(); 
-            this._fruitMemory = this._fruitMergeGameController.FruitSpawner.FruitMemory;
         }
 
         private void OnEnable()
         {
             AudioManager.Instance.PlayFloatingAudio(this.loseSound);
+        }
+
+        private void Start()
+        {
+            this._fruitMergeGameController = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameController>(); 
+            this._fruitMemory = this._fruitMergeGameController.FruitSpawner.FruitMemory;
         }
 
         private void ShowGameOverPopup()
