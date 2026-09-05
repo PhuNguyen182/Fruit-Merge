@@ -12,6 +12,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
     public class FruitDeadline : MonoBehaviour, IUpdateHandler
     {
         [SerializeField] private FruitDeadlineConfig deadlineConfig;
+        [SerializeField] private GameObject limitLine;
         
         private HashSet<int> _fruitInstanceIds;
         private ISubscriber<FruitDeadlineCollideMessage> _fruitDeadlineCollideMessageSubscriber;
@@ -51,20 +52,28 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         public void Tick(float deltaTime)
         {
             if (this._isTimeout)
+            {
+                this.limitLine.SetActive(false);
                 return;
+            }
 
             if (this._fruitInstanceIds.Count > 0)
             {
                 this._deadlineDuration += deltaTime;
                 if (this._deadlineDuration < this.deadlineConfig.deadlineDuration)
+                {
+                    this.limitLine.SetActive(true);
                     return;
+                }
 
                 this._isTimeout = true;
+                this.limitLine.SetActive(false);
                 this.OnFruitDeadlineTimeOut?.Invoke();
             }
             else
             {
                 this._deadlineDuration = 0;
+                this.limitLine.SetActive(false);
             }
         }
 
