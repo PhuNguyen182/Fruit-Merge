@@ -61,7 +61,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         public void Tick(float deltaTime)
         {
             this.TryDisableFruitRay();
-            if (!this._isEndGame || !this._canDragFruit || !this._inputController.IsInputActive)
+            if (this._isEndGame || !this._canDragFruit || !this._inputController.IsInputActive)
                 return;
 
             this._isUIOverlapped = this._inputController.IsPointerOverlapUI();

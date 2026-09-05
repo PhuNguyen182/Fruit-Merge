@@ -101,6 +101,11 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             this._cameraVibrateTask = new CameraVibrateTask(cameraShakeController);
         }
 
+        public void ContinueGame()
+        {
+            this._gameStateController.ContinueGame();
+        }
+
         private void EndGame()
         {
             this._gameStateController.EndGame();

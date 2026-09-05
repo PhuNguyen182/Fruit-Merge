@@ -12,7 +12,8 @@ namespace _FruitMerge.Scripts.Gameplay.UI.Popups
         [SerializeField] private Button replayButton;
         [SerializeField] private AudioClip loseSound;
         [SerializeField] private GameObject gameOverPopup;
-        
+
+        private FruitMergeGameController _fruitMergeGameController;
         private FruitMemory _fruitMemory;
 
         private void Awake()
@@ -20,8 +21,8 @@ namespace _FruitMerge.Scripts.Gameplay.UI.Popups
             this.reviveButton.onClick.AddListener(this.Revive);
             this.replayButton.onClick.AddListener(this.ShowGameOverPopup);
             
-            var fruitMergeGameController = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameController>(); 
-            this._fruitMemory = fruitMergeGameController.FruitSpawner.FruitMemory;
+            this._fruitMergeGameController = ServiceLocator.ForSceneOf(this).Get<FruitMergeGameController>(); 
+            this._fruitMemory = this._fruitMergeGameController.FruitSpawner.FruitMemory;
         }
 
         private void OnEnable()
@@ -38,6 +39,7 @@ namespace _FruitMerge.Scripts.Gameplay.UI.Popups
         private void Revive()
         {
             this._fruitMemory.ClearDuplicatedFruits();
+            this._fruitMergeGameController.ContinueGame();
             this.gameObject.SetActive(false);
         }
 

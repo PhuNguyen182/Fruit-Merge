@@ -55,18 +55,18 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement.StateMachine
         private void OnPlayGame()
         {
             this._inputController.IsInputActive = true;
-            this._fruitDragController.SetEndGameState(true);
+            this._fruitDragController.SetEndGameState(false);
         }
 
         private void OnContinuePlayGame()
         {
-            this._fruitDragController.SetEndGameState(true);
+            this._fruitDragController.SetEndGameState(false);
         }
 
         private void OnEndGame()
         {
             this._inputController.IsInputActive = false;
-            this._fruitDragController.SetEndGameState(false);
+            this._fruitDragController.SetEndGameState(true);
             this._fruitMergeGameUI.ShowLosePopup();
         }
 
