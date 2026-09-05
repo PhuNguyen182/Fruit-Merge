@@ -1349,6 +1349,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.UI.Popups.GameOverPopup
   normalReplayButton: {fileID: 2714761087437823600}
   randomReplayButton: {fileID: 289404937905919552}
+  playerRanks:
+  - {fileID: 1094661948331782788}
+  - {fileID: 2499410102090432630}
+  - {fileID: 8596779091500415621}
+  - {fileID: 7421488158828175242}
+  - {fileID: 2305514164309992890}
+  fakeNames: {fileID: 11400000, guid: 61106953564ba364abdbca78c5b2d18e, type: 2}
 --- !u!1 &8549176650576157464
 GameObject:
   m_ObjectHideFlags: 0
