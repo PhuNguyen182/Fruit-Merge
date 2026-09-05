@@ -51,6 +51,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
         {
             this._currentDraggingFruitItem = this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
             this._currentDraggingFruitItem.PlayStartAnimation();
+            this._currentDraggingFruitItem.SetFadeRayEnable(true);
         }
 
         public void Tick(float deltaTime)
@@ -124,6 +125,7 @@ namespace _FruitMerge.Scripts.Gameplay.GameManagement
             await UniTask.WaitForSeconds(delay);
             this._currentDraggingFruitItem = this.fruitSpawner.SpawnNewFruit(this.dragTarget.position);
             this._currentDraggingFruitItem.PlayStartAnimation();
+            this._currentDraggingFruitItem.SetFadeRayEnable(true);
         }
         
         private void PlayMergeSound()
