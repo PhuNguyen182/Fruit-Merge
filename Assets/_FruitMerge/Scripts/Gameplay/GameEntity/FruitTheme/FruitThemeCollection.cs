@@ -35,6 +35,9 @@ namespace _FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme
             int count = this.fruitThemeConfigs.Count;
             for (int i = 0; i < count; i++)
             {
+                if (!this.fruitThemeConfigs[i])
+                    continue;
+                
                 string themeConfigName = this.fruitThemeConfigs[i].themeName;
                 this.themeNames.Add(themeConfigName);
             }
