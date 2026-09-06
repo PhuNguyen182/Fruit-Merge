@@ -4,7 +4,7 @@ namespace DracoRuan.CoreSystems.PlayerLoopSystem.TimeServices.Timers.Creation
 {
     public class TimerFactory : BaseFactory<TimerConfig, BaseTimer>
     {
-        public override BaseTimer Produce(TimerConfig arg)
+        public override BaseTimer Create(TimerConfig arg)
         {
             return arg.Type switch
             {

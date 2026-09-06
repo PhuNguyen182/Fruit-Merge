@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c19a6f30e925b43a8d191d99734b39, type: 3}
+  m_Name: FruitThemeCollection
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitTheme.FruitThemeCollection
+  fruitThemeConfigs:
+  - {fileID: 11400000, guid: 1044300d641339b498170b7124538047, type: 2}
+  - {fileID: 11400000, guid: d30a827b2e88f8c4da9301c999da7941, type: 2}
+  - {fileID: 11400000, guid: 59578f6edb51e884faaf2763c90cb5ef, type: 2}

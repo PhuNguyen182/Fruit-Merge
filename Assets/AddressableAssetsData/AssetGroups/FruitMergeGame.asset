@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FruitMergeGame
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: FruitMergeGame
+  m_GUID: 6c0d208478dc8df499e9f4e844a35f63
+  m_SerializeEntries:
+  - m_GUID: 7a6ccaa7a84d01f4e959a43b3f29c3ef
+    m_Address: FruitMergeGame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - FruitMergeGame
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cefd766ad75176642972ade15f2fd8ac, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d94744746b37e8b4cbeba4a8e76c33c1, type: 2}
+    - {fileID: 11400000, guid: 6fa2c7cd14f926945be36ed2132cfb80, type: 2}

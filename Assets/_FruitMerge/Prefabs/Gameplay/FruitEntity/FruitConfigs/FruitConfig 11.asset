@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc71e7e1108a17c4c984aa6e72a5854f, type: 3}
+  m_Name: FruitConfig 11
+  m_EditorClassIdentifier: Assembly-CSharp::_FruitMerge.Scripts.Gameplay.GameEntity.FruitEntity.FruitConfig
+  fruitId: 11
+  fruitIcon: {fileID: 21300000, guid: dfa9b30d8d2674d4db6fb3925eafa96c, type: 3}
+  fruitSkin: 11
+  fruitScore: 2048
+  fruitParticles: {fileID: 8309878336270600735, guid: 72cc12f250947594f9d4744872adb0cf, type: 3}
+  fruitMass: 6.5
+  colliderRadius: 2.684
+  colliderOffset: {x: 0, y: 0.683}
+  fruitPhysicsMaterial: {fileID: 6200000, guid: 22f9378008f6c5c41a2f123109caf7c8, type: 2}

@@ -1,0 +1,2314 @@
+fileFormatVersion: 2
+guid: 66b2fdf9d374dd246afd2f050365d66e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5321949957799140045
+    second: fruit_0
+  - first:
+      213: 6422085674583116018
+    second: fruit_1
+  - first:
+      213: 1248475614767147607
+    second: fruit_2
+  - first:
+      213: -2199681193780744630
+    second: fruit_3
+  - first:
+      213: 728017172041052461
+    second: fruit_4
+  - first:
+      213: 6696335727113552053
+    second: fruit_5
+  - first:
+      213: 2076435091191082628
+    second: fruit_6
+  - first:
+      213: 4198489572449100032
+    second: fruit_7
+  - first:
+      213: 3508844023488525244
+    second: fruit_8
+  - first:
+      213: -7968859698029649493
+    second: fruit_9
+  - first:
+      213: 58400530022477445
+    second: fruit_10
+  - first:
+      213: -8501991927089582871
+    second: fruit_11
+  - first:
+      213: -1703393201613090473
+    second: fruit_12
+  - first:
+      213: 1533802386996919836
+    second: fruit_13
+  - first:
+      213: 7770786624434639300
+    second: fruit_14
+  - first:
+      213: 5409964807599692442
+    second: fruit_15
+  - first:
+      213: -9100003843072360394
+    second: fruit_16
+  - first:
+      213: -272628339178128960
+    second: fruit_17
+  - first:
+      213: 7512099871439311326
+    second: fruit_18
+  - first:
+      213: 5479305336675221223
+    second: fruit_19
+  - first:
+      213: -4948664083253318761
+    second: fruit_20
+  - first:
+      213: 1174765215506284461
+    second: fruit_21
+  - first:
+      213: 6587443116359524875
+    second: fruit_22
+  - first:
+      213: 1904699363601261431
+    second: fruit_23
+  - first:
+      213: -3641146135543990145
+    second: fruit_24
+  - first:
+      213: -4218485542208285046
+    second: fruit_25
+  - first:
+      213: -8518295672077659705
+    second: fruit_26
+  - first:
+      213: -2585490689763306045
+    second: fruit_27
+  - first:
+      213: -6477905202910913387
+    second: fruit_28
+  - first:
+      213: -1401315102013347843
+    second: fruit_29
+  - first:
+      213: 1744798964012511107
+    second: fruit_30
+  - first:
+      213: 8632659129044712041
+    second: fruit_31
+  - first:
+      213: -5007976394954820231
+    second: fruit_32
+  - first:
+      213: 3180964241321629762
+    second: fruit_33
+  - first:
+      213: 2488677387644742486
+    second: fruit_34
+  - first:
+      213: -1323138660588906031
+    second: fruit_35
+  - first:
+      213: 1863244975766273144
+    second: fruit_36
+  - first:
+      213: 4942943137454989145
+    second: fruit_37
+  - first:
+      213: -8823173158737875183
+    second: fruit_38
+  - first:
+      213: -3876492151039272771
+    second: fruit_39
+  - first:
+      213: -3417080037928959513
+    second: fruit_40
+  - first:
+      213: 8900676234212499674
+    second: fruit_41
+  - first:
+      213: 6569028058691828374
+    second: fruit_42
+  - first:
+      213: 7065714136168095826
+    second: fruit_43
+  - first:
+      213: -3148507182146481546
+    second: fruit_44
+  - first:
+      213: 6563763517845185358
+    second: fruit_45
+  - first:
+      213: -2186981492929751419
+    second: fruit_46
+  - first:
+      213: -2198417305731484937
+    second: fruit_47
+  - first:
+      213: 3712654375410478622
+    second: fruit_48
+  - first:
+      213: -7997378180003824173
+    second: fruit_49
+  - first:
+      213: -965753407614344325
+    second: fruit_50
+  - first:
+      213: 3772951821207076455
+    second: fruit_51
+  - first:
+      213: -452538062841605245
+    second: fruit_52
+  - first:
+      213: 1432603697615494312
+    second: fruit_53
+  - first:
+      213: -5644436327761356881
+    second: fruit_54
+  - first:
+      213: -3240289757409126343
+    second: fruit_55
+  - first:
+      213: 6080992094544895106
+    second: fruit_56
+  - first:
+      213: -2854788555265322541
+    second: fruit_57
+  - first:
+      213: 3012248637252025765
+    second: fruit_58
+  - first:
+      213: 221481116992003644
+    second: fruit_59
+  - first:
+      213: -8986001178842164446
+    second: fruit_60
+  - first:
+      213: 315530299761769664
+    second: fruit_61
+  - first:
+      213: 1354570874969677758
+    second: fruit_62
+  - first:
+      213: 6194537262417628609
+    second: fruit_63
+  - first:
+      213: 3375698687496018388
+    second: fruit_64
+  - first:
+      213: -2056245666979286090
+    second: fruit_65
+  - first:
+      213: -2781451177026288989
+    second: fruit_66
+  - first:
+      213: -1113174720837269194
+    second: fruit_67
+  - first:
+      213: 7867363791227151413
+    second: fruit_68
+  - first:
+      213: -343593540464867968
+    second: fruit_69
+  - first:
+      213: -1032313883206635640
+    second: fruit_70
+  - first:
+      213: 2345417924663428982
+    second: fruit_71
+  - first:
+      213: -7834927473472076161
+    second: fruit_72
+  - first:
+      213: 7528483321390264572
+    second: fruit_73
+  - first:
+      213: 2649111285685176393
+    second: fruit_74
+  - first:
+      213: -2635245893240929847
+    second: fruit_75
+  - first:
+      213: -2547460000928885240
+    second: fruit_76
+  - first:
+      213: 328085366916029576
+    second: fruit_77
+  - first:
+      213: 9181614454571277643
+    second: fruit_78
+  - first:
+      213: 2485599746202956663
+    second: fruit_79
+  - first:
+      213: 4323381430044578271
+    second: fruit_80
+  - first:
+      213: -5985903691419345760
+    second: fruit_81
+  - first:
+      213: -7596654677553805404
+    second: fruit_82
+  - first:
+      213: 3055224605009340095
+    second: fruit_83
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fruit_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 473
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3352af4d5b2a426b0800000000000000
+      internalID: -5321949957799140045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_1
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 471
+        width: 55
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8c6a635e4df1950800000000000000
+      internalID: 6422085674583116018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_2
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 354
+        width: 148
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75aeee8f4f9735110800000000000000
+      internalID: 1248475614767147607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_3
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 475
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e6791db992971e0800000000000000
+      internalID: -2199681193780744630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_4
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 474
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2134e1c2cf6a1a00800000000000000
+      internalID: 728017172041052461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_5
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 475
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b04c577dd92eec50800000000000000
+      internalID: 6696335727113552053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_6
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 456
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ea999c6baf0dc10800000000000000
+      internalID: 2076435091191082628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_7
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 469
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001a2078508044a30800000000000000
+      internalID: 4198489572449100032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_8
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 469
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb339487c0be1b030800000000000000
+      internalID: 3508844023488525244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_9
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 469
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba12402535ce86190800000000000000
+      internalID: -7968859698029649493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_10
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 451
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e2faef8fa7fc000800000000000000
+      internalID: 58400530022477445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_11
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 451
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec2696436bd20a80800000000000000
+      internalID: -8501991927089582871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_12
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 440
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751590978e45c58e0800000000000000
+      internalID: -1703393201613090473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_13
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 463
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ef8900529294510800000000000000
+      internalID: 1533802386996919836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_14
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 459
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c198c6734167db60800000000000000
+      internalID: 7770786624434639300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_15
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 426
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a185c445e041b40800000000000000
+      internalID: 5409964807599692442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_16
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 429
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6308bf6f7ba46b180800000000000000
+      internalID: -9100003843072360394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_17
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 449
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c9359f48fd673cf0800000000000000
+      internalID: -272628339178128960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_18
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 450
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed1d5624807504860800000000000000
+      internalID: 7512099871439311326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_19
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 354
+        width: 116
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eebd605c276a0c40800000000000000
+      internalID: 5479305336675221223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_20
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 430
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ba3f44c30d25bb0800000000000000
+      internalID: -4948664083253318761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_21
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 444
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dafbcb44dba9d4010800000000000000
+      internalID: 1174765215506284461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_22
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 444
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b02a3b0dc9c4b6b50800000000000000
+      internalID: 6587443116359524875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_23
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 450
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 773ad5bcaf9de6a10800000000000000
+      internalID: 1904699363601261431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_24
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 444
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f783d9f91ec087dc0800000000000000
+      internalID: -3641146135543990145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_25
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 382
+        width: 81
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86dd86ffbde475c0800000000000000
+      internalID: -4218485542208285046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_26
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 454
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c15016d73fe8c980800000000000000
+      internalID: -8518295672077659705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_27
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 438
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5149a8aed7e1cd0800000000000000
+      internalID: -2585490689763306045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_28
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 439
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c17d31a8bd916a0800000000000000
+      internalID: -6477905202910913387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_29
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 451
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7aa16d6578d8ce0800000000000000
+      internalID: -1401315102013347843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_30
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 441
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f6f66d965c63810800000000000000
+      internalID: 1744798964012511107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_31
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 456
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a3eb57dbd5dc770800000000000000
+      internalID: 8632659129044712041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_32
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 410
+        width: 41
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9753d2f8008108ab0800000000000000
+      internalID: -5007976394954820231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_33
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 404
+        width: 42
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248123fbf1e052c20800000000000000
+      internalID: 3180964241321629762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_34
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 408
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bac1306ee898220800000000000000
+      internalID: 2488677387644742486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_35
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 439
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d91303066443ade0800000000000000
+      internalID: -1323138660588906031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_36
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 422
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c741efe639bd910800000000000000
+      internalID: 1863244975766273144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_37
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 254
+        width: 203
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f95fc389cd89440800000000000000
+      internalID: 4942943137454989145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_38
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 431
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11feaa162cacd8580800000000000000
+      internalID: -8823173158737875183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_39
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 427
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8d6ba5deee33ac0800000000000000
+      internalID: -3876492151039272771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_40
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 427
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e18a2a5fc71490d0800000000000000
+      internalID: -3417080037928959513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_41
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 433
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad06ff090ed858b70800000000000000
+      internalID: 8900676234212499674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_42
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 400
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a76e51730e92b50800000000000000
+      internalID: 6569028058691828374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_43
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 400
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25061c232957e0260800000000000000
+      internalID: 7065714136168095826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_44
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 400
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672946b36614e44d0800000000000000
+      internalID: -3148507182146481546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_45
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 406
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e43a4d6a42c271b50800000000000000
+      internalID: 6563763517845185358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_46
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 383
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58691975be746a1e0800000000000000
+      internalID: -2186981492929751419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_47
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 402
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f2bdcfab17ad71e0800000000000000
+      internalID: -2198417305731484937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_48
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 404
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e2424eb7ff58330800000000000000
+      internalID: 3712654375410478622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_49
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 412
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd796ecaea930190800000000000000
+      internalID: -7997378180003824173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_50
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 322
+        width: 106
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73268e7464f892f0800000000000000
+      internalID: -965753407614344325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_51
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 398
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ef5b101b73c5430800000000000000
+      internalID: 3772951821207076455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_52
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 399
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3839bfc870348b9f0800000000000000
+      internalID: -452538062841605245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_53
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 414
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac58440971a1e310800000000000000
+      internalID: 1432603697615494312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_54
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1
+        width: 360
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa7597eb01feaa1b0800000000000000
+      internalID: -5644436327761356881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_55
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 372
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938da4822ad2803d0800000000000000
+      internalID: -3240289757409126343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_56
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 388
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c9e4d6716046450800000000000000
+      internalID: 6080992094544895106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_57
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 346
+        width: 36
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d15f8e2fe0c168d0800000000000000
+      internalID: -2854788555265322541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_58
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 376
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5adbf8e0d28adc920800000000000000
+      internalID: 3012248637252025765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_59
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 373
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ed3c607ebd21300800000000000000
+      internalID: 221481116992003644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_60
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 354
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2231fd7a98f4b4380800000000000000
+      internalID: -8986001178842164446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_61
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 340
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc3c29c22df06400800000000000000
+      internalID: 315530299761769664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 339
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf58a1b8076cc210800000000000000
+      internalID: 1354570874969677758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_63
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 346
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cdc252f1da67f550800000000000000
+      internalID: 6194537262417628609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_64
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 360
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9d3f03214e8de20800000000000000
+      internalID: 3375698687496018388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_65
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1
+        width: 328
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b373c8d57fb673e0800000000000000
+      internalID: -2056245666979286090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_66
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 294
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a2814924ec4669d0800000000000000
+      internalID: -2781451177026288989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_67
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 328
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639cc8f3d753d80f0800000000000000
+      internalID: -1113174720837269194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_68
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 304
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5346dde5fad7e2d60800000000000000
+      internalID: 7867363791227151413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_69
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 332
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0850971de7f4b3bf0800000000000000
+      internalID: -343593540464867968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_70
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 322
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88fa3ce1efb7ca1f0800000000000000
+      internalID: -1032313883206635640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_71
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 322
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677c5690d299c8020800000000000000
+      internalID: 2345417924663428982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_72
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 286
+        width: 37
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f768fbe59feb44390800000000000000
+      internalID: -7834927473472076161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_73
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 230
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf07be471bb8a7860800000000000000
+      internalID: 7528483321390264572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_74
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 286
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9484eb1cda883c420800000000000000
+      internalID: 2649111285685176393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_75
+      rect:
+        serializedVersion: 2
+        x: 1490
+        y: 230
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1419d72d9bd6bd0800000000000000
+      internalID: -2635245893240929847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_76
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 230
+        width: 77
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8061e1d40aa95acd0800000000000000
+      internalID: -2547460000928885240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_77
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 274
+        width: 15
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c980727e79d8400800000000000000
+      internalID: 328085366916029576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_78
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 1
+        width: 224
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d105d33b5ab6f70800000000000000
+      internalID: 9181614454571277643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_79
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1
+        width: 227
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7737a36cccf9e7220800000000000000
+      internalID: 2485599746202956663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_80
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 230
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd1d35e118cbffb30800000000000000
+      internalID: 4323381430044578271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_81
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 219
+        width: 149
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac104dae4ccdeca0800000000000000
+      internalID: -5985903691419345760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_82
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 166
+        width: 16
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a7881fc1d2439690800000000000000
+      internalID: -7596654677553805404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruit_83
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 1
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb66d9a4796566a20800000000000000
+      internalID: 3055224605009340095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fruit_0: -5321949957799140045
+      fruit_1: 6422085674583116018
+      fruit_10: 58400530022477445
+      fruit_11: -8501991927089582871
+      fruit_12: -1703393201613090473
+      fruit_13: 1533802386996919836
+      fruit_14: 7770786624434639300
+      fruit_15: 5409964807599692442
+      fruit_16: -9100003843072360394
+      fruit_17: -272628339178128960
+      fruit_18: 7512099871439311326
+      fruit_19: 5479305336675221223
+      fruit_2: 1248475614767147607
+      fruit_20: -4948664083253318761
+      fruit_21: 1174765215506284461
+      fruit_22: 6587443116359524875
+      fruit_23: 1904699363601261431
+      fruit_24: -3641146135543990145
+      fruit_25: -4218485542208285046
+      fruit_26: -8518295672077659705
+      fruit_27: -2585490689763306045
+      fruit_28: -6477905202910913387
+      fruit_29: -1401315102013347843
+      fruit_3: -2199681193780744630
+      fruit_30: 1744798964012511107
+      fruit_31: 8632659129044712041
+      fruit_32: -5007976394954820231
+      fruit_33: 3180964241321629762
+      fruit_34: 2488677387644742486
+      fruit_35: -1323138660588906031
+      fruit_36: 1863244975766273144
+      fruit_37: 4942943137454989145
+      fruit_38: -8823173158737875183
+      fruit_39: -3876492151039272771
+      fruit_4: 728017172041052461
+      fruit_40: -3417080037928959513
+      fruit_41: 8900676234212499674
+      fruit_42: 6569028058691828374
+      fruit_43: 7065714136168095826
+      fruit_44: -3148507182146481546
+      fruit_45: 6563763517845185358
+      fruit_46: -2186981492929751419
+      fruit_47: -2198417305731484937
+      fruit_48: 3712654375410478622
+      fruit_49: -7997378180003824173
+      fruit_5: 6696335727113552053
+      fruit_50: -965753407614344325
+      fruit_51: 3772951821207076455
+      fruit_52: -452538062841605245
+      fruit_53: 1432603697615494312
+      fruit_54: -5644436327761356881
+      fruit_55: -3240289757409126343
+      fruit_56: 6080992094544895106
+      fruit_57: -2854788555265322541
+      fruit_58: 3012248637252025765
+      fruit_59: 221481116992003644
+      fruit_6: 2076435091191082628
+      fruit_60: -8986001178842164446
+      fruit_61: 315530299761769664
+      fruit_62: 1354570874969677758
+      fruit_63: 6194537262417628609
+      fruit_64: 3375698687496018388
+      fruit_65: -2056245666979286090
+      fruit_66: -2781451177026288989
+      fruit_67: -1113174720837269194
+      fruit_68: 7867363791227151413
+      fruit_69: -343593540464867968
+      fruit_7: 4198489572449100032
+      fruit_70: -1032313883206635640
+      fruit_71: 2345417924663428982
+      fruit_72: -7834927473472076161
+      fruit_73: 7528483321390264572
+      fruit_74: 2649111285685176393
+      fruit_75: -2635245893240929847
+      fruit_76: -2547460000928885240
+      fruit_77: 328085366916029576
+      fruit_78: 9181614454571277643
+      fruit_79: 2485599746202956663
+      fruit_8: 3508844023488525244
+      fruit_80: 4323381430044578271
+      fruit_81: -5985903691419345760
+      fruit_82: -7596654677553805404
+      fruit_83: 3055224605009340095
+      fruit_9: -7968859698029649493
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

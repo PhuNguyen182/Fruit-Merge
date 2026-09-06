@@ -1,3 +1,4 @@
+using _FruitMerge.Scripts.Input;
 using Cysharp.Threading.Tasks;
 using DracoRuan.CoreSystems.AssetBundleSystem.Runtime;
 using DracoRuan.Foundation.DataFlow.MasterDataController;
@@ -8,6 +9,8 @@ namespace ProjectScope
 {
     public class ProjectInitializer : MonoBehaviour
     {
+        [SerializeField] private InputController inputController;
+        
         private IAssetBundleService _assetBundleService;
         private MainDataManager _mainDataManager;
         
@@ -22,6 +25,7 @@ namespace ProjectScope
 
         private void SetupProject()
         {
+            ServiceLocator.ForSceneOf(this).Register(this);
 #if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS)
             Application.targetFrameRate = Screen.currentResolution.refreshRateRatio.value <= 60
                 ? 60
@@ -35,6 +39,7 @@ namespace ProjectScope
         {
             await this.RegisterAssetBundleService();
             await this.InitializeDataManager();
+            this.RegisterInputController();
             this.AllServiceRegistered = true;
         }
 
@@ -52,28 +57,33 @@ namespace ProjectScope
             ServiceLocator.Global.Register(this._assetBundleService);
         }
 
+        private void RegisterInputController()
+        {
+            ServiceLocator.Global.Register(this.inputController);
+        }
+
         #region Data Saving
         
         private void OnApplicationQuit()
         {
-            this._mainDataManager.SaveAllData();
+            this._mainDataManager?.SaveAllData();
         }
 
         private void OnApplicationFocus(bool hasFocus)
         {
             if (hasFocus)
-                this._mainDataManager.SaveAllData();
+                this._mainDataManager?.SaveAllData();
         }
 
         private void OnApplicationPause(bool pauseStatus)
         {
             if (pauseStatus)
-                this._mainDataManager.SaveAllData();
+                this._mainDataManager?.SaveAllData();
         }
 
         private void OnDestroy()
         {
-            this._mainDataManager.SaveAllData();
+            this._mainDataManager?.SaveAllData();
         }
         
         #endregion
